@@ -39,12 +39,15 @@ public class SingleLevelFragment extends Fragment{
         progress.setProgressDrawable(barStyle);
         progress.setProgress(50);
         
-        initClickListeners(levelView);
+        // Set all Thumbnails, ClickListeners and Tags with DatabaseIDs
+        initImageBoxes(levelView);
 		
 		return levelView;
 	}
 	
-	private void initClickListeners(View levelView){
+	private void initImageBoxes(View levelView) {
+
+		int level = pager.getCurrentItem();
 		TableLayout levelTable = (TableLayout)levelView.findViewById(R.id.singleLevelTable);
 		int count = levelTable.getChildCount();
 		TableRow tableRow = null;
@@ -54,23 +57,28 @@ public class SingleLevelFragment extends Fragment{
 			int countRow = tableRow.getChildCount();
 			ImageView image = null;
 			for(int j=0; j<countRow; j++){
+				
+		        // TODO: get Images and IDs from Database
+				// Set ID in Tag
+				image.setTag("");
+				
+				// Set ClickListener for Image
 				image = (ImageView)tableRow.getChildAt(j);
 				image.setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
 
-						int task = Integer.parseInt((String)v.getTag());
-						int level = pager.getCurrentItem();
+						int questionID = Integer.parseInt((String)v.getTag());
 						
 						// start single player menu
 						Intent i = new Intent(getActivity(), SinglePlayerActivity.class);
+						i.putExtra("questionID", questionID);
 						startActivity(i);
 						
 					}
 				});
-			}
-		    
+			} 
 		}
-	}	
+	}
 }
