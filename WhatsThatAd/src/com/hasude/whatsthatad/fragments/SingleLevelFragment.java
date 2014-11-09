@@ -76,7 +76,7 @@ public class SingleLevelFragment extends Fragment{
 				
 		        // TODO: get Images and IDs from Database
 				// Set ID in Tag
-				image.setTag("");
+				image.setTag("1");
 				
 				image.setOnClickListener(new OnClickListener() {
 					

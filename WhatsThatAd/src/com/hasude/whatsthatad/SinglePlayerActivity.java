@@ -1,26 +1,15 @@
 package com.hasude.whatsthatad;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.ComponentName;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
+import android.support.v4.app.ShareCompat;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -131,7 +120,7 @@ public class SinglePlayerActivity extends Activity{
 			public void onClick(View v) {
 				Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
 				shareIntent.setType("text/plain");
-				shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I need ya help biatch!");
+				shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I'm playing Whats that ad right now and I need you help. Which Compony ran this ad?");
 				shareIntent.putExtra(Intent.EXTRA_STREAM, q.getAdCensored());
 
 				PackageManager pm = v.getContext().getPackageManager();
@@ -156,24 +145,12 @@ public class SinglePlayerActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				
-				Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-				shareIntent.setType("text/plain");
-				shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I'm playing 'whats that ad' and need your help. Whose ad is this?");
-				shareIntent.putExtra(Intent.EXTRA_STREAM, q.getAdCensored());
-
-				PackageManager pm = v.getContext().getPackageManager();
-				List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
-			    for (final ResolveInfo app : activityList){
-			         if ((app.activityInfo.name).contains("google+")){
-			        	 final ActivityInfo activity = app.activityInfo;
-			        	 final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
-			        	 shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-			        	 shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-			        	 shareIntent.setComponent(name);
-			        	 v.getContext().startActivity(shareIntent);
-			        	 break;
-			         }
-			    }
+				Intent shareIntent = ShareCompat.IntentBuilder.from(SinglePlayerActivity.this)
+						.setType("text/plain")
+				        .setText("I'm playing Whats that ad right now and I need you help. Which Compony ran this ad?").setType("image/jpeg")
+				        .setStream(q.getAdCensored()).getIntent()
+				        .setPackage("com.google.android.apps.plus");
+				startActivity(shareIntent);
 			}
 		});
 		
