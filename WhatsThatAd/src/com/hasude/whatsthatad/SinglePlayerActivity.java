@@ -9,10 +9,12 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
@@ -57,19 +59,19 @@ public class SinglePlayerActivity extends Activity{
 		// load question and image
 		// TODO: for testing only
 		String correctA = "Adidas";
-		Bitmap censored = BitmapFactory.decodeResource(getApplicationContext().getResources(),
-                R.drawable.adidas_censored);
-		Bitmap uncensored = BitmapFactory.decodeResource(getApplicationContext().getResources(),
-                R.drawable.adidas_uncensored);
+		String censored = "android.resource://com.hasude.whatsthatad/drawable/adidas_censored";
+		String uncensored = "android.resource://com.hasude.whatsthatad/drawable/adidas_uncensored";
+//		Bitmap uncensored = BitmapFactory.decodeResource(getApplicationContext().getResources(),
+//                R.drawable.adidas_uncensored);
 		try {
-			q = new QuestionSinglePlayer(censored, uncensored, correctA, "Which company launched this commercial?");
+			q = new QuestionSinglePlayer(1, censored, uncensored, correctA, "Which company launched this commercial?");
 		} catch (CorrectAnswerException e) {
 			Log.d("WTA", "Correct answer was not a given answer possibility");
 			e.printStackTrace();
 		}
 		
 		questionTV.setText(q.getQuestion());
-		questionImageView.setImageBitmap(q.getAdCensored());
+		questionImageView.setImageURI(q.getAdCensored());;
 		
 		// handler that fires when user finished typing
 		solutionEdit.setOnEditorActionListener(new OnEditorActionListener() {
@@ -101,23 +103,25 @@ public class SinglePlayerActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-				shareIntent.setType("text/plain");
-				shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I need ya help biatch!");
-				shareIntent.putExtra(Intent.EXTRA_STREAM, storeImage(q.getAdCensored()));
+				   shareIntent.setType("image/*");
+				   shareIntent.putExtra(Intent.EXTRA_STREAM, q.getAdCensored()); // put your image URI
 
-				PackageManager pm = v.getContext().getPackageManager();
-				List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
-			    for (final ResolveInfo app : activityList){
-			         if ((app.activityInfo.name).contains("facebook")){
-			        	 final ActivityInfo activity = app.activityInfo;
-			        	 final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
-			        	 shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-			        	 shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-			        	 shareIntent.setComponent(name);
-			        	 v.getContext().startActivity(shareIntent);
-			        	 break;
-			         }
-			    }
+				   PackageManager pm = v.getContext().getPackageManager();
+
+				   List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
+				     for (final ResolveInfo app : activityList){
+				         if ((app.activityInfo.name).contains("facebook")){
+				        	 final ActivityInfo activity = app.activityInfo;
+				        	 final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
+
+				        	 shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+				        	 shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+				        	 shareIntent.setComponent(name);
+
+				        	 v.getContext().startActivity(shareIntent);
+				        	 break;
+				        }
+				      }
 				
 			}
 		});
@@ -128,7 +132,7 @@ public class SinglePlayerActivity extends Activity{
 				Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
 				shareIntent.setType("text/plain");
 				shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I need ya help biatch!");
-				shareIntent.putExtra(Intent.EXTRA_STREAM, storeImage(q.getAdCensored()));
+				shareIntent.putExtra(Intent.EXTRA_STREAM, q.getAdCensored());
 
 				PackageManager pm = v.getContext().getPackageManager();
 				List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
@@ -136,9 +140,11 @@ public class SinglePlayerActivity extends Activity{
 			         if ((app.activityInfo.name).contains("twitter")){
 			        	 final ActivityInfo activity = app.activityInfo;
 			        	 final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
+			        	 
 			        	 shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 			        	 shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
 			        	 shareIntent.setComponent(name);
+			        	 
 			        	 v.getContext().startActivity(shareIntent);
 			        	 break;
 			         }
@@ -149,15 +155,16 @@ public class SinglePlayerActivity extends Activity{
 			
 			@Override
 			public void onClick(View v) {
+				
 				Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
 				shareIntent.setType("text/plain");
-				shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I need ya help biatch!");
-				shareIntent.putExtra(Intent.EXTRA_STREAM, storeImage(q.getAdCensored()));
+				shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "I'm playing 'whats that ad' and need your help. Whose ad is this?");
+				shareIntent.putExtra(Intent.EXTRA_STREAM, q.getAdCensored());
 
 				PackageManager pm = v.getContext().getPackageManager();
 				List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
 			    for (final ResolveInfo app : activityList){
-			         if ((app.activityInfo.name).contains("twitter")){
+			         if ((app.activityInfo.name).contains("google+")){
 			        	 final ActivityInfo activity = app.activityInfo;
 			        	 final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
 			        	 shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -171,31 +178,32 @@ public class SinglePlayerActivity extends Activity{
 		});
 		
 	} // onCreate
-	
-	private Uri storeImage(Bitmap bm) {
-	    FileOutputStream fileOutputStream = null;
-	    File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-	    File file = new File(path, "test.jpg");
-	    try {
-	        fileOutputStream = new FileOutputStream(file);
-	    } catch (FileNotFoundException e) {
-	        e.printStackTrace();
-	    }
-	    BufferedOutputStream bos = new BufferedOutputStream(fileOutputStream);
-	    bm.compress(CompressFormat.JPEG, 10, bos);
-	    try {
-	        bos.flush();
-	        bos.close();
-	        fileOutputStream.flush();
-	        fileOutputStream.close();
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	    return Uri.parse("file://" + file.getAbsolutePath());
-	}
+
+	// TODO: Nicht gebraucht?
+//	private Uri storeImage(Bitmap bm) {
+//	    FileOutputStream fileOutputStream = null;
+//	    File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+//	    File file = new File(path, "test.jpg");
+//	    try {
+//	        fileOutputStream = new FileOutputStream(file);
+//	    } catch (FileNotFoundException e) {
+//	        e.printStackTrace();
+//	    }
+//	    BufferedOutputStream bos = new BufferedOutputStream(fileOutputStream);
+//	    bm.compress(CompressFormat.JPEG, 10, bos);
+//	    try {
+//	        bos.flush();
+//	        bos.close();
+//	        fileOutputStream.flush();
+//	        fileOutputStream.close();
+//	    } catch (IOException e) {
+//	        e.printStackTrace();
+//	    }
+//	    return Uri.parse("file://" + file.getAbsolutePath());
+//	}
 	
 	private void endTask() {
-		questionImageView.setImageBitmap(q.getAdUncensored());
+		questionImageView.setImageURI(q.getAdUncensored());
 		LinearLayout page = (LinearLayout) findViewById(R.id.SingleLayout);
 		page.setOnClickListener(new OnClickListener() {
 			
