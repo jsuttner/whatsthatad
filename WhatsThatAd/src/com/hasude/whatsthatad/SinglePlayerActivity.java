@@ -3,6 +3,7 @@ package com.hasude.whatsthatad;
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 import com.hasude.whatsthatad.gameobjects.Question;
+import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -34,19 +35,15 @@ public class SinglePlayerActivity extends Activity{
 		
 		// load question and image
 		// TODO: for testing only
-		String[] answers = {"Nike", "K-Swiss", "Puma", "Adidas"};
 		String correctA = "Adidas";
 		Bitmap censored = BitmapFactory.decodeResource(getApplicationContext().getResources(),
                 R.drawable.adidas_censored);
 		Bitmap uncensored = BitmapFactory.decodeResource(getApplicationContext().getResources(),
                 R.drawable.adidas_uncensored);
 		try {
-			q = new Question(censored, uncensored, answers, correctA);
+			q = new QuestionSinglePlayer(censored, uncensored, correctA, "Which company launched this commercial?");
 		} catch (CorrectAnswerException e) {
 			Log.d("WTA", "Correct answer was not a given answer possibility");
-			e.printStackTrace();
-		} catch (WrongNumberOfAnswersException e) {
-			Log.d("WTA", "Answer possibility amount was not correct");
 			e.printStackTrace();
 		}
 		
