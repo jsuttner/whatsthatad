@@ -18,5 +18,8 @@
     <string name="leave_cancel">No return</string>
     <string name="leave_ok">Yes close app</string>
     <string name="leave_message">Do you really want to leave?</string>
+    <string name="player2Enter">Enter Player2\'s name here:</string>
+    <string name="player1Enter">Enter Player1\'s name here:</string>
+    <string name="start">Start</string>
 
 </resources>
