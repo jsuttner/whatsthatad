@@ -1,5 +1,7 @@
 package com.hasude.whatsthatad.gameobjects;
 
+import java.util.Locale;
+
 import android.graphics.Bitmap;
 
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
@@ -26,6 +28,11 @@ public class Question {
 
 	public Bitmap getAdCensored() {
 		return adCensored;
+	}
+	
+	public boolean isAnswerCorrect(String stringMsg) {
+		Locale l = new Locale("en");
+		return(stringMsg.toLowerCase(l).equals(correctAnswer.toLowerCase(l)));
 	}
 
 }
