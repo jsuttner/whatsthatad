@@ -2,19 +2,21 @@ package com.hasude.whatsthatad.gameobjects;
 
 import java.util.Locale;
 
+import android.net.Uri;
+
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 
 public class Question {
 	private int id;
-	private String adCensored;
-	private String adUncensored;
+	private Uri adCensored;
+	private Uri adUncensored;
 	private String correctAnswer;
 
-	public Question(int id, String censored, String uncensored, String correctAnswer)
-			throws CorrectAnswerException {
+	public Question(int id, String censored, String uncensored,
+			String correctAnswer) throws CorrectAnswerException {
 		this.id = id;
-		this.adCensored = censored;
-		this.adUncensored = uncensored;
+		this.adCensored = Uri.parse(censored);
+		this.adUncensored = Uri.parse(uncensored);
 		this.correctAnswer = correctAnswer;
 	}
 
@@ -22,21 +24,21 @@ public class Question {
 		return correctAnswer;
 	}
 
-	public String getAdUncensored() {
+	public Uri getAdUncensored() {
 		return adUncensored;
 	}
 
-	public String getAdCensored() {
+	public Uri getAdCensored() {
 		return adCensored;
 	}
-	
-	public int getID(){
+
+	public int getID() {
 		return id;
 	}
-	
+
 	public boolean isAnswerCorrect(String stringMsg) {
 		Locale l = new Locale("en");
-		return(stringMsg.toLowerCase(l).equals(correctAnswer.toLowerCase(l)));
+		return (stringMsg.toLowerCase(l).equals(correctAnswer.toLowerCase(l)));
 	}
 
 }

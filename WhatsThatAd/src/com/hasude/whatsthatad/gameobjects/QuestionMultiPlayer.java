@@ -1,7 +1,5 @@
 package com.hasude.whatsthatad.gameobjects;
 
-import android.graphics.Bitmap;
-
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 
@@ -9,10 +7,10 @@ public class QuestionMultiPlayer extends Question {
 	
 	private String[] answers;
 	
-	public QuestionMultiPlayer(Bitmap censored, Bitmap uncensored, String correctAnswer,
+	public QuestionMultiPlayer(int id, String censored, String uncensored, String correctAnswer,
 			String[] answers)
 			throws CorrectAnswerException, WrongNumberOfAnswersException {
-		super(censored, uncensored, correctAnswer);
+		super(id, censored, uncensored, correctAnswer);
 		// TODO Auto-generated constructor stub
 		
 		// verify
