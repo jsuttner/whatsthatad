@@ -1,16 +1,14 @@
 package com.hasude.whatsthatad.gameobjects;
 
-import android.graphics.Bitmap;
-
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 
 public class QuestionSinglePlayer extends Question {
 	
 	String question;
 
-	public QuestionSinglePlayer(Bitmap censored, Bitmap uncensored,
+	public QuestionSinglePlayer(int id, String censored, String uncensored,
 			String correctAnswer, String question) throws CorrectAnswerException {
-		super(censored, uncensored, correctAnswer);
+		super(id, censored, uncensored, correctAnswer);
 		this.question = question;
 	}
 	

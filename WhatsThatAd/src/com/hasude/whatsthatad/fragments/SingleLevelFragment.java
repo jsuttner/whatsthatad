@@ -33,11 +33,11 @@ public class SingleLevelFragment extends Fragment{
 		
 		View levelView = inflater.inflate(R.layout.activity_single_level, container,false);
 		
-		// set Progressbar
-		ProgressBar progress = (ProgressBar)levelView.findViewById(R.id.singleProgressbar);
-        Drawable barStyle = getResources().getDrawable(R.drawable.single_progressbar);
-        progress.setProgressDrawable(barStyle);
-        progress.setProgress(50);
+		// Get Levelinformation
+		getLevelInformation();
+		
+		// Set Progressbar with Levelinformation
+		initProgressbar(levelView);
         
         // Set all Thumbnails, ClickListeners and Tags with DatabaseIDs
         initImageBoxes(levelView);
@@ -45,8 +45,21 @@ public class SingleLevelFragment extends Fragment{
 		return levelView;
 	}
 	
-	private void initImageBoxes(View levelView) {
+	private void getLevelInformation() {
+		// TODO: Get Information for Levels in DB
+		
+	}
 
+	private void initProgressbar(View levelView) {
+		// set Progressbar
+		ProgressBar progress = (ProgressBar)levelView.findViewById(R.id.singleProgressbar);
+        Drawable barStyle = getResources().getDrawable(R.drawable.single_progressbar);
+        progress.setProgressDrawable(barStyle);
+        progress.setProgress(50);
+	}
+
+	private void initImageBoxes(View levelView) {
+		// Setup Level Imageboxes
 		int level = pager.getCurrentItem();
 		TableLayout levelTable = (TableLayout)levelView.findViewById(R.id.singleLevelTable);
 		int count = levelTable.getChildCount();

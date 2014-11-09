@@ -2,17 +2,17 @@ package com.hasude.whatsthatad.gameobjects;
 
 import java.util.Locale;
 
-import android.graphics.Bitmap;
-
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 
 public class Question {
-	private Bitmap adCensored;
-	private Bitmap adUncensored;
+	private int id;
+	private String adCensored;
+	private String adUncensored;
 	private String correctAnswer;
 
-	public Question(Bitmap censored, Bitmap uncensored, String correctAnswer)
+	public Question(int id, String censored, String uncensored, String correctAnswer)
 			throws CorrectAnswerException {
+		this.id = id;
 		this.adCensored = censored;
 		this.adUncensored = uncensored;
 		this.correctAnswer = correctAnswer;
@@ -22,12 +22,16 @@ public class Question {
 		return correctAnswer;
 	}
 
-	public Bitmap getAdUncensored() {
+	public String getAdUncensored() {
 		return adUncensored;
 	}
 
-	public Bitmap getAdCensored() {
+	public String getAdCensored() {
 		return adCensored;
+	}
+	
+	public int getID(){
+		return id;
 	}
 	
 	public boolean isAnswerCorrect(String stringMsg) {
