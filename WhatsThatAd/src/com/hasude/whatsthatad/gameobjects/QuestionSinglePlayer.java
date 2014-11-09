@@ -13,5 +13,8 @@ public class QuestionSinglePlayer extends Question {
 		super(censored, uncensored, correctAnswer);
 		this.question = question;
 	}
-
+	
+	public String getQuestion() {
+		return question;
+	}
 }
