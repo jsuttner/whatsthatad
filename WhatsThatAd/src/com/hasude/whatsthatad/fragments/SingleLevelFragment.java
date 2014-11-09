@@ -58,12 +58,13 @@ public class SingleLevelFragment extends Fragment{
 			ImageView image = null;
 			for(int j=0; j<countRow; j++){
 				
+				// Set ClickListener for Image
+				image = (ImageView)tableRow.getChildAt(j);
+				
 		        // TODO: get Images and IDs from Database
 				// Set ID in Tag
 				image.setTag("");
 				
-				// Set ClickListener for Image
-				image = (ImageView)tableRow.getChildAt(j);
 				image.setOnClickListener(new OnClickListener() {
 					
 					@Override
