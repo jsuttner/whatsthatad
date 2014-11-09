@@ -1,8 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">WhatsThatAd</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+
+    <string name="singleplayer">Singeplayer</string>
+
+    <string name="muliplayer">Muliplayer</string>
+
+    <string name="addAnAdd">Add an Ad</string>
+
+    <string name="options">Options</string>
+
+    <string name="exit">Exit</string>
+    <string name="social_media_txt">Need help? Ask a friend:</string>
+    <string name="player1_touc_area">Toucharea Player 1</string>
+    <string name="player2_touch_area">Toucharea Player 2</string>
+    <string name="logo">Logo</string>
 
 </resources>

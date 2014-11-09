@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
+            android:text="@string/social_media_txt"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/SingleBtnFacebook"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:contentDescription="Facebook_Logo"
+            android:src="@drawable/facebook" />
+
+        <ImageView
+            android:id="@+id/SingleBtnTwitter"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:contentDescription="Twitter_Logo"
+            android:src="@drawable/twitter" />
+
+        <ImageView
+            android:id="@+id/SingleBtnGoogle"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:contentDescription="Google_Plus_Logo"
+            android:src="@drawable/google_plus" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:gravity="center"
+        android:layout_weight="0.35"
+        android:text="Dies ist eine kleine Beispielfrage, um ein schönes Preview zu zeigen" />
+
+</LinearLayout>
