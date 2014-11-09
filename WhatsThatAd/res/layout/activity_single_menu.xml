@@ -21,7 +21,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -29,7 +30,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -37,7 +39,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher"
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
         </TableRow>
 
@@ -53,7 +56,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -61,7 +65,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -69,7 +74,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher"
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
         </TableRow>
 
@@ -85,7 +91,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
             <ImageView
                 android:id="@+id/imageView8"
@@ -93,7 +100,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
             <ImageView
                 android:id="@+id/imageView9"
@@ -101,7 +109,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
         </TableRow>
 
@@ -117,7 +126,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
             <ImageView
                 android:id="@+id/imageView11"
@@ -125,7 +135,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
             <ImageView
                 android:id="@+id/imageView12"
@@ -133,7 +144,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
-                android:background="@drawable/back"/>
+                android:background="@drawable/back"
+                android:layout_margin="3dp"/>
 
         </TableRow>
     </TableLayout>
