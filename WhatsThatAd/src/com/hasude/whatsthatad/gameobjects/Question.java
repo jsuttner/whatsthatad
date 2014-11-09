@@ -1,22 +1,21 @@
-package com.hasude.whatsthatad;
+package com.hasude.whatsthatad.gameobjects;
+
+import android.graphics.Bitmap;
+
+import android.graphics.Bitmap;
 
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 
-import android.graphics.Bitmap;
-
 public class Question {
-	private String[] answers;
 	private Bitmap adCensored;
 	private Bitmap adUncensored;
 	private String correctAnswer;
 
-	public Question(Bitmap censored, Bitmap uncensored,
-			String[] answers, String correctAnswer)
-			throws CorrectAnswerException, WrongNumberOfAnswersException {
+	public Question(Bitmap censored, Bitmap uncensored, String correctAnswer)
+			throws CorrectAnswerException {
 		this.adCensored = censored;
 		this.adUncensored = uncensored;
-		this.answers = answers;
 		this.correctAnswer = correctAnswer;
 
 		// verify
