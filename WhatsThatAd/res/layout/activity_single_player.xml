@@ -47,7 +47,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/SingleQuestionTextView"
         android:background="@drawable/back"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -58,7 +58,7 @@
         android:text="Dies ist eine kleine Beispielfrage, um ein schönes Preview zu zeigen" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/SingleQuestionImageView"
         android:background="@drawable/back"
         android:layout_width="match_parent"
         android:padding="2dp"
@@ -68,7 +68,7 @@
         android:src="@drawable/adidas_censored" />
 
     <EditText
-        android:id="@+id/MultiEditPlayer2"
+        android:id="@+id/SingleEditSolution"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" >

@@ -1,9 +1,9 @@
 package com.hasude.whatsthatad;
 
+import android.graphics.Bitmap;
+
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
-
-import android.graphics.Bitmap;
 
 public class Question {
 	private String[] answers;
