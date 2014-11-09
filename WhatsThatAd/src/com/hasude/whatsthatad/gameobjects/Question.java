@@ -2,6 +2,8 @@ package com.hasude.whatsthatad.gameobjects;
 
 import android.graphics.Bitmap;
 
+import android.graphics.Bitmap;
+
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 
