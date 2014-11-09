@@ -59,7 +59,7 @@ public class SinglePlayerActivity extends Activity{
 			            event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
 			        if (!event.isShiftPressed()) {
 			        	// the user is done typing. 
-			        	if(q.getCorrectAnswer().equals(v.getText().toString())) {
+			        	if(q.isAnswerCorrect(v.getText().toString())) {
 			        		questionImageView.setImageBitmap(q.getAdUncensored());
 			        		Toast.makeText(getApplicationContext(), "Yay, that was correct!", Toast.LENGTH_SHORT).show();
 			        	} else {
