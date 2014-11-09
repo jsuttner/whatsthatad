@@ -3,17 +3,16 @@ package com.hasude.whatsthatad;
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 
-import android.R.string;
 import android.graphics.Bitmap;
 
 public class Question {
-	private string[] answers;
+	private String[] answers;
 	private Bitmap adCensored;
 	private Bitmap adUncensored;
-	private string correctAnswer;
+	private String correctAnswer;
 
 	public Question(Bitmap censored, Bitmap uncensored,
-			string[] answers, string correctAnswer)
+			String[] answers, String correctAnswer)
 			throws CorrectAnswerException, WrongNumberOfAnswersException {
 		this.adCensored = censored;
 		this.adUncensored = uncensored;
@@ -32,7 +31,7 @@ public class Question {
 			throw new CorrectAnswerException();
 	}
 
-	public string getCorrectAnswer() {
+	public String getCorrectAnswer() {
 		return correctAnswer;
 	}
 
@@ -44,8 +43,12 @@ public class Question {
 		return adCensored;
 	}
 
-	public string[] getAnswers() {
+	public String[] getAnswers() {
 		return answers;
+	}
+
+	public String getAnswer(int i) {
+		return answers[i];
 	}
 
 }
