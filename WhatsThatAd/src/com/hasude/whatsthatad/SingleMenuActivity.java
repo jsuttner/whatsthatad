@@ -15,10 +15,7 @@ public class SingleMenuActivity extends FragmentActivity{
 		setContentView(R.layout.activity_single_menu);
 		
 		viewPager = (ViewPager) findViewById(R.id.singlePager);
-		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3);
-		if(viewPager == null){
-			System.out.println("Swipeadapter ist null");
-		}
+		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, viewPager);
 		viewPager.setAdapter(swipeAdapter);
 	}
 }

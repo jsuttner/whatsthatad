@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
     <TableLayout
+        android:id="@+id/singleLevelTable"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9">
@@ -16,31 +17,34 @@
             android:layout_weight="1" >
 
             <ImageView
-                android:id="@+id/imageView1"
+                android:id="@+id/singleImage1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="1"/>
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/singleImage2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="2"/>
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/singleImage3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher"
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="3"/>
 
         </TableRow>
 
@@ -51,31 +55,34 @@
             android:layout_weight="1" >
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/singleImage4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="4"/>
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/singleImage5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="5"/>
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/singleImage6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher"
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="6"/>
 
         </TableRow>
 
@@ -86,31 +93,34 @@
             android:layout_weight="1" >
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/singleImage7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="7"/>
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/singleImage8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="8"/>
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/singleImage9"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="9"/>
 
         </TableRow>
 
@@ -121,31 +131,34 @@
             android:layout_weight="1" >
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/singleImage10"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="10"/>
 
             <ImageView
-                android:id="@+id/imageView11"
+                android:id="@+id/singleImage11"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="11"/>
 
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/singleImage12"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_launcher" 
                 android:background="@drawable/back"
-                android:layout_margin="3dp"/>
+                android:layout_margin="3dp"
+                android:tag="12"/>
 
         </TableRow>
     </TableLayout>

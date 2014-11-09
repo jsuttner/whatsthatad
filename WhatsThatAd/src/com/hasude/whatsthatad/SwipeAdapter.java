@@ -6,6 +6,7 @@ import java.util.List;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 
 import com.hasude.whatsthatad.fragments.SingleLevelFragment;
 
@@ -13,14 +14,14 @@ public class SwipeAdapter extends FragmentPagerAdapter{
 	
 	private List<Fragment> fragmentList = new ArrayList<Fragment>();
 
-	public SwipeAdapter(FragmentManager fm, int fragCount) {
+	public SwipeAdapter(FragmentManager fm, int fragCount, ViewPager p) {
 		super(fm);
-		initFragments(fragCount);
+		initFragments(fragCount, p);
 	}	
 	
-    private void initFragments(int fragCount) {
+    private void initFragments(int fragCount, ViewPager p) {
 		for(int i = 0; i < fragCount; i++)
-			fragmentList.add(new SingleLevelFragment());
+			fragmentList.add(new SingleLevelFragment(p));
 	}
 
 	@Override
@@ -35,7 +36,6 @@ public class SwipeAdapter extends FragmentPagerAdapter{
 	
 	@Override
 	public CharSequence getPageTitle(int position) {
-		// TODO Auto-generated method stub
 		return "Level " + (position+1);
 	}
 }

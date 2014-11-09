@@ -22,7 +22,7 @@
         android:id="@+id/MenuBtnMultiplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/muliplayer" />
+        android:text="@string/multiplayer" />
 
     <Button
         android:id="@+id/MenuBtnAddAnAdd"
