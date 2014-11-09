@@ -70,11 +70,13 @@ public class MainMenuActivity extends Activity {
 				
 				// Add the buttons
 				builder.setPositiveButton(R.string.leave_ok, new DialogInterface.OnClickListener() {
+		           @Override
 		           public void onClick(DialogInterface dialog, int id) {
 		        	   finish();
 		           }
 		        });
 				builder.setNeutralButton(R.string.leave_cancel, new DialogInterface.OnClickListener() {
+		           @Override
 		           public void onClick(DialogInterface dialog, int id) {
 		               //return;
 		           }
