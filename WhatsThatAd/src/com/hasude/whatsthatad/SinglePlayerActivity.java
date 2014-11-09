@@ -1,10 +1,5 @@
 package com.hasude.whatsthatad;
 
-import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
-import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
-import com.hasude.whatsthatad.gameobjects.Question;
-import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
-
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,12 +10,15 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.TextView.OnEditorActionListener;
+import android.widget.Toast;
+
+import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
+import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
 
 public class SinglePlayerActivity extends Activity{
 	
-	Question q;
+	QuestionSinglePlayer q;
 	ImageView questionImageView;
 	
 	@Override
@@ -47,8 +45,8 @@ public class SinglePlayerActivity extends Activity{
 			e.printStackTrace();
 		}
 		
-		questionTV.setText(loadQuestion());
-		loadPicture(q.getAdCensored());
+		questionTV.setText(q.getQuestion());
+		questionImageView.setImageBitmap(q.getAdCensored());
 		
 		// handler that fires when user finished typing
 		solutionEdit.setOnEditorActionListener(new OnEditorActionListener() {
@@ -62,7 +60,7 @@ public class SinglePlayerActivity extends Activity{
 			        if (!event.isShiftPressed()) {
 			        	// the user is done typing. 
 			        	if(q.getCorrectAnswer().equals(v.getText().toString())) {
-			        		loadPicture(q.getAdUncensored());
+			        		questionImageView.setImageBitmap(q.getAdUncensored());
 			        		Toast.makeText(getApplicationContext(), "Yay, that was correct!", Toast.LENGTH_SHORT).show();
 			        	} else {
 			        		Toast.makeText(getApplicationContext(), "Oh no, that was not correct. Try again!", Toast.LENGTH_SHORT).show();
@@ -76,13 +74,9 @@ public class SinglePlayerActivity extends Activity{
 		
 	} // onCreate
 	
-	private void loadPicture(Bitmap bm) {
-		questionImageView.setImageBitmap(bm);
-	}
-	
-	private String loadQuestion() {
-		// for testing purposes only
-		return "Which company launched this commercial?";
+	// TODO: hier könnte später die jeweilige Frage geladen werden (wenn die nicht direkt übergeben wird)
+	private QuestionSinglePlayer loadQuestion() {
+		return null;
 	}
 	
 }
