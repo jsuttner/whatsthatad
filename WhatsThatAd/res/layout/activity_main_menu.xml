@@ -13,31 +13,31 @@
         android:src="@drawable/logo" />
 
     <Button
-        android:id="@+id/Button01"
+        android:id="@+id/MenuBtnSingleplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/singleplayer" />
 
     <Button
-        android:id="@+id/Button04"
+        android:id="@+id/MenuBtnMultiplayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/muliplayer" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/MenuBtnAddAnAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/addAnAdd" />
 
     <Button
-        android:id="@+id/Button03"
+        android:id="@+id/MenuBtnOptions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/options" />
 
     <Button
-        android:id="@+id/Button02"
+        android:id="@+id/MenuBtnExit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/exit" />

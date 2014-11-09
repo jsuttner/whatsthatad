@@ -15,5 +15,9 @@
     <string name="player1_touc_area">Toucharea Player 1</string>
     <string name="player2_touch_area">Toucharea Player 2</string>
     <string name="logo">Logo</string>
+    <string name="leave_cancel">Yes close app</string>
+    <string name="leave_ok">Yes</string>
+    <string name="leave_title">Don\'t leave</string>
+    <string name="leave_message">Do you really want to leave?</string>
 
 </resources>
