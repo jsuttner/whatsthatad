@@ -1,4 +1,4 @@
-package com.hasude.whatsthatad;
+package com.hasude.whatsthatad.exceptions;
 
 public class WrongNumberOfAnswersException extends Exception {
 	public WrongNumberOfAnswersException() {

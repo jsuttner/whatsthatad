@@ -1,6 +1,7 @@
 package com.hasude.whatsthatad;
 
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
+import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 
 import android.R.string;
 import android.graphics.Bitmap;
