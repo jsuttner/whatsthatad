@@ -133,7 +133,7 @@
         android:orientation="vertical" >
         
         <include  
-            layout="@layout/single_progressbar" 
+            layout="@layout/activity_single_progressbar" 
             android:id="@+id/progressbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
