@@ -66,21 +66,20 @@ public class MainMenuActivity extends Activity {
 			public void onClick(View v) {
 				// TODO: ask if user really wants to leave, if yes terminate app
 				// 1. Instantiate an AlertDialog.Builder with its constructor
-				AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+				AlertDialog.Builder builder = new AlertDialog.Builder(MainMenuActivity.this);
 				
 				// Add the buttons
 				builder.setPositiveButton(R.string.leave_ok, new DialogInterface.OnClickListener() {
-				           public void onClick(DialogInterface dialog, int id) {
-				        	   finish();
-				           }
-				       });
-				builder.setNegativeButton(R.string.leave_cancel, new DialogInterface.OnClickListener() {
-				           public void onClick(DialogInterface dialog, int id) {
-				               return;
-				           }
-				       });
-				builder.setMessage(R.string.leave_message)
-				       .setTitle(R.string.leave_message);
+		           public void onClick(DialogInterface dialog, int id) {
+		        	   finish();
+		           }
+		        });
+				builder.setNeutralButton(R.string.leave_cancel, new DialogInterface.OnClickListener() {
+		           public void onClick(DialogInterface dialog, int id) {
+		               //return;
+		           }
+		        });
+				builder.setMessage(R.string.leave_message);
 
 				AlertDialog dialog = builder.create();
 				dialog.show();
