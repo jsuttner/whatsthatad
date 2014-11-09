@@ -1,5 +1,7 @@
 package com.hasude.whatsthatad;
 
+import com.hasude.whatsthatad.gameobjects.QuestionMultiPlayer;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -68,7 +70,7 @@ public class MultiPlayerActivity extends Activity {
 		
 	}
 
-	protected void newQuestion(Question q) {
+	protected void newQuestion(QuestionMultiPlayer q) {
 		image.setImageBitmap(q.getAdCensored());
 		for (int i = 0; i < 4; i++) {
 			answers[i].setText(q.getAnswer(i));
