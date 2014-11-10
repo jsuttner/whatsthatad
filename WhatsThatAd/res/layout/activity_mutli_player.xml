@@ -1,73 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.hasude.whatsthatad.MultiPlayerActivity" >
+    android:layout_height="match_parent" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5" >
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/MultiBtnPlayer1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="top|left|fill_vertical" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" >
 
-        <ImageView
-            android:id="@+id/MultiImageView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            <Button
+                android:id="@+id/MultiBtnPlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="top|left|fill_vertical" />
+
+            <ImageView
+                android:id="@+id/MultiImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo" />
+
+            <Button
+                android:id="@+id/MultiBtnPlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="top|right|fill_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:src="@drawable/logo" />
+            android:gravity="bottom|fill_horizontal" >
 
-        <Button
-            android:id="@+id/MultiBtnPlayer2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="top|right|fill_vertical" />
+            <Button
+                android:id="@+id/MultiBtnAnswer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Answer1" />
 
+            <Button
+                android:id="@+id/MultiBtnAnswer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Answer2" />
+
+            <Button
+                android:id="@+id/MultiBtnAnswer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Answer3" />
+
+            <Button
+                android:id="@+id/MultiBtnAnswer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Answer4" />
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="bottom|fill_horizontal" >
+    <TextView
+        android:id="@+id/MultiTxtInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="6dp"
+        android:gravity="center"
+        android:text="Testitest" />
 
-        <Button
-            android:id="@+id/MultiBtnAnswer1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Answer1" />
-
-        <Button
-            android:id="@+id/MultiBtnAnswer2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Answer2" />
-
-        <Button
-            android:id="@+id/MultiBtnAnswer3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Answer3" />
-
-        <Button
-            android:id="@+id/MultiBtnAnswer4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Answer4" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
