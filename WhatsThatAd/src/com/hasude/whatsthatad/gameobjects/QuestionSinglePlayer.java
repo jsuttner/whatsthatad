@@ -4,7 +4,8 @@ import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 
 public class QuestionSinglePlayer extends Question {
 	
-	String question;
+	private static final long serialVersionUID = -3184672673027920823L;
+	private String question;
 
 	public QuestionSinglePlayer(int id, String censored, String uncensored,
 			String correctAnswer, String question) throws CorrectAnswerException {

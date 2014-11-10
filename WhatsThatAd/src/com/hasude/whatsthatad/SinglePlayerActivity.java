@@ -45,25 +45,12 @@ public class SinglePlayerActivity extends Activity {
 		ImageView google = (ImageView) findViewById(R.id.SingleBtnGoogle);
 		ImageView twitter = (ImageView) findViewById(R.id.SingleBtnTwitter);
 
-		// load question and image
-		// TODO: for testing only
-		String correctA = "Adidas";
-		String censored = "android.resource://com.hasude.whatsthatad/drawable/adidas_censored";
-		String uncensored = "android.resource://com.hasude.whatsthatad/drawable/adidas_uncensored";
-		// Bitmap uncensored =
-		// BitmapFactory.decodeResource(getApplicationContext().getResources(),
-		// R.drawable.adidas_uncensored);
-		try {
-			q = new QuestionSinglePlayer(1, censored, uncensored, correctA,
-					"Which company launched this commercial?");
-		} catch (CorrectAnswerException e) {
-			Log.d("WTA", "Correct answer was not a given answer possibility");
-			e.printStackTrace();
-		}
+		// get extras
+		Intent i = getIntent();
+		q = (QuestionSinglePlayer) i.getSerializableExtra("question");
 
 		questionTV.setText(q.getQuestion());
 		questionImageView.setImageURI(q.getAdCensoredAsUri());
-		;
 
 		// handler that fires when user finished typing
 		solutionEdit.setOnEditorActionListener(new OnEditorActionListener() {

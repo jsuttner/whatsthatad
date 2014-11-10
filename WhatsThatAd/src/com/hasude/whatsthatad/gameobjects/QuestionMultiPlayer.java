@@ -5,6 +5,7 @@ import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 
 public class QuestionMultiPlayer extends Question {
 	
+	private static final long serialVersionUID = -8442963180385360498L;
 	private String[] answers;
 	
 	public QuestionMultiPlayer(int id, String censored, String uncensored, String correctAnswer,

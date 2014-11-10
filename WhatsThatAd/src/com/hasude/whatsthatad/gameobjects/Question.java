@@ -1,12 +1,15 @@
 package com.hasude.whatsthatad.gameobjects;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 import android.net.Uri;
 
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 
-public class Question {
+public class Question implements Serializable{
+
+	private static final long serialVersionUID = -8449456826201147919L;
 	private int id;
 	private String adCensored;
 	private String adUncensored;
