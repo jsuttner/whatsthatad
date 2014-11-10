@@ -76,7 +76,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 	/**
 	 * Inserting new label into labels table
 	 * */
-	public long insertLabel (ContentValues values) {
+	public long insertQuestion (ContentValues values) {
 
 		long rowID = 0;
 		
@@ -91,7 +91,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 	/**
 	 * Delete all labels
 	 */
-	public int deleteLocations() {
+	public int deleteQuestions() {
 		int rowsAffected = 0;	
 		if (openDatabase(true)) {
 			rowsAffected = db.delete(TABLE_QUESTIONS, null, null);
@@ -128,10 +128,16 @@ public class QuestionDB extends SQLiteOpenHelper {
 		return labels;
 	}
 
-	public Cursor getLocations() {
-		return db.query(TABLE_QUESTIONS, 
-						new String[] { FIELD_id,  FIELD_urlCensored , FIELD_urlUncensored, FIELD_answer } , 
+	public Cursor getQuestions() {
+		SQLiteDatabase db = this.getReadableDatabase();
+		
+		Cursor c = db.query(TABLE_QUESTIONS, 
+						new String[] { FIELD_id,  FIELD_urlCensored , FIELD_urlUncensored, FIELD_answer, FIELD_question } , 
 						null, null, null, null, null);
+		
+		db.close();
+		
+		return c;
 	}
 
 }

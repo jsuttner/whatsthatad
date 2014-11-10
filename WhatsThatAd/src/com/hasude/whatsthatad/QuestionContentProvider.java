@@ -1,4 +1,6 @@
-package com.hasude.whatsthatad.sqlite;
+package com.hasude.whatsthatad;
+
+import com.hasude.whatsthatad.sqlite.QuestionDB;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -11,14 +13,14 @@ public class QuestionContentProvider extends ContentProvider {
 
 	// Labels table names";
 	
-	public static final String AUTHORITY = "com.hasude.whatsthatad.QuestionContentProvider";
+	public static final String AUTHORITY = "com.hasude.whatsthatad.sqlite.QuestionContentProvider";
 	
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + QuestionDB.TABLE_QUESTIONS);	
 	private static final UriMatcher sUriMatcher;
 	
-	private static final int LOCATIONS = 1;	
+	private static final int QUESTIONS = 1;	
 	
-	private QuestionDB locationsDB;
+	private QuestionDB questionDB;
 	
 	static {
         sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -28,13 +30,13 @@ public class QuestionContentProvider extends ContentProvider {
 	@Override
 	public boolean onCreate() {
 		Log.d("DB", "ContentProvider created");
-		locationsDB = new QuestionDB(getContext());
+		questionDB = new QuestionDB(getContext());
 		return true;
 	}
 
 	@Override
 	public int delete(Uri arg0, String arg1, String[] arg2) {
-		return locationsDB.deleteLocations();
+		return questionDB.deleteQuestions();
 	}
 
 	@Override
@@ -47,7 +49,7 @@ public class QuestionContentProvider extends ContentProvider {
 
 		// get values
 		if (arg1 != null) {
-			locationsDB.insertLabel(arg1);
+			questionDB.insertQuestion(arg1);
 		}
 
 		return null;
@@ -58,8 +60,8 @@ public class QuestionContentProvider extends ContentProvider {
 			String sortOrder) {
 		Log.d("DB", "Query called");
 		
-        if(sUriMatcher.match(arg0) == LOCATIONS) {
-        	return locationsDB.getLocations();
+        if(sUriMatcher.match(arg0) == QUESTIONS) {
+        	return questionDB.getQuestions();
         } else {
         	throw new IllegalArgumentException("Unknown URI " + arg0);
         }
