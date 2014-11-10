@@ -33,7 +33,7 @@ LoaderCallbacks<Cursor>{
 		getLoaderManager().initLoader(0, null, this);
 		
 		// Test Inserts
-		testInserts();
+		//testInserts();
 	}
 	
 	private void testInserts() {
@@ -44,7 +44,8 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer, "testanswer");
         contentValues.put(QuestionDB.FIELD_question, "testquestion?");
         
-		QuestionInsertTask insertTask = new QuestionInsertTask();
+		Log.d("DB", "Inserting test stugg");
+        QuestionInsertTask insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
 		
 	}

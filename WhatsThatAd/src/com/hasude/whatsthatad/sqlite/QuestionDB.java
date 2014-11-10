@@ -83,7 +83,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 		if (openDatabase(true)) {
 			// Inserting Row
 			rowID = db.insert(TABLE_QUESTIONS, null, values);
-			db.close(); // Closing database connection
+			//db.close(); // Closing database connection
 		}
 		return rowID;
 	}
@@ -95,7 +95,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 		int rowsAffected = 0;	
 		if (openDatabase(true)) {
 			rowsAffected = db.delete(TABLE_QUESTIONS, null, null);
-			db.close(); // Closing database connection
+			//db.close(); // Closing database connection
 		}
 		return rowsAffected;
 	}
@@ -122,20 +122,31 @@ public class QuestionDB extends SQLiteOpenHelper {
 			} while (cursor.moveToNext());
 		}
 		// closing connection
-		cursor.close();
-		db.close();
+		//cursor.close();
+		//db.close();
 		// returning labels
 		return labels;
 	}
 
 	public Cursor getQuestions() {
-		SQLiteDatabase db = this.getReadableDatabase();
+		Log.d("DB", "GetQuestions called");
+		//SQLiteDatabase db = this.getReadableDatabase();
 		
 		Cursor c = db.query(TABLE_QUESTIONS, 
 						new String[] { FIELD_id,  FIELD_urlCensored , FIELD_urlUncensored, FIELD_answer, FIELD_question } , 
 						null, null, null, null, null);
 		
-		db.close();
+		//db.close();
+		if(c == null)
+			Log.d("DB", "C is null");
+		else
+			Log.d("DB", "C is not null");
+		if(c.moveToFirst()) {
+			do {
+				Log.d("DB", "GetQuestions returns something: " + c.getInt(0));
+			} while (c.moveToNext());
+		}
+		Log.d("DB", "Something");
 		
 		return c;
 	}

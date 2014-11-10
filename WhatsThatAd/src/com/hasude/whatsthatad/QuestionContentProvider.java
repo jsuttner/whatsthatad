@@ -31,6 +31,7 @@ public class QuestionContentProvider extends ContentProvider {
 	public boolean onCreate() {
 		Log.d("DB", "ContentProvider created");
 		questionDB = new QuestionDB(getContext());
+		questionDB.getWritableDatabase();
 		return true;
 	}
 
@@ -47,6 +48,7 @@ public class QuestionContentProvider extends ContentProvider {
 	@Override
 	public Uri insert(Uri arg0, ContentValues arg1) {
 
+		Log.d("DB", "Insert called");
 		// get values
 		if (arg1 != null) {
 			questionDB.insertQuestion(arg1);
