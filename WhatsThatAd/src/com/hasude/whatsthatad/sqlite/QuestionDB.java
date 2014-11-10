@@ -26,6 +26,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 	public static final String FIELD_urlUncensored= "urlUncensored";
 	public static final String FIELD_answer = "answer";
 	public static final String FIELD_question = "question";
+	public static final String FIELD_type = "type";
 
 	// Database
 	private static SQLiteDatabase db;
@@ -42,7 +43,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 		String CREATE_CATEGORIES_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "("
 				+ FIELD_id + " INTEGER PRIMARY KEY AUTOINCREMENT," + FIELD_urlCensored
 				+ " TEXT," + FIELD_urlUncensored + " TEXT," + FIELD_answer + " TEXT," +
-				  FIELD_question + " TEXT)";
+				  FIELD_question + " TEXT," + FIELD_type + " INTEGER" + ")";
 		db.execSQL(CREATE_CATEGORIES_TABLE);
 	}
 
@@ -103,10 +104,10 @@ public class QuestionDB extends SQLiteOpenHelper {
 	/**
 	 * Getting all labels returns list of labels
 	 * */
-	public List<QuestionSinglePlayer> getAllLabels() {
+	public List<QuestionSinglePlayer> getAllQuestions() {
 		List<QuestionSinglePlayer> labels = new ArrayList<QuestionSinglePlayer>();
 		// Select All Query
-		String selectQuery = "SELECT * FROM " + TABLE_QUESTIONS;
+		String selectQuery = "SELECT * FROM " + TABLE_QUESTIONS + " WHERE " + FIELD_type + " = 0" ;
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery(selectQuery, null);
 		// looping through all rows and adding to list
@@ -130,23 +131,22 @@ public class QuestionDB extends SQLiteOpenHelper {
 
 	public Cursor getQuestions() {
 		Log.d("DB", "GetQuestions called");
-		//SQLiteDatabase db = this.getReadableDatabase();
 		
 		Cursor c = db.query(TABLE_QUESTIONS, 
 						new String[] { FIELD_id,  FIELD_urlCensored , FIELD_urlUncensored, FIELD_answer, FIELD_question } , 
 						null, null, null, null, null);
 		
 		//db.close();
-		if(c == null)
-			Log.d("DB", "C is null");
-		else
-			Log.d("DB", "C is not null");
-		if(c.moveToFirst()) {
-			do {
-				Log.d("DB", "GetQuestions returns something: " + c.getInt(0));
-			} while (c.moveToNext());
-		}
-		Log.d("DB", "Something");
+//		if(c == null)
+//			Log.d("DB", "C is null");
+//		else
+//			Log.d("DB", "C is not null");
+//		if(c.moveToFirst()) {
+//			do {
+//				Log.d("DB", "GetQuestions returns something: " + c.getInt(0));
+//			} while (c.moveToNext());
+//		}
+//		Log.d("DB", "Something");
 		
 		return c;
 	}

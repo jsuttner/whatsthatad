@@ -5,7 +5,11 @@ import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 import com.hasude.whatsthatad.gameobjects.QuestionMultiPlayer;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,8 +70,8 @@ public class MultiPlayerActivity extends Activity {
 	}
 
 	private QuestionMultiPlayer getQuestion() {
-		String censored = "android.resource://com.hasude.whatsthatad/drawable/adidas_censored";
-		String uncensored = "android.resource://com.hasude.whatsthatad/drawable/adidas_uncensored";
+		String censored = null;
+		String uncensored = null;
 		
 		try {
 			QuestionMultiPlayer q = new QuestionMultiPlayer(0, censored,
@@ -75,8 +79,10 @@ public class MultiPlayerActivity extends Activity {
 							"Puma", "Reebock" });
 			return q;
 		} catch (CorrectAnswerException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (WrongNumberOfAnswersException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -84,10 +90,8 @@ public class MultiPlayerActivity extends Activity {
 
 	protected void playerRespond(int playerId) {
 
-		for (Button b : pBtns){
-			b.setEnabled(false);
+		for (Button b : pBtns)
 			b.setOnClickListener(null);
-		}
 
 		int p = 3;
 		for (int i = 0; i < 2; i++) {
@@ -115,14 +119,13 @@ public class MultiPlayerActivity extends Activity {
 
 	protected void answerGiven(int player, String answer) {
 		if(question.isAnswerCorrect(answer)){
-			Toast.makeText(getApplicationContext(), "Korrekte Antwort", Toast.LENGTH_LONG).show();
-			image.setImageURI(question.getAdUncensoredAsUri());
+			Toast.makeText(getApplicationContext(), "Korrekte Antwort", Toast.LENGTH_LONG);
 			
 		} else{
-			Toast.makeText(getApplicationContext(), "Falsche Antwort", Toast.LENGTH_LONG).show();
-			
+			Toast.makeText(getApplicationContext(), "Falsche Antwort", Toast.LENGTH_LONG);
 		}
 		
+		image.setImageURI(question.getAdUncensoredAsUri());
 		
 	}
 
