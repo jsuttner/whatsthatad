@@ -8,15 +8,15 @@ import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 
 public class Question {
 	private int id;
-	private Uri adCensored;
-	private Uri adUncensored;
+	private String adCensored;
+	private String adUncensored;
 	private String correctAnswer;
 
 	public Question(int id, String censored, String uncensored,
 			String correctAnswer) throws CorrectAnswerException {
 		this.id = id;
-		this.adCensored = Uri.parse(censored);
-		this.adUncensored = Uri.parse(uncensored);
+		this.adCensored = censored;
+		this.adUncensored = uncensored;
 		this.correctAnswer = correctAnswer;
 	}
 
@@ -24,12 +24,20 @@ public class Question {
 		return correctAnswer;
 	}
 
-	public Uri getAdUncensored() {
+	public String getAdUncensored() {
 		return adUncensored;
 	}
 
-	public Uri getAdCensored() {
+	public String getAdCensored() {
 		return adCensored;
+	}
+
+	public Uri getAdUncensoredAsUri() {
+		return Uri.parse(adUncensored);
+	}
+
+	public Uri getAdCensoredAsUri() {
+		return Uri.parse(adCensored);
 	}
 
 	public int getID() {
