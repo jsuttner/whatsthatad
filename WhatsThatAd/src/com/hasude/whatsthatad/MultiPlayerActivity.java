@@ -125,12 +125,12 @@ public class MultiPlayerActivity extends Activity {
 			Toast.makeText(getApplicationContext(), "Falsche Antwort", Toast.LENGTH_LONG);
 		}
 		
-		image.setImageURI(question.getAdUncensored());
+		image.setImageURI(question.getAdUncensoredAsUri());
 		
 	}
 
 	protected void newQuestion(QuestionMultiPlayer q) {
-		image.setImageURI(q.getAdCensored());
+		image.setImageURI(q.getAdCensoredAsUri());
 		for (int i = 0; i < 4; i++) {
 			answers[i].setText(q.getAnswer(i));
 		}

@@ -1,5 +1,8 @@
 package com.hasude.whatsthatad;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentValues;
 import android.content.CursorLoader;
@@ -12,6 +15,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
+import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
+import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
 import com.hasude.whatsthatad.sqlite.QuestionDB;
 
 public class SingleMenuActivity extends FragmentActivity implements
@@ -19,6 +24,7 @@ LoaderCallbacks<Cursor>{
 	
 	ViewPager viewPager;
 	SwipeAdapter swipeAdapter;
+	List<QuestionSinglePlayer> labels;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,27 +81,29 @@ LoaderCallbacks<Cursor>{
 	}
 
 	@Override
-	public void onLoadFinished(Loader<Cursor> arg0, Cursor arg1) {
+	public void onLoadFinished(Loader<Cursor> arg0, Cursor cursor) {
 		Log.d("DB", "OnLoadFinished aufgerufen");
-		int questionCount = 0;
 
-		// Number of locations available in the SQLite database table
-		if (arg1 != null) {
-			Log.d("DB", "Args != null");
-			questionCount = arg1.getCount();
-			// Move the current record pointer to the first row of the table
-			arg1.moveToFirst();
-		} else {
-			questionCount = 0;
+		labels = new ArrayList<QuestionSinglePlayer>();
+		// looping through all rows and adding to list
+		if (cursor.moveToFirst()) {
+			do {
+				// Try to create new SinglePlayerQuestion and add it to list
+				try {
+					labels.add(new QuestionSinglePlayer(cursor.getInt(0), cursor.getString(1), cursor
+							.getString(2), cursor.getString(3), cursor.getString(4)));
+				} catch (CorrectAnswerException e) {
+					e.printStackTrace();
+				}
+			} while (cursor.moveToNext());
 		}
-		for (int i = 0; i < questionCount; i++) {
-
-			// Do stuff
-			System.out.println("Question " + arg1.getString(3));
-			
-			arg1.moveToNext();
+		// closing connection
+		
+		for(QuestionSinglePlayer q : labels){
+			Log.d("DB", "ID: " + q.getAdCensored());
 		}
-
+		
+		cursor.close();
 	}
 
 	@Override
