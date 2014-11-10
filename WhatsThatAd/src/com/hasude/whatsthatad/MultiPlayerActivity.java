@@ -25,7 +25,7 @@ public class MultiPlayerActivity extends Activity {
 
 	private Button[] pBtns = new Button[2];
 
-	private static final int[] P_COLORS = new int[] { Color.GREEN, Color.BLUE };
+	private static final int[] P_COLORS = new int[] { Color.argb(255, 98, 196, 98), Color.BLUE };
 
 	private Button[] answers;
 
