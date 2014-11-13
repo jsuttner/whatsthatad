@@ -1,5 +1,7 @@
 package com.hasude.whatsthatad;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import android.app.Activity;
@@ -8,6 +10,8 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
 import android.view.KeyEvent;
@@ -27,6 +31,8 @@ public class SinglePlayerActivity extends Activity {
 
 	QuestionSinglePlayer q;
 	ImageView questionImageView;
+	Drawable imageCencored;
+	Drawable imageUncencored;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +49,34 @@ public class SinglePlayerActivity extends Activity {
 		ImageView facebook = (ImageView) findViewById(R.id.SingleBtnFacebook);
 		ImageView google = (ImageView) findViewById(R.id.SingleBtnGoogle);
 		ImageView twitter = (ImageView) findViewById(R.id.SingleBtnTwitter);
+//		
+//		// get cencored pic
+//	    InputStream ims;
+//		try {
+//			ims = getAssets().open(q.getAdCensored());
+//			// load image as Drawable
+//		    imageCencored = Drawable.createFromStream(ims, null);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		// get uncencored pic
+//		try {
+//			ims = getAssets().open(q.getAdUncensored());
+//			// load image as Drawable
+//		    imageUncencored = Drawable.createFromStream(ims, null);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 		// get extras
 		Intent i = getIntent();
 		q = (QuestionSinglePlayer) i.getSerializableExtra("question");
 
 		questionTV.setText(q.getQuestion());
-		questionImageView.setImageURI(q.getAdCensoredAsUri());
+		questionImageView.setImageURI(q.getAdUncensoredAsUri());
 
 		// handler that fires when user finished typing
 		solutionEdit.setOnEditorActionListener(new OnEditorActionListener() {

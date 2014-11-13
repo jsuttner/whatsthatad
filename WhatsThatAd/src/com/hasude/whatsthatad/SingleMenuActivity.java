@@ -34,11 +34,11 @@ LoaderCallbacks<Cursor>{
 		// Initialize LoaderManager
 		getLoaderManager().initLoader(0, null, this);
 		
-		//QuestionDeleteTask d = new QuestionDeleteTask();
-		//d.execute();
-		
-		// Test Inserts
-		//testInserts();
+//		QuestionDeleteTask d = new QuestionDeleteTask();
+//		d.execute();
+//		
+//		// Test Inserts
+//		testInserts();
 
 		viewPager = (ViewPager) findViewById(R.id.singlePager);
 		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, this);
@@ -105,8 +105,8 @@ LoaderCallbacks<Cursor>{
 		// Creating LocationInsertTask
 		// Adidas - 1
 		ContentValues contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "adidas_cencored.png" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "adidas_uncencored.png");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "adidas_censored" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "adidas_uncensored");
         contentValues.put(QuestionDB.FIELD_answer, "Adidas");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -116,8 +116,8 @@ LoaderCallbacks<Cursor>{
         
         // Nike - 2
 		contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "nike.png" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "nike.png");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "nike" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "nike");
         contentValues.put(QuestionDB.FIELD_answer, "Nike");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -127,8 +127,8 @@ LoaderCallbacks<Cursor>{
         
         // Ikea - 3
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "ikea.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "ikea.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "ikea" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "ikea");
         contentValues.put(QuestionDB.FIELD_answer, "Ikea");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -138,8 +138,8 @@ LoaderCallbacks<Cursor>{
         
         // McDonals_1 - 4
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "mc_1.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "mc_1.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "mc_1" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "mc_1");
         contentValues.put(QuestionDB.FIELD_answer, "Mc Donald's");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -149,8 +149,8 @@ LoaderCallbacks<Cursor>{
         
         // McDonals_2 - 5
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "mc_2.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "mc_2.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "mc_2" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "mc_2");
         contentValues.put(QuestionDB.FIELD_answer, "Mc Donald's");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -160,8 +160,8 @@ LoaderCallbacks<Cursor>{
         
         // Heinz - 6
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "heinz.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "heinz.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "heinz" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "heinz");
         contentValues.put(QuestionDB.FIELD_answer, "Heinz");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -171,8 +171,8 @@ LoaderCallbacks<Cursor>{
         
         // Faber - 7
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "faber.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "faber.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "faber" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "faber");
         contentValues.put(QuestionDB.FIELD_answer, "Faber Castell");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -182,8 +182,8 @@ LoaderCallbacks<Cursor>{
         
         // Chupa Chups - 8
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "chupper.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "chupper.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "chupper" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "chupper");
         contentValues.put(QuestionDB.FIELD_answer, "Chupa Chups");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -193,8 +193,8 @@ LoaderCallbacks<Cursor>{
         
         // Snicker - 9
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "snicker.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "snicker.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "snicker" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "snicker");
         contentValues.put(QuestionDB.FIELD_answer, "Snicker");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -204,8 +204,8 @@ LoaderCallbacks<Cursor>{
         
         // Subway - 10
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "subway.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "subway.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "subway" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "subway");
         contentValues.put(QuestionDB.FIELD_answer, "Subway");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -215,8 +215,8 @@ LoaderCallbacks<Cursor>{
         
         // Davidhoff - 11
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "davidhoff.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "davidhoff.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "davidhoff" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "davidhoff");
         contentValues.put(QuestionDB.FIELD_answer, "Davidhoff");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -226,8 +226,8 @@ LoaderCallbacks<Cursor>{
         
         // Emporio Armani - 12
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "emporio.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "emporio.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "emporio" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "emporio");
         contentValues.put(QuestionDB.FIELD_answer, "Emporio Armani");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -237,8 +237,8 @@ LoaderCallbacks<Cursor>{
         
         // Mercedes - 13
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "mercedes.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "mercedes" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes");
         contentValues.put(QuestionDB.FIELD_answer, "Mercedes");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -248,8 +248,8 @@ LoaderCallbacks<Cursor>{
         
         // Gucci - 14
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "gucci.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "gucci.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "gucci" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "gucci");
         contentValues.put(QuestionDB.FIELD_answer, "Gucci");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -259,8 +259,8 @@ LoaderCallbacks<Cursor>{
         
         // Olympikus - 15
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "olympikus.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "olympikus.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "olympikus" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "olympikus");
         contentValues.put(QuestionDB.FIELD_answer, "Olympikus");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -270,8 +270,8 @@ LoaderCallbacks<Cursor>{
         
     	// Old Spice - 16
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "old_spice.png" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "old_spice.png");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "old_spice" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "old_spice");
         contentValues.put(QuestionDB.FIELD_answer, "Old Spice");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -281,8 +281,8 @@ LoaderCallbacks<Cursor>{
         
         // Levis - 17
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "levis.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "levis.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "levis" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "levis");
         contentValues.put(QuestionDB.FIELD_answer, "Levis");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -292,8 +292,8 @@ LoaderCallbacks<Cursor>{
         
         // Lexus - 18
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "lexus.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "lexus.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "lexus" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "lexus");
         contentValues.put(QuestionDB.FIELD_answer, "Lexus");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -303,8 +303,8 @@ LoaderCallbacks<Cursor>{
         
         // Mercedes_2 - 19
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "mercedes_2.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes_2.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "mercedes_2" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes_2");
         contentValues.put(QuestionDB.FIELD_answer, "Mercedes");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -314,8 +314,8 @@ LoaderCallbacks<Cursor>{
         
         // Canon - 20
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "canon.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "canon.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "canon" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "canon");
         contentValues.put(QuestionDB.FIELD_answer, "Canon");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -325,8 +325,8 @@ LoaderCallbacks<Cursor>{
         
         // Avis - 21
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "avis.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "avis.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "avis" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "avis");
         contentValues.put(QuestionDB.FIELD_answer, "Avis");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -336,8 +336,8 @@ LoaderCallbacks<Cursor>{
         
         // B&B Hotels - 22
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "b&b.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "b&b.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "bandb" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "bandb");
         contentValues.put(QuestionDB.FIELD_answer, "B&B Hotels");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -347,8 +347,8 @@ LoaderCallbacks<Cursor>{
         
         // Doritos - 23
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "doritos.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "doritos.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "doritos" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "doritos");
         contentValues.put(QuestionDB.FIELD_answer, "Doritos");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -358,8 +358,8 @@ LoaderCallbacks<Cursor>{
         
         // Lenor - 24
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "lenor.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "lenor.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "lenor" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "lenor");
         contentValues.put(QuestionDB.FIELD_answer, "Lenor");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -369,8 +369,8 @@ LoaderCallbacks<Cursor>{
         
         // Levi's - 25
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "levis.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "levis.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "levis" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "levis");
         contentValues.put(QuestionDB.FIELD_answer, "Levi's");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -380,8 +380,8 @@ LoaderCallbacks<Cursor>{
         
         // Mercedes - 26
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "mercedes_3.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes_3.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "mercedes_3" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes_3");
         contentValues.put(QuestionDB.FIELD_answer, "Mercedes");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -391,8 +391,8 @@ LoaderCallbacks<Cursor>{
         
         // Nissan - 27
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "nissan.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "nissan.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "nissan" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "nissan");
         contentValues.put(QuestionDB.FIELD_answer, "Nissan");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -402,8 +402,8 @@ LoaderCallbacks<Cursor>{
         
         // Panasonic - 28
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "panasonic.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "panasonic.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "panasonic" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "panasonic");
         contentValues.put(QuestionDB.FIELD_answer, "Panasonic");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -413,8 +413,8 @@ LoaderCallbacks<Cursor>{
         
         // Pepsi - 29
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "pepsi_2.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "pepsi_2.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "pepsi_2" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "pepsi_2");
         contentValues.put(QuestionDB.FIELD_answer, "Pepsi");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -424,8 +424,8 @@ LoaderCallbacks<Cursor>{
         
         // Skoda - 30
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "skoda.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "skoda.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "skoda" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "skoda");
         contentValues.put(QuestionDB.FIELD_answer, "Skoda");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -435,8 +435,8 @@ LoaderCallbacks<Cursor>{
         
         // Stiehl - 31
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "stiehl.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "stiehl.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "stiehl" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "stiehl");
         contentValues.put(QuestionDB.FIELD_answer, "Stiehl");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -446,8 +446,8 @@ LoaderCallbacks<Cursor>{
         
         // Vanish - 32
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "vanish.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "vanish.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "vanish" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "vanish");
         contentValues.put(QuestionDB.FIELD_answer, "Vanish");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -457,8 +457,8 @@ LoaderCallbacks<Cursor>{
         
         // Volvic - 33
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "volvic.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "volvic.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "volvic" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "volvic");
         contentValues.put(QuestionDB.FIELD_answer, "Volvic");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -468,8 +468,8 @@ LoaderCallbacks<Cursor>{
         
         // VW - 34
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "vw.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "vw.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "vw" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "vw");
         contentValues.put(QuestionDB.FIELD_answer, "VW");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -479,8 +479,8 @@ LoaderCallbacks<Cursor>{
         
         // Wikipedia - 35
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "wikipedia.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "wikipedia.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "wikipedia" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "wikipedia");
         contentValues.put(QuestionDB.FIELD_answer, "Wikipedia");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
@@ -490,8 +490,8 @@ LoaderCallbacks<Cursor>{
         
         // WWF - 36
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "wwf.jpg" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "wwf.jpg");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "wwf" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "wwf");
         contentValues.put(QuestionDB.FIELD_answer, "WWF");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_type, 0);
