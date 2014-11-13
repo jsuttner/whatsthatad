@@ -19,23 +19,18 @@ import android.widget.Toast;
 
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
-import com.hasude.whatsthatad.sqlite.QuestionDB;
 
 public class SingleMenuActivity extends FragmentActivity implements
 LoaderCallbacks<Cursor>{
 	
 	ViewPager viewPager;
 	SwipeAdapter swipeAdapter;
-	List<QuestionSinglePlayer> labels;
+	List<QuestionSinglePlayer> questionList;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_single_menu);
-		
-		viewPager = (ViewPager) findViewById(R.id.singlePager);
-		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, viewPager);
-		viewPager.setAdapter(swipeAdapter);
 		
 		// Initialize LoaderManager
 		getLoaderManager().initLoader(0, null, this);
@@ -45,8 +40,10 @@ LoaderCallbacks<Cursor>{
 		
 		// Test Inserts
 		testInserts();
-		
-		
+
+		viewPager = (ViewPager) findViewById(R.id.singlePager);
+		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, questionList);
+		viewPager.setAdapter(swipeAdapter);
 	}
 
 	private class QuestionInsertTask extends AsyncTask<ContentValues, Void, Void>{
@@ -78,13 +75,13 @@ LoaderCallbacks<Cursor>{
 	public void onLoadFinished(Loader<Cursor> arg0, Cursor cursor) {
 		Log.d("DB", "OnLoadFinished aufgerufen");
 
-		labels = new ArrayList<QuestionSinglePlayer>();
+		questionList = new ArrayList<QuestionSinglePlayer>();
 		// looping through all rows and adding to list
 		if (cursor.moveToFirst()) {
 			do {
 				// Try to create new SinglePlayerQuestion and add it to list
 				try {
-					labels.add(new QuestionSinglePlayer(cursor.getInt(0), cursor.getString(1), cursor
+					questionList.add(new QuestionSinglePlayer(cursor.getInt(0), cursor.getString(1), cursor
 							.getString(2), cursor.getString(3), cursor.getString(4)));
 				} catch (CorrectAnswerException e) {
 					e.printStackTrace();
@@ -93,7 +90,7 @@ LoaderCallbacks<Cursor>{
 		}
 		// closing connection
 		
-		for(QuestionSinglePlayer q : labels){
+		for(QuestionSinglePlayer q : questionList){
 			Log.d("DB", "ID: " + q.getAdCensored());
 		}
 		

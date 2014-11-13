@@ -1,11 +1,12 @@
 package com.hasude.whatsthatad.fragments;
 
+import java.util.List;
+
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,14 +18,17 @@ import android.widget.TableRow;
 
 import com.hasude.whatsthatad.R;
 import com.hasude.whatsthatad.SinglePlayerActivity;
+import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
 
 public class SingleLevelFragment extends Fragment{
 	
-	ViewPager pager;
+	private int level;
+	private List<QuestionSinglePlayer> questionList;
 	
-	public SingleLevelFragment(ViewPager p){
+	public SingleLevelFragment(int lvl, List<QuestionSinglePlayer> quesList){
 		super();
-		this.pager = p;
+		this.level = lvl;
+		this.questionList = quesList;
 	}
 	
 	@Override
@@ -33,9 +37,6 @@ public class SingleLevelFragment extends Fragment{
 		
 		View levelView = inflater.inflate(R.layout.activity_single_level, container,false);
 		
-		// Get Levelinformation
-		getLevelInformation();
-		
 		// Set Progressbar with Levelinformation
 		initProgressbar(levelView);
         
@@ -43,11 +44,6 @@ public class SingleLevelFragment extends Fragment{
         initImageBoxes(levelView);
 		
 		return levelView;
-	}
-	
-	private void getLevelInformation() {
-		// TODO: Get Information for Levels in DB
-		
 	}
 
 	private void initProgressbar(View levelView) {
@@ -59,8 +55,7 @@ public class SingleLevelFragment extends Fragment{
 	}
 
 	private void initImageBoxes(View levelView) {
-		// Setup Level Imageboxes
-		int level = pager.getCurrentItem();
+		// Setup Imageboxes
 		TableLayout levelTable = (TableLayout)levelView.findViewById(R.id.singleLevelTable);
 		int count = levelTable.getChildCount();
 		TableRow tableRow = null;
@@ -74,20 +69,19 @@ public class SingleLevelFragment extends Fragment{
 				// Set ClickListener for Image
 				image = (ImageView)tableRow.getChildAt(j);
 				
-		        // TODO: get Images and IDs from Database
-				// Set ID in Tag
-				image.setTag("1");
+				// Set Identifier in Tag
+				image.setTag("" + (j + (i*3)));
 				
 				image.setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
-
-						int questionID = Integer.parseInt((String)v.getTag());
 						
-						// start single player menu
+						int questionID = Integer.parseInt((String)v.getTag());									
+						
+//						// start single player menu
 						Intent i = new Intent(getActivity(), SinglePlayerActivity.class);
-						i.putExtra("questionID", questionID);
+						i.putExtra("question", questionList.get(level*12+questionID));
 						startActivity(i);
 						
 					}
