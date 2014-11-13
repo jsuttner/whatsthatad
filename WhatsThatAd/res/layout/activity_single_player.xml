@@ -65,8 +65,9 @@
         android:padding="2dp"
         android:layout_height="0dp"
         android:layout_weight="0.5"
-        android:contentDescription="Ad"
-        android:src="@drawable/adidas_censored" />
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:contentDescription="Ad" />
 
     <EditText
         android:id="@+id/SingleEditSolution"

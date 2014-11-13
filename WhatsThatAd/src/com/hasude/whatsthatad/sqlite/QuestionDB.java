@@ -15,7 +15,7 @@ import android.util.Log;
 
 public class QuestionDB extends SQLiteOpenHelper {
 	// Database Version
-	private static final int DATABASE_VERSION = 1;
+	public static final int DATABASE_VERSION = 1;
 	// Database Name
 	private static final String DATABASE_NAME = "QuestionDB";
 	// Labels table name
@@ -44,7 +44,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 				+ FIELD_id + " INTEGER PRIMARY KEY AUTOINCREMENT," + FIELD_urlCensored
 				+ " TEXT," + FIELD_urlUncensored + " TEXT," + FIELD_answer + " TEXT," +
 				  FIELD_question + " TEXT," + FIELD_type + " INTEGER" + ")";
-		db.execSQL(CREATE_CATEGORIES_TABLE);
+		db.execSQL(CREATE_CATEGORIES_TABLE);;
 	}
 
 	// Upgrading database
@@ -60,7 +60,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 		Log.d("DB", "Could not connect to db");
 	}
 
-	boolean openDatabase(boolean isWritable) {
+	SQLiteDatabase openDatabase(boolean isWritable) {
 		if (isWritable) {
 			db = this.getWritableDatabase();
 		} else {
@@ -68,10 +68,8 @@ public class QuestionDB extends SQLiteOpenHelper {
 		}
 		if (db == null) {
 			onDbDoesNotExist();
-			return false;
-		} else {
-			return true;
 		}
+		return db;
 	}
 
 	/**
@@ -81,7 +79,8 @@ public class QuestionDB extends SQLiteOpenHelper {
 
 		long rowID = 0;
 		
-		if (openDatabase(true)) {
+		SQLiteDatabase db = openDatabase(true);
+		if (db != null) {
 			// Inserting Row
 			rowID = db.insert(TABLE_QUESTIONS, null, values);
 			//db.close(); // Closing database connection
@@ -94,13 +93,14 @@ public class QuestionDB extends SQLiteOpenHelper {
 	 */
 	public int deleteQuestions() {
 		int rowsAffected = 0;	
-		if (openDatabase(true)) {
+		SQLiteDatabase db = openDatabase(true);
+		if (db != null) {
 			rowsAffected = db.delete(TABLE_QUESTIONS, null, null);
 			//db.close(); // Closing database connection
 		}
 		return rowsAffected;
 	}
-
+	
 	/**
 	 * Getting all labels returns list of labels
 	 * */

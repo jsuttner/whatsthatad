@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,7 +21,6 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
-import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
 
 public class SinglePlayerActivity extends Activity {
@@ -35,6 +33,7 @@ public class SinglePlayerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_single_player);
 
+		
 		// get all views
 		EditText solutionEdit = (EditText) findViewById(R.id.SingleEditSolution);
 		TextView questionTV = (TextView) findViewById(R.id.SingleQuestionTextView);
@@ -204,12 +203,6 @@ public class SinglePlayerActivity extends Activity {
 				finish();
 			}
 		});
-	}
-
-	// TODO: hier könnte später die jeweilige Frage geladen werden (wenn die
-	// nicht direkt übergeben wird)
-	private QuestionSinglePlayer loadQuestion() {
-		return null;
 	}
 
 }
