@@ -8,22 +8,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.hasude.whatsthatad.fragments.SingleLevelFragment;
-import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
 
 public class SwipeAdapter extends FragmentPagerAdapter{
 	
 	private List<Fragment> fragmentList = new ArrayList<Fragment>();
-	private List<QuestionSinglePlayer> questionList;
 
-	public SwipeAdapter(FragmentManager fm, int fragCount, List<QuestionSinglePlayer> quesList) {
+	public SwipeAdapter(FragmentManager fm, int fragCount, SingleMenuActivity s) {
 		super(fm);
-		questionList = quesList;
-		initFragments(fragCount);
+		initFragments(fragCount, s);
 	}	
 	
-    private void initFragments(int fragCount) {
+    private void initFragments(int fragCount, SingleMenuActivity s) {
 		for(int i = 0; i < fragCount; i++)
-			fragmentList.add(new SingleLevelFragment(i, questionList));
+			fragmentList.add(new SingleLevelFragment(i, s));
 	}
 
 	@Override

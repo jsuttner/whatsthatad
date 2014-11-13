@@ -7,7 +7,6 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Loader;
-import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -15,17 +14,17 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
+import com.hasude.whatsthatad.sqlite.QuestionDB;
 
 public class SingleMenuActivity extends FragmentActivity implements
 LoaderCallbacks<Cursor>{
 	
-	ViewPager viewPager;
-	SwipeAdapter swipeAdapter;
-	List<QuestionSinglePlayer> questionList;
+	private ViewPager viewPager;
+	private SwipeAdapter swipeAdapter;
+	public List<QuestionSinglePlayer> questionList;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +34,14 @@ LoaderCallbacks<Cursor>{
 		// Initialize LoaderManager
 		getLoaderManager().initLoader(0, null, this);
 		
-		QuestionDeleteTask d = new QuestionDeleteTask();
-		d.execute();
+		//QuestionDeleteTask d = new QuestionDeleteTask();
+		//d.execute();
 		
 		// Test Inserts
-		testInserts();
+		//testInserts();
 
 		viewPager = (ViewPager) findViewById(R.id.singlePager);
-		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, questionList);
+		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, this);
 		viewPager.setAdapter(swipeAdapter);
 	}
 

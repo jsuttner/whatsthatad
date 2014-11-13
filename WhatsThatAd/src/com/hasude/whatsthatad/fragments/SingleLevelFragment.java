@@ -17,18 +17,19 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import com.hasude.whatsthatad.R;
+import com.hasude.whatsthatad.SingleMenuActivity;
 import com.hasude.whatsthatad.SinglePlayerActivity;
 import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
 
 public class SingleLevelFragment extends Fragment{
 	
 	private int level;
-	private List<QuestionSinglePlayer> questionList;
+	private SingleMenuActivity sma;
 	
-	public SingleLevelFragment(int lvl, List<QuestionSinglePlayer> quesList){
+	public SingleLevelFragment(int lvl, SingleMenuActivity s){
 		super();
 		this.level = lvl;
-		this.questionList = quesList;
+		this.sma = s;
 	}
 	
 	@Override
@@ -78,6 +79,8 @@ public class SingleLevelFragment extends Fragment{
 					public void onClick(View v) {
 						
 						int questionID = Integer.parseInt((String)v.getTag());									
+						
+						List<QuestionSinglePlayer> questionList = sma.questionList;
 						
 //						// start single player menu
 						Intent i = new Intent(getActivity(), SinglePlayerActivity.class);
