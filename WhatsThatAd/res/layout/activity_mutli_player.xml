@@ -18,7 +18,8 @@
                 android:id="@+id/MultiBtnPlayer1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="top|left|fill_vertical" />
+                android:gravity="top|left|fill_vertical"
+                android:text="0" />
 
             <ImageView
                 android:id="@+id/MultiImageView"
@@ -27,13 +28,15 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo" 
+                android:clickable="true"/>
 
             <Button
                 android:id="@+id/MultiBtnPlayer2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="top|right|fill_vertical" />
+                android:gravity="top|right|fill_vertical"
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,12 +77,15 @@
 
     <TextView
         android:id="@+id/MultiTxtInformation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:layout_margin="6dp"
-        android:gravity="center"
-        android:text="Testitest" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_costume"
+        android:gravity="center_horizontal"
+        android:text="Testitest du alter stinker"
+        android:textColor="@android:color/black"
+        android:textSize="18dp" 
+        android:visibility="invisible"/>
 
 </RelativeLayout>

@@ -1,15 +1,10 @@
 <resources>
 
     <string name="app_name">WhatsThatAd</string>
-
     <string name="singleplayer">Singleplayer</string>
-
     <string name="multiplayer">Multiplayer</string>
-
     <string name="addAnAdd">Add an Ad</string>
-
     <string name="options">Options</string>
-
     <string name="exit">Exit</string>
     <string name="social_media_txt">Need help? Ask a friend:</string>
     <string name="player1_touc_area">Toucharea Player 1</string>
@@ -21,5 +16,9 @@
     <string name="player2Enter">Enter Player2\'s name here:</string>
     <string name="player1Enter">Enter Player1\'s name here:</string>
     <string name="start">Start</string>
+    <string name="multi_info_player_change">Answer the Question</string>
+    <string name="multi_info_correct_answer">Correct answer</string>
+    <string name="multi_info_wrong_answer">Wrong answer</string>
+    <string name="player">Player</string>
 
 </resources>
