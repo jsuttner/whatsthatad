@@ -67,7 +67,7 @@ LoaderCallbacks<Cursor>{
 		// URI to the Content Provider locationsContentProvider
 		Log.d("DB", "onCreateLoader aufgerufen");
 		Uri contentUri = QuestionContentProvider.CONTENT_URI;
-		return new CursorLoader(this, contentUri, null, null, null, null);
+		return new CursorLoader(this, contentUri, null, "0", null, null);
 	}
 
 	@Override
