@@ -63,7 +63,7 @@ public class QuestionContentProvider extends ContentProvider {
 		Log.d("DB", "Query called");
 		
         if(sUriMatcher.match(arg0) == QUESTIONS) {
-        	return questionDB.getQuestions();
+        	return questionDB.getQuestions(selection);
         } else {
         	throw new IllegalArgumentException("Unknown URI " + arg0);
         }

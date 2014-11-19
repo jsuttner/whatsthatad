@@ -104,10 +104,11 @@ public class QuestionDB extends SQLiteOpenHelper {
 	/**
 	 * Getting all labels returns list of labels
 	 * */
-	public List<QuestionSinglePlayer> getAllQuestions() {
+	public List<QuestionSinglePlayer> getAllQuestions(boolean isSingle) {
 		List<QuestionSinglePlayer> labels = new ArrayList<QuestionSinglePlayer>();
 		// Select All Query
-		String selectQuery = "SELECT * FROM " + TABLE_QUESTIONS + " WHERE " + FIELD_type + " = 0" ;
+		String type = isSingle ? "0" : "1";
+		String selectQuery = "SELECT * FROM " + TABLE_QUESTIONS + " WHERE " + FIELD_type + " = " + type ;
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery(selectQuery, null);
 		// looping through all rows and adding to list
@@ -129,25 +130,10 @@ public class QuestionDB extends SQLiteOpenHelper {
 		return labels;
 	}
 
-	public Cursor getQuestions() {
+	public Cursor getQuestions(String selection) {
 		Log.d("DB", "GetQuestions called");
 		
-		Cursor c = db.query(TABLE_QUESTIONS, 
-						new String[] { FIELD_id,  FIELD_urlCensored , FIELD_urlUncensored, FIELD_answer, FIELD_question } , 
-						null, null, null, null, null);
-		
-		//db.close();
-//		if(c == null)
-//			Log.d("DB", "C is null");
-//		else
-//			Log.d("DB", "C is not null");
-//		if(c.moveToFirst()) {
-//			do {
-//				Log.d("DB", "GetQuestions returns something: " + c.getInt(0));
-//			} while (c.moveToNext());
-//		}
-//		Log.d("DB", "Something");
-		
+		Cursor c = db.rawQuery("SELECT * FROM " + TABLE_QUESTIONS + " WHERE " + FIELD_type + " = " + selection, null);
 		return c;
 	}
 
