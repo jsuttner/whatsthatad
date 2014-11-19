@@ -26,6 +26,10 @@ public class QuestionDB extends SQLiteOpenHelper {
 	public static final String FIELD_urlUncensored= "urlUncensored";
 	public static final String FIELD_answer = "answer";
 	public static final String FIELD_question = "question";
+	public static final String FIELD_answer1 = "answer1";
+	public static final String FIELD_answer2 = "answer2";
+	public static final String FIELD_answer3 = "answer3";
+	public static final String FIELD_answer4 = "answer4";
 	public static final String FIELD_type = "type";
 
 	// Database
@@ -43,7 +47,8 @@ public class QuestionDB extends SQLiteOpenHelper {
 		String CREATE_CATEGORIES_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "("
 				+ FIELD_id + " INTEGER PRIMARY KEY AUTOINCREMENT," + FIELD_urlCensored
 				+ " TEXT," + FIELD_urlUncensored + " TEXT," + FIELD_answer + " TEXT," +
-				  FIELD_question + " TEXT," + FIELD_type + " INTEGER" + ")";
+				  FIELD_question + " TEXT," + FIELD_answer1 + " TEXT," + FIELD_answer2 + " TEXT," + FIELD_answer3 + " TEXT,"
+				  + FIELD_answer4 + " TEXT," + FIELD_type + " INTEGER" + ")";
 		db.execSQL(CREATE_CATEGORIES_TABLE);;
 	}
 
@@ -89,7 +94,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Delete all labels
+	 * Delete all questions
 	 */
 	public int deleteQuestions() {
 		int rowsAffected = 0;	
@@ -102,7 +107,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 	}
 	
 	/**
-	 * Getting all labels returns list of labels
+	 * TODO: not needed right now
 	 * */
 	public List<QuestionSinglePlayer> getAllQuestions(boolean isSingle) {
 		List<QuestionSinglePlayer> labels = new ArrayList<QuestionSinglePlayer>();

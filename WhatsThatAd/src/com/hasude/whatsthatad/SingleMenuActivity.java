@@ -109,6 +109,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "adidas_uncensored");
         contentValues.put(QuestionDB.FIELD_answer, "Adidas");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 1");
         QuestionInsertTask insertTask = new QuestionInsertTask();
@@ -120,6 +124,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "nike");
         contentValues.put(QuestionDB.FIELD_answer, "Nike");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 2");
         insertTask = new QuestionInsertTask();
@@ -131,6 +139,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "ikea");
         contentValues.put(QuestionDB.FIELD_answer, "Ikea");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 3");
         insertTask = new QuestionInsertTask();
@@ -142,6 +154,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mc_1");
         contentValues.put(QuestionDB.FIELD_answer, "Mc Donald's");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 4");
         insertTask = new QuestionInsertTask();
@@ -153,6 +169,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mc_2");
         contentValues.put(QuestionDB.FIELD_answer, "Mc Donald's");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 5");
         insertTask = new QuestionInsertTask();
@@ -164,6 +184,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "heinz");
         contentValues.put(QuestionDB.FIELD_answer, "Heinz");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 6");
         insertTask = new QuestionInsertTask();
@@ -175,6 +199,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "faber");
         contentValues.put(QuestionDB.FIELD_answer, "Faber Castell");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 7");
         insertTask = new QuestionInsertTask();
@@ -186,6 +214,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "chupper");
         contentValues.put(QuestionDB.FIELD_answer, "Chupa Chups");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 8");
         insertTask = new QuestionInsertTask();
@@ -197,6 +229,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "snicker");
         contentValues.put(QuestionDB.FIELD_answer, "Snicker");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 9");
         insertTask = new QuestionInsertTask();
@@ -208,17 +244,25 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "subway");
         contentValues.put(QuestionDB.FIELD_answer, "Subway");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 10");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
-        
-        // Davidhoff - 11
+		
+		// Davidhoff - 11
         contentValues = new ContentValues();
         contentValues.put(QuestionDB.FIELD_urlCensored, "davidhoff" );
         contentValues.put(QuestionDB.FIELD_urlUncensored, "davidhoff");
         contentValues.put(QuestionDB.FIELD_answer, "Davidhoff");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 11");
         insertTask = new QuestionInsertTask();
@@ -230,6 +274,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "emporio");
         contentValues.put(QuestionDB.FIELD_answer, "Emporio Armani");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 12");
         insertTask = new QuestionInsertTask();
@@ -241,6 +289,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes");
         contentValues.put(QuestionDB.FIELD_answer, "Mercedes");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 13");
         insertTask = new QuestionInsertTask();
@@ -252,6 +304,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "gucci");
         contentValues.put(QuestionDB.FIELD_answer, "Gucci");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 14");
         insertTask = new QuestionInsertTask();
@@ -263,6 +319,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "olympikus");
         contentValues.put(QuestionDB.FIELD_answer, "Olympikus");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 15");
         insertTask = new QuestionInsertTask();
@@ -274,6 +334,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "old_spice");
         contentValues.put(QuestionDB.FIELD_answer, "Old Spice");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 16");
         insertTask = new QuestionInsertTask();
@@ -285,6 +349,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "levis");
         contentValues.put(QuestionDB.FIELD_answer, "Levis");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 17");
         insertTask = new QuestionInsertTask();
@@ -296,6 +364,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "lexus");
         contentValues.put(QuestionDB.FIELD_answer, "Lexus");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 18");
         insertTask = new QuestionInsertTask();
@@ -307,6 +379,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes_2");
         contentValues.put(QuestionDB.FIELD_answer, "Mercedes");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 19");
         insertTask = new QuestionInsertTask();
@@ -318,6 +394,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "canon");
         contentValues.put(QuestionDB.FIELD_answer, "Canon");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 20");
         insertTask = new QuestionInsertTask();
@@ -329,6 +409,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "avis");
         contentValues.put(QuestionDB.FIELD_answer, "Avis");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 21");
         insertTask = new QuestionInsertTask();
@@ -340,6 +424,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "bandb");
         contentValues.put(QuestionDB.FIELD_answer, "B&B Hotels");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 22");
         insertTask = new QuestionInsertTask();
@@ -351,6 +439,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "doritos");
         contentValues.put(QuestionDB.FIELD_answer, "Doritos");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 23");
         insertTask = new QuestionInsertTask();
@@ -362,6 +454,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "lenor");
         contentValues.put(QuestionDB.FIELD_answer, "Lenor");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 24");
         insertTask = new QuestionInsertTask();
@@ -373,6 +469,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "levis");
         contentValues.put(QuestionDB.FIELD_answer, "Levi's");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 25");
         insertTask = new QuestionInsertTask();
@@ -384,6 +484,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes_3");
         contentValues.put(QuestionDB.FIELD_answer, "Mercedes");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 26");
         insertTask = new QuestionInsertTask();
@@ -395,6 +499,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "nissan");
         contentValues.put(QuestionDB.FIELD_answer, "Nissan");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 27");
         insertTask = new QuestionInsertTask();
@@ -406,6 +514,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "panasonic");
         contentValues.put(QuestionDB.FIELD_answer, "Panasonic");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 28");
         insertTask = new QuestionInsertTask();
@@ -417,6 +529,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "pepsi_2");
         contentValues.put(QuestionDB.FIELD_answer, "Pepsi");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 29");
         insertTask = new QuestionInsertTask();
@@ -428,6 +544,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "skoda");
         contentValues.put(QuestionDB.FIELD_answer, "Skoda");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 30");
         insertTask = new QuestionInsertTask();
@@ -439,6 +559,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "stiehl");
         contentValues.put(QuestionDB.FIELD_answer, "Stiehl");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 31");
         insertTask = new QuestionInsertTask();
@@ -450,6 +574,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "vanish");
         contentValues.put(QuestionDB.FIELD_answer, "Vanish");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 32");
         insertTask = new QuestionInsertTask();
@@ -461,6 +589,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "volvic");
         contentValues.put(QuestionDB.FIELD_answer, "Volvic");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 33");
         insertTask = new QuestionInsertTask();
@@ -472,6 +604,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "vw");
         contentValues.put(QuestionDB.FIELD_answer, "VW");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 34");
         insertTask = new QuestionInsertTask();
@@ -483,6 +619,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "wikipedia");
         contentValues.put(QuestionDB.FIELD_answer, "Wikipedia");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 35");
         insertTask = new QuestionInsertTask();
@@ -494,10 +634,16 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "wwf");
         contentValues.put(QuestionDB.FIELD_answer, "WWF");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 36");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
+        
+        
 		
 		// Multiplayer
 		// Adidas - 1
@@ -506,6 +652,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "adidas_uncensored");
         contentValues.put(QuestionDB.FIELD_answer, "Adidas");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "Nike");
+        contentValues.put(QuestionDB.FIELD_answer2, "K-Swiss");
+        contentValues.put(QuestionDB.FIELD_answer3, "Adidas");
+        contentValues.put(QuestionDB.FIELD_answer4, "Puma");
         contentValues.put(QuestionDB.FIELD_type, 1);
         Log.d("DB", "Inserting test data 1");
         insertTask = new QuestionInsertTask();
@@ -517,6 +667,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "nike");
         contentValues.put(QuestionDB.FIELD_answer, "Nike");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "Puma");
+        contentValues.put(QuestionDB.FIELD_answer2, "Nike");
+        contentValues.put(QuestionDB.FIELD_answer3, "Spalding");
+        contentValues.put(QuestionDB.FIELD_answer4, "Kickz");
         contentValues.put(QuestionDB.FIELD_type, 1);
         Log.d("DB", "Inserting test data 2");
         insertTask = new QuestionInsertTask();
@@ -528,6 +682,10 @@ LoaderCallbacks<Cursor>{
 	    contentValues.put(QuestionDB.FIELD_urlUncensored, "ikea");
 	    contentValues.put(QuestionDB.FIELD_answer, "Ikea");
 	    contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+	    contentValues.put(QuestionDB.FIELD_answer1, "Vans");
+        contentValues.put(QuestionDB.FIELD_answer2, "Walmart");
+        contentValues.put(QuestionDB.FIELD_answer3, "Target");
+        contentValues.put(QuestionDB.FIELD_answer4, "Ikea");
 	    contentValues.put(QuestionDB.FIELD_type, 1);
 	    Log.d("DB", "Inserting test data 3");
 	    insertTask = new QuestionInsertTask();
@@ -539,6 +697,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mc_1");
         contentValues.put(QuestionDB.FIELD_answer, "Mc Donald's");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "Burger King");
+        contentValues.put(QuestionDB.FIELD_answer2, "In'n Out Burger");
+        contentValues.put(QuestionDB.FIELD_answer3, "Mc Donald's");
+        contentValues.put(QuestionDB.FIELD_answer4, "Jack in the Box");
         contentValues.put(QuestionDB.FIELD_type, 1);
         Log.d("DB", "Inserting test data 4");
         insertTask = new QuestionInsertTask();
@@ -550,6 +712,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mc_2");
         contentValues.put(QuestionDB.FIELD_answer, "Mc Donald's");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "Trader Joes");
+        contentValues.put(QuestionDB.FIELD_answer2, "Subway");
+        contentValues.put(QuestionDB.FIELD_answer3, "Panda Express");
+        contentValues.put(QuestionDB.FIELD_answer4, "Mc Donald's");
         contentValues.put(QuestionDB.FIELD_type, 1);
         Log.d("DB", "Inserting test data 5");
         insertTask = new QuestionInsertTask();
@@ -561,6 +727,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "heinz");
         contentValues.put(QuestionDB.FIELD_answer, "Heinz");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "Heinz");
+        contentValues.put(QuestionDB.FIELD_answer2, "Hooters");
+        contentValues.put(QuestionDB.FIELD_answer3, "Jim Block");
+        contentValues.put(QuestionDB.FIELD_answer4, "Subway");
         contentValues.put(QuestionDB.FIELD_type, 1);
         Log.d("DB", "Inserting test data 6");
         insertTask = new QuestionInsertTask();
@@ -572,6 +742,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "faber");
         contentValues.put(QuestionDB.FIELD_answer, "Faber Castell");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "Ikea");
+        contentValues.put(QuestionDB.FIELD_answer2, "Faber");
+        contentValues.put(QuestionDB.FIELD_answer3, "Fire Department");
+        contentValues.put(QuestionDB.FIELD_answer4, "Hot Wheels");
         contentValues.put(QuestionDB.FIELD_type, 1);
         Log.d("DB", "Inserting test data 7");
         insertTask = new QuestionInsertTask();
@@ -583,6 +757,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "chupper");
         contentValues.put(QuestionDB.FIELD_answer, "Chupa Chups");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "Obi");
+        contentValues.put(QuestionDB.FIELD_answer2, "Street Cleaners");
+        contentValues.put(QuestionDB.FIELD_answer3, "Chupa Chups");
+        contentValues.put(QuestionDB.FIELD_answer4, "LA Zoo");
         contentValues.put(QuestionDB.FIELD_type, 1);
         Log.d("DB", "Inserting test data 8");
         insertTask = new QuestionInsertTask();
@@ -594,6 +772,10 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "snicker");
         contentValues.put(QuestionDB.FIELD_answer, "Snicker");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "ESPN");
+        contentValues.put(QuestionDB.FIELD_answer2, "Snickers");
+        contentValues.put(QuestionDB.FIELD_answer3, "Everlast");
+        contentValues.put(QuestionDB.FIELD_answer4, "NBATV");
         contentValues.put(QuestionDB.FIELD_type, 1);
         Log.d("DB", "Inserting test data 9");
         insertTask = new QuestionInsertTask();
@@ -605,51 +787,71 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "subway");
         contentValues.put(QuestionDB.FIELD_answer, "Subway");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
+        contentValues.put(QuestionDB.FIELD_answer1, "Ralph's");
+        contentValues.put(QuestionDB.FIELD_answer2, "Vons");
+        contentValues.put(QuestionDB.FIELD_answer3, "Trader Joes");
+        contentValues.put(QuestionDB.FIELD_answer4, "Subway");
         contentValues.put(QuestionDB.FIELD_type, 1);
         Log.d("DB", "Inserting test data 10");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
-		        
-        // Davidhoff - 11
+		
+		// Davidhoff - 11
         contentValues = new ContentValues();
         contentValues.put(QuestionDB.FIELD_urlCensored, "davidhoff" );
         contentValues.put(QuestionDB.FIELD_urlUncensored, "davidhoff");
         contentValues.put(QuestionDB.FIELD_answer, "Davidhoff");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Davidhoff");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 11");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
-		        
+        
         // Emporio Armani - 12
         contentValues = new ContentValues();
         contentValues.put(QuestionDB.FIELD_urlCensored, "emporio" );
         contentValues.put(QuestionDB.FIELD_urlUncensored, "emporio");
         contentValues.put(QuestionDB.FIELD_answer, "Emporio Armani");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Emporio Armani");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 12");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
-		        
+        
         // Mercedes - 13
         contentValues = new ContentValues();
         contentValues.put(QuestionDB.FIELD_urlCensored, "mercedes" );
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes");
         contentValues.put(QuestionDB.FIELD_answer, "Mercedes");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Mercedes");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 13");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
-		        
+        
         // Gucci - 14
         contentValues = new ContentValues();
         contentValues.put(QuestionDB.FIELD_urlCensored, "gucci" );
         contentValues.put(QuestionDB.FIELD_urlUncensored, "gucci");
         contentValues.put(QuestionDB.FIELD_answer, "Gucci");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Gucci");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 14");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -660,7 +862,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "olympikus");
         contentValues.put(QuestionDB.FIELD_answer, "Olympikus");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Olympikus");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 15");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -671,7 +877,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "old_spice");
         contentValues.put(QuestionDB.FIELD_answer, "Old Spice");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Old Spice");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 16");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -682,7 +892,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "levis");
         contentValues.put(QuestionDB.FIELD_answer, "Levis");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Levis");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 17");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -693,7 +907,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "lexus");
         contentValues.put(QuestionDB.FIELD_answer, "Lexus");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Lexus");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 18");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -704,7 +922,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes_2");
         contentValues.put(QuestionDB.FIELD_answer, "Mercedes");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Mercedes");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 19");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -715,7 +937,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "canon");
         contentValues.put(QuestionDB.FIELD_answer, "Canon");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Canon");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 20");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -726,7 +952,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "avis");
         contentValues.put(QuestionDB.FIELD_answer, "Avis");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Avis");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 21");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -737,7 +967,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "bandb");
         contentValues.put(QuestionDB.FIELD_answer, "B&B Hotels");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "B&B Hotels");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 22");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -748,7 +982,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "doritos");
         contentValues.put(QuestionDB.FIELD_answer, "Doritos");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Doritos");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 23");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -759,7 +997,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "lenor");
         contentValues.put(QuestionDB.FIELD_answer, "Lenor");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Lenor");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 24");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -770,7 +1012,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "levis");
         contentValues.put(QuestionDB.FIELD_answer, "Levi's");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Levi's");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 25");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -781,7 +1027,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "mercedes_3");
         contentValues.put(QuestionDB.FIELD_answer, "Mercedes");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Mercedes");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 26");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -792,7 +1042,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "nissan");
         contentValues.put(QuestionDB.FIELD_answer, "Nissan");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Nissan");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 27");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -803,7 +1057,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "panasonic");
         contentValues.put(QuestionDB.FIELD_answer, "Panasonic");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Panasonic");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 28");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -814,7 +1072,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "pepsi_2");
         contentValues.put(QuestionDB.FIELD_answer, "Pepsi");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Pepsi");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 29");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -825,7 +1087,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "skoda");
         contentValues.put(QuestionDB.FIELD_answer, "Skoda");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Skoda");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 30");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -836,7 +1102,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "stiehl");
         contentValues.put(QuestionDB.FIELD_answer, "Stiehl");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Stiehl");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 31");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -847,7 +1117,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "vanish");
         contentValues.put(QuestionDB.FIELD_answer, "Vanish");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Vanish");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 32");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -858,7 +1132,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "volvic");
         contentValues.put(QuestionDB.FIELD_answer, "Volvic");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Volvic");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 33");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -869,7 +1147,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "vw");
         contentValues.put(QuestionDB.FIELD_answer, "VW");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "VW");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 34");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -880,7 +1162,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "wikipedia");
         contentValues.put(QuestionDB.FIELD_answer, "Wikipedia");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "Wikipedia");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 35");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -891,7 +1177,11 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_urlUncensored, "wwf");
         contentValues.put(QuestionDB.FIELD_answer, "WWF");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
-        contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_answer1, "WWF");
+        contentValues.put(QuestionDB.FIELD_answer2, "");
+        contentValues.put(QuestionDB.FIELD_answer3, "");
+        contentValues.put(QuestionDB.FIELD_answer4, "");
+        contentValues.put(QuestionDB.FIELD_type, 0);
         Log.d("DB", "Inserting test data 36");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
