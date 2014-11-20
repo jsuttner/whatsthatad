@@ -27,33 +27,8 @@ public class GameMultiplayer implements Serializable {
 			points[i] = 0;
 			this.names[i] = playerNames[i];
 		}
-		// get Questions
-		questions = new QuestionMultiPlayer[10];
-		for (int i = 0; i < 10; i++)
-			questions[i] = newQuestion();
-
+		
 		actQuestion = 0;
-	}
-
-	private QuestionMultiPlayer newQuestion() {
-		String censored = "android.resource://com.hasude.whatsthatad/"
-				+ R.drawable.adidas_censored;
-		String uncensored = "android.resource://com.hasude.whatsthatad/"
-				+ R.drawable.adidas_uncensored;
-
-		try {
-			QuestionMultiPlayer q = new QuestionMultiPlayer(0, censored,
-					uncensored, "Adidas", new String[] { "Nike", "Adidas",
-							"Puma", "Reebock" });
-			return q;
-		} catch (CorrectAnswerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (WrongNumberOfAnswersException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	public QuestionMultiPlayer nextQuestion() {

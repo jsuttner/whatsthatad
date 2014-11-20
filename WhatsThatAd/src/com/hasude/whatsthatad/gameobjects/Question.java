@@ -36,11 +36,11 @@ public class Question implements Serializable{
 	}
 
 	public Uri getAdUncensoredAsUri() {
-		return Uri.parse("" + adUncensored);
+		return Uri.parse("android.resource://com.hasude.whatsthatad/drawable/" + adUncensored);
 	}
 
 	public Uri getAdCensoredAsUri() {
-		return Uri.parse("" + adCensored);
+		return Uri.parse("android.resource://com.hasude.whatsthatad/drawable/" + adCensored);
 	}
 
 	public int getID() {
