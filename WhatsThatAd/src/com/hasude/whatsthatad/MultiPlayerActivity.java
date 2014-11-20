@@ -103,16 +103,9 @@ public class MultiPlayerActivity extends Activity {
 		});
 
 		Intent i = getIntent();
-		String p1 = i.getStringExtra("player1Name");
-		String p2 = i.getStringExtra("player2Name");
-
-		if (p1 == null || p2 == null) {
-			p1 = "Player1";
-			p2 = "Player2";
-		}
-
-		game = new GameMultiplayer(this, p1, p2);
-
+		game = (GameMultiplayer) i.getSerializableExtra("game");
+		game.setActivity(this);
+		
 		initGame(game.getActQuestion());
 
 	}

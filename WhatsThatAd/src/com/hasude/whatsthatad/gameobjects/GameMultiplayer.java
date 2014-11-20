@@ -18,7 +18,8 @@ public class GameMultiplayer implements Serializable {
 	private String[] names;
 	private MultiPlayerActivity activity;
 
-	public GameMultiplayer(MultiPlayerActivity act, String... playerNames) {
+	public GameMultiplayer(QuestionMultiPlayer[] q, String... playerNames) {
+		questions = q;
 		int amountPlayers = playerNames.length;
 		points = new int[amountPlayers];
 		this.names = new String[amountPlayers];
@@ -31,7 +32,6 @@ public class GameMultiplayer implements Serializable {
 		for (int i = 0; i < 10; i++)
 			questions[i] = newQuestion();
 
-		activity = act;
 		actQuestion = 0;
 	}
 
@@ -79,5 +79,13 @@ public class GameMultiplayer implements Serializable {
 
 	public int getQuestionNumber() {
 		return actQuestion + 1;
+	}
+	
+	public void setActivity(MultiPlayerActivity a){
+		activity = a;
+	}
+	
+	public void setQuestions(QuestionMultiPlayer[] q){
+		questions = q;
 	}
 }
