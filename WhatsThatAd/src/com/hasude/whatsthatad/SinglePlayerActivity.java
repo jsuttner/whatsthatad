@@ -14,6 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -76,6 +77,10 @@ public class SinglePlayerActivity extends Activity {
 		q = (QuestionSinglePlayer) i.getSerializableExtra("question");
 
 		questionTV.setText(q.getQuestion());
+		Drawable d = getResources().getDrawable(R.drawable.ikea);
+		int h = d.getIntrinsicHeight(); 
+		int w = d.getIntrinsicWidth(); 
+		Log.d("DB", "Height is: " + h + " Width is: " + w);
 		questionImageView.setImageURI(q.getAdUncensoredAsUri());
 
 		// handler that fires when user finished typing
@@ -115,7 +120,7 @@ public class SinglePlayerActivity extends Activity {
 				Intent shareIntent = new Intent(
 						android.content.Intent.ACTION_SEND);
 				shareIntent.setType("image/*");
-				shareIntent.putExtra(Intent.EXTRA_STREAM, q.getAdCensored()); // put
+				shareIntent.putExtra(Intent.EXTRA_STREAM, q.getAdCensoredAsUri()); // put
 																				// your
 																				// image
 																				// URI
@@ -150,11 +155,12 @@ public class SinglePlayerActivity extends Activity {
 				Intent shareIntent = new Intent(
 						android.content.Intent.ACTION_SEND);
 				shareIntent.setType("text/plain");
+				Log.d("DB", q.getAdCensored());
 				shareIntent
 						.putExtra(
 								android.content.Intent.EXTRA_TEXT,
 								"I'm playing Whats that ad right now and I need you help. Which Compony ran this ad?");
-				shareIntent.putExtra(Intent.EXTRA_STREAM, q.getAdCensored());
+				shareIntent.putExtra(Intent.EXTRA_STREAM, q.getAdCensoredAsUri());
 
 				PackageManager pm = v.getContext().getPackageManager();
 				List<ResolveInfo> activityList = pm.queryIntentActivities(

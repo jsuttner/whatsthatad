@@ -34,11 +34,11 @@ LoaderCallbacks<Cursor>{
 		// Initialize LoaderManager
 		getLoaderManager().initLoader(0, null, this);
 		
-		QuestionDeleteTask d = new QuestionDeleteTask();
-		d.execute();
-		
-		// Test Inserts
-		testInserts();
+//		QuestionDeleteTask d = new QuestionDeleteTask();
+//		d.execute();
+//		
+//		// Test Inserts
+//		testInserts();
 
 		viewPager = (ViewPager) findViewById(R.id.singlePager);
 		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, this);
@@ -105,7 +105,7 @@ LoaderCallbacks<Cursor>{
 		// Creating LocationInsertTask
 		// Adidas - 1
 		ContentValues contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "adidas_censored" );
+        contentValues.put(QuestionDB.FIELD_urlCensored, "adidas_censored");
         contentValues.put(QuestionDB.FIELD_urlUncensored, "adidas_uncensored");
         contentValues.put(QuestionDB.FIELD_answer, "Adidas");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
