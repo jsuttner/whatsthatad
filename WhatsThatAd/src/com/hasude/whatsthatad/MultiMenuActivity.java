@@ -73,6 +73,9 @@ public class MultiMenuActivity extends Activity implements
 		});
 
 		questionList = null;
+		
+		// Initialize LoaderManager
+		getLoaderManager().initLoader(0, null, this);
 
 	}
 
@@ -89,14 +92,14 @@ public class MultiMenuActivity extends Activity implements
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		// URI to the Content Provider locationsContentProvider
-		Log.d("DB", "onCreateLoader aufgerufen");
+		Log.d("DB", "onCreateLoader aufgerufen Multi");
 		Uri contentUri = QuestionContentProvider.CONTENT_URI;
 		return new CursorLoader(this, contentUri, null, "1", null, null);
 	}
 
 	@Override
 	public void onLoadFinished(Loader<Cursor> arg0, Cursor cursor) {
-		Log.d("DB", "OnLoadFinished aufgerufen");
+		Log.d("DB", "OnLoadFinished aufgerufen Multi");
 
 		questionList = new ArrayList<QuestionMultiPlayer>();
 		// looping through all rows and adding to list
