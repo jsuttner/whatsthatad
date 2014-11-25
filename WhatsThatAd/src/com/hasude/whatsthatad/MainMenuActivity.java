@@ -48,8 +48,8 @@ public class MainMenuActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO: start Editor
-				
+				Intent i = new Intent(getApplicationContext(), EditorActivity.class);
+				startActivity(i);
 			}
 		});
 		optionsBtn.setOnClickListener(new OnClickListener() {

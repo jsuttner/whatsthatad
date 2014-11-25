@@ -20,5 +20,8 @@
     <string name="multi_info_correct_answer">Correct answer</string>
     <string name="multi_info_wrong_answer">Wrong answer</string>
     <string name="player">Player</string>
+    <string name="hidePart">Hide Part</string>
+    <string name="blurPart">Blur Part</string>
+    <string name="resize">Resize Image</string>
 
 </resources>

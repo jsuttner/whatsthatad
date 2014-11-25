@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item
+		android:id="@+id/hidePart"
+		android:icon="@drawable/ic_launcher"
+		android:title="@string/hidePart"/>
+	<item
+		android:id="@+id/blurPart"
+		android:icon="@drawable/ic_launcher"
+		android:title="@string/blurPart"/>
+	<item
+		android:id="@+id/resize"
+		android:icon="@drawable/ic_launcher"
+		android:title="@string/resize"/>
+    
+</menu>

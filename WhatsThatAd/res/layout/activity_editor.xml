@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+	    android:layout_width="wrap_content"
+	    android:layout_height="50dp"
+	    android:layout_gravity="center"
+	    android:orientation="horizontal" >
+	    
+        <ImageButton
+		    android:id="@+id/new_btn"
+		    android:layout_width="wrap_content"
+		    android:layout_height="fill_parent"
+		    android:contentDescription="@string/hidePart"
+		    android:src="@drawable/ic_launcher" />
+        <ImageButton
+		    android:id="@+id/draw_btn"
+		    android:layout_width="wrap_content"
+		    android:layout_height="fill_parent"
+		    android:contentDescription="@string/blurPart"
+		    android:src="@drawable/ic_launcher" />
+        <ImageButton
+		    android:id="@+id/erase_btn"
+		    android:layout_width="wrap_content"
+		    android:layout_height="fill_parent"
+		    android:contentDescription="@string/resize"
+		    android:src="@drawable/ic_launcher" />
+        
+	</LinearLayout>
+	
+    <com.hasude.whatsthatad.DrawingView
+	    android:id="@+id/drawing"
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dp"
+	    android:layout_marginBottom="3dp"
+	    android:layout_marginLeft="5dp"
+	    android:layout_marginRight="5dp"
+	    android:layout_marginTop="3dp"
+	    android:layout_weight="1"
+	    android:background="#FFFFFFFF" />
+
+</LinearLayout>
