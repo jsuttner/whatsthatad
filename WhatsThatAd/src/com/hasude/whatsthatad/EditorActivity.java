@@ -15,7 +15,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.SurfaceView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.Toast;
+import android.widget.LinearLayout.LayoutParams;
 
 public class EditorActivity extends Activity{
 	
@@ -31,7 +34,14 @@ public class EditorActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_editor);
 		
+//		LinearLayout editorLayout = (LinearLayout)findViewById(R.id.editorLayout);
+//		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(300, 300, 0);
+//		editorLayout.setLayoutParams(params);
+		
 		drawView = (DrawingView)findViewById(R.id.drawing);
+		
+
+		
 		
 	}
 	
