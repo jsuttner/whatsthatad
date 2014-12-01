@@ -36,13 +36,9 @@ LoaderCallbacks<Cursor>{
 		
 //		QuestionDeleteTask d = new QuestionDeleteTask();
 //		d.execute();
-//		
-//		// Test Inserts
+		
+		// Test Inserts
 //		testInserts();
-
-		viewPager = (ViewPager) findViewById(R.id.singlePager);
-		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, this);
-		viewPager.setAdapter(swipeAdapter);
 	}
 
 	private class QuestionInsertTask extends AsyncTask<ContentValues, Void, Void>{
@@ -77,6 +73,7 @@ LoaderCallbacks<Cursor>{
 		questionList = new ArrayList<QuestionSinglePlayer>();
 		// looping through all rows and adding to list
 		if (cursor.moveToFirst()) {
+			Log.d("DB", "ID: ");
 			do {
 				// Try to create new SinglePlayerQuestion and add it to list
 				try {
@@ -94,11 +91,20 @@ LoaderCallbacks<Cursor>{
 		}
 		
 		cursor.close();
+		
+		loadPageViewer();
 	}
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
 		
+	}
+	
+	private void loadPageViewer() {
+		// Swipe Views for Levels
+		viewPager = (ViewPager) findViewById(R.id.singlePager);
+		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, this);
+		viewPager.setAdapter(swipeAdapter);
 	}
 	
 	private void testInserts() {
@@ -225,8 +231,8 @@ LoaderCallbacks<Cursor>{
         
         // Snicker - 9
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "snicker" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "snicker");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "snickers" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "snickers");
         contentValues.put(QuestionDB.FIELD_answer, "Snicker");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_answer1, "");
@@ -555,8 +561,8 @@ LoaderCallbacks<Cursor>{
         
         // Stiehl - 31
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "stiehl" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "stiehl");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "stihl" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "stihl");
         contentValues.put(QuestionDB.FIELD_answer, "Stiehl");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_answer1, "");

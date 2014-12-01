@@ -1,8 +1,12 @@
 package com.hasude.whatsthatad.fragments;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.List;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -73,6 +77,19 @@ public class SingleLevelFragment extends Fragment{
 				// Set Identifier in Tag
 				image.setTag("" + (j + (i*3)));
 				
+				// Set Thumbnail
+				Drawable d;
+				try {
+				    InputStream inputStream = getActivity().getContentResolver().openInputStream(sma.questionList.get(level * 12 + (j + (i*3))).getAdCensoredAsUri());
+				    d = Drawable.createFromStream(inputStream, sma.questionList.get(level * 12 + (j + (i*3))).getAdCensoredAsUri().toString() );
+				} catch (FileNotFoundException e) {
+				    d = getResources().getDrawable(R.drawable.face);
+				    System.out.println("Bild: " + sma.questionList.get(level * 12 + (j + (i*3))).getAdCensoredAsUri().getPath());
+				}			
+				Bitmap bm = convertToBitmap(d, 300, 300);		
+				image.setImageBitmap(bm);
+				
+				// Set Clicklistener
 				image.setOnClickListener(new OnClickListener() {
 					
 					@Override
@@ -91,5 +108,14 @@ public class SingleLevelFragment extends Fragment{
 				});
 			} 
 		}
+	}
+	
+	public Bitmap convertToBitmap(Drawable drawable, int widthPixels, int heightPixels) {
+	    Bitmap mutableBitmap = Bitmap.createBitmap(widthPixels, heightPixels, Bitmap.Config.ARGB_8888);
+	    Canvas canvas = new Canvas(mutableBitmap);
+	    drawable.setBounds(0, 0, widthPixels, heightPixels);
+	    drawable.draw(canvas);
+
+	    return mutableBitmap;
 	}
 }
