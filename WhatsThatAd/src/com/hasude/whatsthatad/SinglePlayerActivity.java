@@ -90,7 +90,7 @@ public class SinglePlayerActivity extends Activity {
 						|| actionId == EditorInfo.IME_ACTION_DONE
 						|| event.getAction() == KeyEvent.ACTION_DOWN
 						&& event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-					if (!event.isShiftPressed()) {
+
 						// the user is done typing.
 						if (q.isAnswerCorrect(v.getText().toString())) {
 							Toast.makeText(getApplicationContext(),
@@ -103,7 +103,6 @@ public class SinglePlayerActivity extends Activity {
 									Toast.LENGTH_SHORT).show();
 						}
 						return true; // consume.
-					}
 				}
 				return false; // pass on to other listeners.
 			}
