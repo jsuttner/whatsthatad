@@ -6,40 +6,86 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="277dp"
-        android:layout_height="156dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="clip_horizontal"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="@dimen/button_margin_left"
+        android:layout_marginTop="24dp"
         android:contentDescription="@string/logo"
-        android:layout_gravity="center"
+        android:scaleType="fitXY"
         android:src="@drawable/logo" />
 
     <Button
         android:id="@+id/MenuBtnSingleplayer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/WhatsThatAd.MainMenuButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_gravity="left"
+        android:layout_marginBottom="@dimen/button_margin"
+        android:layout_marginRight="@dimen/button_margin_left"
+        android:layout_marginTop="@dimen/button_margin"
+        android:drawableStart="@drawable/ic_action_person"
+        android:gravity="center|fill_horizontal|end"
+        android:paddingLeft="20dp"
         android:text="@string/singleplayer" />
+
+    <!-- android:drawableStart="@drawable/ic_action_person" -->
 
     <Button
         android:id="@+id/MenuBtnMultiplayer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/WhatsThatAd.MainMenuButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_gravity="left"
+        android:layout_marginBottom="@dimen/button_margin"
+        android:layout_marginRight="@dimen/button_margin_left"
+        android:layout_marginTop="@dimen/button_margin"
+        android:drawableStart="@drawable/ic_action_group"
+        android:gravity="center|fill_horizontal|end"
+        android:paddingLeft="20dp"
         android:text="@string/multiplayer" />
 
     <Button
         android:id="@+id/MenuBtnAddAnAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/WhatsThatAd.MainMenuButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_gravity="left"
+        android:layout_marginBottom="@dimen/button_margin"
+        android:layout_marginRight="@dimen/button_margin_left"
+        android:layout_marginTop="@dimen/button_margin"
+        android:drawableStart="@drawable/ic_action_new_picture"
+        android:gravity="center|fill_horizontal|end"
+        android:paddingLeft="20dp"
         android:text="@string/addAnAdd" />
 
     <Button
         android:id="@+id/MenuBtnOptions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/WhatsThatAd.MainMenuButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_gravity="left"
+        android:layout_marginBottom="@dimen/button_margin"
+        android:layout_marginRight="@dimen/button_margin_left"
+        android:layout_marginTop="@dimen/button_margin"
+        android:drawableStart="@drawable/ic_action_settings"
+        android:gravity="center|fill_horizontal|end"
+        android:paddingLeft="20dp"
         android:text="@string/options" />
 
     <Button
         android:id="@+id/MenuBtnExit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/WhatsThatAd.MainMenuButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_gravity="left"
+        android:layout_marginBottom="@dimen/button_margin"
+        android:layout_marginRight="@dimen/button_margin_left"
+        android:layout_marginTop="@dimen/button_margin"
+        android:drawableStart="@drawable/ic_action_back"
+        android:gravity="center|fill_horizontal|end"
+        android:paddingLeft="20dp"
         android:text="@string/exit" />
 
 </LinearLayout>

@@ -1,7 +1,5 @@
 package com.hasude.whatsthatad;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import android.app.Activity;
@@ -11,7 +9,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
 import android.util.Log;
@@ -93,7 +90,7 @@ public class SinglePlayerActivity extends Activity {
 						|| actionId == EditorInfo.IME_ACTION_DONE
 						|| event.getAction() == KeyEvent.ACTION_DOWN
 						&& event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-					if (!event.isShiftPressed()) {
+
 						// the user is done typing.
 						if (q.isAnswerCorrect(v.getText().toString())) {
 							Toast.makeText(getApplicationContext(),
@@ -106,7 +103,6 @@ public class SinglePlayerActivity extends Activity {
 									Toast.LENGTH_SHORT).show();
 						}
 						return true; // consume.
-					}
 				}
 				return false; // pass on to other listeners.
 			}
@@ -233,6 +229,10 @@ public class SinglePlayerActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				// start single player menu
+				Intent i = new Intent(getApplicationContext(), SingleMenuActivity.class);
+				i.putExtra("question", q.getID());
+				startActivity(i);
 				finish();
 			}
 		});

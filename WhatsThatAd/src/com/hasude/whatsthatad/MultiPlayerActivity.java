@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.ColorRes;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
@@ -29,8 +29,8 @@ public class MultiPlayerActivity extends Activity {
 
 	private Button[] pBtns = new Button[2];
 
-	private static final int[] P_COLORS = new int[] {
-			Color.argb(255, 98, 196, 98), Color.BLUE };
+	private static final int[] P_COLORS = new int[] { R.color.player1,
+			R.color.player2 };
 
 	private Button[] answers;
 
@@ -83,6 +83,7 @@ public class MultiPlayerActivity extends Activity {
 		information = (TextView) findViewById(R.id.MultiTxtInformation);
 
 		menu_hide_thread = new Runnable() {
+			@Override
 			public void run() {
 				hideInformation();
 			}
@@ -105,9 +106,15 @@ public class MultiPlayerActivity extends Activity {
 		Intent i = getIntent();
 		game = (GameMultiplayer) i.getSerializableExtra("game");
 		game.setActivity(this);
-		
+
 		initGame(game.getActQuestion());
 
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		finish();
 	}
 
 	protected void answerGiven(int player, String answer) {
@@ -121,7 +128,7 @@ public class MultiPlayerActivity extends Activity {
 					R.string.multi_info_correct_answer));
 
 			image.setImageURI(game.getActQuestion().getAdUncensoredAsUri());
-			
+
 			waitingForNextRound = true;
 
 		} else {
@@ -152,12 +159,12 @@ public class MultiPlayerActivity extends Activity {
 		setAnswerButtonsEnabled(p, true);
 
 	}
-	
+
 	protected void initGame(QuestionMultiPlayer q) {
 		// handlers for buttons
 
 		showInformation("Question " + game.getQuestionNumber() + "/10");
-		
+
 		image.setImageURI(q.getAdCensoredAsUri());
 		for (int i = 0; i < 4; i++) {
 			answers[i].setText(q.getAnswer(i));

@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentValues;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -25,24 +26,34 @@ LoaderCallbacks<Cursor>{
 	private ViewPager viewPager;
 	private SwipeAdapter swipeAdapter;
 	public List<QuestionSinglePlayer> questionList;
+	private Intent i;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_single_menu);
 		
+		i = getIntent();
+		// get extras and update Database
+		int questionID = (int) i.getIntExtra("question", 0);
+		System.out.println("ID: "+ questionID);
+		if(questionID != 0){
+			ContentValues cV = new ContentValues();
+			cV.put(QuestionDB.FIELD_id, questionID);
+			cV.put(QuestionDB.FIELD_solved, true);
+	        QuestionUpdateTask questionUpdateTask = new QuestionUpdateTask();
+	        questionUpdateTask.execute(cV);
+	        System.out.println("Update durchgeführt");
+		}
+		
 		// Initialize LoaderManager
 		getLoaderManager().initLoader(0, null, this);
 		
-//		QuestionDeleteTask d = new QuestionDeleteTask();
-//		d.execute();
-//		
-//		// Test Inserts
-//		testInserts();
-
-		viewPager = (ViewPager) findViewById(R.id.singlePager);
-		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, this);
-		viewPager.setAdapter(swipeAdapter);
+		//QuestionDeleteTask d = new QuestionDeleteTask();
+		//d.execute();
+		
+		// Test Inserts
+		//testInserts();
 	}
 
 	private class QuestionInsertTask extends AsyncTask<ContentValues, Void, Void>{
@@ -58,6 +69,14 @@ LoaderCallbacks<Cursor>{
 		@Override
 		protected Void doInBackground(Void... params) {
             getContentResolver().delete(QuestionContentProvider.CONTENT_URI, null, null);			
+			return null;
+		}		
+	}
+	
+	private class QuestionUpdateTask extends AsyncTask<ContentValues, Void, Void>{
+		@Override
+		protected Void doInBackground(ContentValues... contentValues) {
+            getContentResolver().update(QuestionContentProvider.CONTENT_URI, contentValues[0], "", new String[0]);			
 			return null;
 		}		
 	}
@@ -77,11 +96,12 @@ LoaderCallbacks<Cursor>{
 		questionList = new ArrayList<QuestionSinglePlayer>();
 		// looping through all rows and adding to list
 		if (cursor.moveToFirst()) {
+			Log.d("DB", "ID: ");
 			do {
 				// Try to create new SinglePlayerQuestion and add it to list
 				try {
 					questionList.add(new QuestionSinglePlayer(cursor.getInt(0), cursor.getString(1), cursor
-							.getString(2), cursor.getString(3), cursor.getString(4)));
+							.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(10)));
 				} catch (CorrectAnswerException e) {
 					e.printStackTrace();
 				}
@@ -90,15 +110,24 @@ LoaderCallbacks<Cursor>{
 		// closing connection
 		
 		for(QuestionSinglePlayer q : questionList){
-			Log.d("DB", "ID: " + q.getAdCensored());
+			Log.d("DB", "ID: " + q.getSolved());
 		}
 		
 		cursor.close();
+		
+		loadPageViewer();
 	}
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
 		
+	}
+	
+	private void loadPageViewer() {
+		// Swipe Views for Levels
+		viewPager = (ViewPager) findViewById(R.id.singlePager);
+		swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), 3, this);
+		viewPager.setAdapter(swipeAdapter);
 	}
 	
 	private void testInserts() {
@@ -114,6 +143,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 1");
         QuestionInsertTask insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -129,6 +159,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 2");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -144,6 +175,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 3");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -159,6 +191,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 4");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -174,6 +207,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 5");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -189,6 +223,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 6");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -204,6 +239,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 7");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -219,14 +255,15 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 8");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
         
         // Snicker - 9
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "snicker" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "snicker");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "snickers" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "snickers");
         contentValues.put(QuestionDB.FIELD_answer, "Snicker");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_answer1, "");
@@ -234,6 +271,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 9");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -249,6 +287,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 10");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -264,6 +303,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 11");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -279,6 +319,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 12");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -294,6 +335,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 13");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -309,6 +351,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 14");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -324,6 +367,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 15");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -339,6 +383,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 16");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -354,6 +399,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 17");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -369,6 +415,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 18");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -384,6 +431,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 19");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -399,6 +447,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 20");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -414,6 +463,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 21");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -429,6 +479,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 22");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -444,6 +495,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 23");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -459,6 +511,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 24");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -474,6 +527,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 25");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -489,6 +543,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 26");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -504,6 +559,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 27");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -519,6 +575,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 28");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -534,6 +591,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 29");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -549,14 +607,15 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 30");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
         
         // Stiehl - 31
         contentValues = new ContentValues();
-        contentValues.put(QuestionDB.FIELD_urlCensored, "stiehl" );
-        contentValues.put(QuestionDB.FIELD_urlUncensored, "stiehl");
+        contentValues.put(QuestionDB.FIELD_urlCensored, "stihl" );
+        contentValues.put(QuestionDB.FIELD_urlUncensored, "stihl");
         contentValues.put(QuestionDB.FIELD_answer, "Stiehl");
         contentValues.put(QuestionDB.FIELD_question, "Which brand belongs to this advertisement?");
         contentValues.put(QuestionDB.FIELD_answer1, "");
@@ -564,6 +623,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 31");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -579,6 +639,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 32");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -594,6 +655,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 33");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -609,6 +671,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 34");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -624,6 +687,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 35");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -639,6 +703,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 0);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 36");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -657,6 +722,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Adidas");
         contentValues.put(QuestionDB.FIELD_answer4, "Puma");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 1");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -672,6 +738,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Spalding");
         contentValues.put(QuestionDB.FIELD_answer4, "Kickz");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 2");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -687,6 +754,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Target");
         contentValues.put(QuestionDB.FIELD_answer4, "Ikea");
 	    contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
 	    Log.d("DB", "Inserting test data 3");
 	    insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -702,6 +770,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Mc Donald's");
         contentValues.put(QuestionDB.FIELD_answer4, "Jack in the Box");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 4");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -717,6 +786,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Panda Express");
         contentValues.put(QuestionDB.FIELD_answer4, "Mc Donald's");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 5");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -732,6 +802,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Jim Block");
         contentValues.put(QuestionDB.FIELD_answer4, "Subway");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 6");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -747,6 +818,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Fire Department");
         contentValues.put(QuestionDB.FIELD_answer4, "Hot Wheels");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 7");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -762,6 +834,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Chupa Chups");
         contentValues.put(QuestionDB.FIELD_answer4, "LA Zoo");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 8");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -777,6 +850,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Everlast");
         contentValues.put(QuestionDB.FIELD_answer4, "NBATV");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 9");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -792,6 +866,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "Trader Joes");
         contentValues.put(QuestionDB.FIELD_answer4, "Subway");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 10");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -807,6 +882,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 11");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -822,6 +898,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 12");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -837,6 +914,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 13");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -852,6 +930,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 14");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -867,6 +946,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 15");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -882,6 +962,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 16");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -897,6 +978,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 17");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -912,6 +994,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 18");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -927,6 +1010,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 19");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -942,6 +1026,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 20");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -957,6 +1042,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 21");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -972,6 +1058,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 22");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -987,6 +1074,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 23");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1002,6 +1090,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 24");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1017,6 +1106,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 25");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1032,6 +1122,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 26");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1047,6 +1138,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 27");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1062,6 +1154,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 28");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1077,6 +1170,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 29");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1092,6 +1186,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 30");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1107,6 +1202,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 31");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1122,6 +1218,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 32");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1137,6 +1234,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 33");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1152,6 +1250,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 34");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1167,6 +1266,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 35");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
@@ -1182,6 +1282,7 @@ LoaderCallbacks<Cursor>{
         contentValues.put(QuestionDB.FIELD_answer3, "");
         contentValues.put(QuestionDB.FIELD_answer4, "");
         contentValues.put(QuestionDB.FIELD_type, 1);
+        contentValues.put(QuestionDB.FIELD_solved, 0);
         Log.d("DB", "Inserting test data 36");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);

@@ -3,9 +3,6 @@ package com.hasude.whatsthatad.gameobjects;
 import java.io.Serializable;
 
 import com.hasude.whatsthatad.MultiPlayerActivity;
-import com.hasude.whatsthatad.R;
-import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
-import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 
 public class GameMultiplayer implements Serializable {
 	/**

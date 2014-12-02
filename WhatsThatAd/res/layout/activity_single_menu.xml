@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WhatsThatAd.Progressbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/wta_grey_light"
     android:orientation="vertical" >
-    
-    
+
     <android.support.v4.view.ViewPager
-         xmlns:android="http://schemas.android.com/apk/res/android"
-         xmlns:tools="http://schemas.android.com/tools"
-         android:id="@+id/singlePager"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         tools:context=".SingleMenuActivity" 
-         android:layout_margin="5dp">
-         
-         <android.support.v4.view.PagerTitleStrip
-	        android:id="@+id/pager_title_strip"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="bottom"
-	        android:background="#000000"
-	        android:textColor="#fff"
-	        android:paddingTop="4dp"
-	        android:paddingBottom="4dp" />
-        
-     </android.support.v4.view.ViewPager>
-    
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/singlePager"
+        style="@style/WhatsThatAd.Progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SingleMenuActivity" >
+
+        <android.support.v4.view.PagerTitleStrip
+            android:id="@+id/pager_title_strip"
+            style="@style/WhatsThatAd.Progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="3dp"
+            android:background="@color/wta_grey"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:textColor="@color/wta_blue" />
+    </android.support.v4.view.ViewPager>
 
 </LinearLayout>
