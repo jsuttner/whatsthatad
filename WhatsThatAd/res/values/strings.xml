@@ -23,5 +23,16 @@
     <string name="hidePart">Hide Part</string>
     <string name="blurPart">Blur Part</string>
     <string name="resize">Resize Image</string>
+    <string name="editor_next">Next Step</string>
+    <string name="upload_image_txt">Please upload your question image first</string>
+    <string name="upload_ques_text">Enter the question to your image</string>
+    <string name="question">Question</string>
+    <string name="upload_correct_answer">Enter the correct answer</string>
+    <string name="answer_poss_1">Answer Possibility 1</string>
+    <string name="answer_poss_2">Answer Possibility 2</string>
+    <string name="answer_poss_3">Answer Possibility 3</string>
+    <string name="answer_poss_4">Answer Possibility 4</string>
+    <string name="save_question">Save Question</string>
+    <string name="question_details">Question Details</string>
 
 </resources>

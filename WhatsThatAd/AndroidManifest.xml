@@ -54,6 +54,11 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".QuestionUploadActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
 
         <provider
             android:name="QuestionContentProvider"

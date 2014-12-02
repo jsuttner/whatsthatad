@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:text="@string/question_details"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/upload_question_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/upload_ques_text" >
+
+        <requestFocus />
+    </EditText>
+    
+    <View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@android:color/black"/>
+
+    <RadioGroup
+        android:id="@+id/typeGroup"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" 
+        android:layout_marginTop="20dp">
+
+        <RadioButton
+            android:id="@+id/single_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/singleplayer" />
+
+        <RadioButton
+            android:id="@+id/multi_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/multiplayer" />
+    </RadioGroup>
+    
+    <View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/upload_correct_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/upload_correct_answer" />
+    
+    <View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/upload_answer1_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:visibility="invisible"
+        android:hint="@string/answer_poss_1" />
+
+    <EditText
+        android:id="@+id/upload_answer2_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:visibility="invisible"
+        android:hint="@string/answer_poss_2" />
+
+    <EditText
+        android:id="@+id/upload_answer3_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:visibility="invisible"
+        android:hint="@string/answer_poss_3" />
+
+    <EditText
+        android:id="@+id/upload_answer4_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:visibility="invisible"
+        android:hint="@string/answer_poss_4" />
+    
+    <View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@android:color/black"/>
+
+    <Button
+        android:id="@+id/saveQuesBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:onClick="saveBtnListener"
+        android:text="@string/save_question" />
+
+</LinearLayout>
