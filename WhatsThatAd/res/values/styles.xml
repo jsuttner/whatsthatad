@@ -1,3 +1,24 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="WhatsThatAdStyle" parent="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/wta_grey</item>
+        <item name="android:windowBackground">@color/wta_grey</item>
+    </style>
+
+    <style name="WhatsThatAd.MainMenuButton" parent="@style/WhatsThatAdStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/button_costume</item>
+    </style>
+
+    <style name="WhatsThatAd.Progressbar" parent="@style/WhatsThatAdStyle">
+        <item name="android:background">@color/wta_grey_light</item>
+    </style>
+
+    <dimen name="button_width">300dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_margin">4dp</dimen>
+    <dimen name="button_margin_left">24dp</dimen>
 
 </resources>

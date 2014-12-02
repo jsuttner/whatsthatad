@@ -15,10 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.SurfaceView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.Toast;
-import android.widget.LinearLayout.LayoutParams;
 
 public class EditorActivity extends Activity{
 	

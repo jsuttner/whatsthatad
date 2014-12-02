@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="wta_green" type="color">#FF62c462</item>
+
+    <item name="wta_blue" type="color">#FF29a3cc</item>
+    <item name="wta_blue_light" type="color">#FF00BFFF</item>
+    <item name="wta_grey" type="color">#FFdddddd</item>
+    <item name="wta_grey_light" type="color">#FFededed</item>
+    <item name="wta_grey_dark" type="color">#FFb3b3b3</item>
+    
+    <item name="player1" type="color">#FF3D8299</item>
+    <item name="player2" type="color">#FF00FFB3</item>
+    <item name="primary" type="color">@color/wta_blue_light</item>
+    <item name="primary_dark" type="color">@color/wta_blue_light</item>
+    <item name="accent" type="color">@color/wta_blue</item>
+
 </resources>

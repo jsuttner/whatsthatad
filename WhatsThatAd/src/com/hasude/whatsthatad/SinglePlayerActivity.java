@@ -1,7 +1,5 @@
 package com.hasude.whatsthatad;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import android.app.Activity;
@@ -11,7 +9,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
 import android.util.Log;

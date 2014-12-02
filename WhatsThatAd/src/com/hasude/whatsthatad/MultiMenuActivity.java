@@ -6,8 +6,6 @@ import com.hasude.whatsthatad.exceptions.CorrectAnswerException;
 import com.hasude.whatsthatad.exceptions.WrongNumberOfAnswersException;
 import com.hasude.whatsthatad.gameobjects.GameMultiplayer;
 import com.hasude.whatsthatad.gameobjects.QuestionMultiPlayer;
-import com.hasude.whatsthatad.gameobjects.QuestionSinglePlayer;
-
 import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
@@ -48,11 +46,11 @@ public class MultiMenuActivity extends Activity implements
 				if (isStartPossible()) {
 					// start multi player and tell the names
 					QuestionMultiPlayer[] questions = new QuestionMultiPlayer[10];
-					for(int i = 0;i < 10; i++){
-						//TODO: Random
+					for (int i = 0; i < 10; i++) {
+						// TODO: Random
 						questions[i] = questionList.get(i);
 					}
-					
+
 					GameMultiplayer game = new GameMultiplayer(questions,
 							player1Edit.getText().toString(), player2Edit
 									.getText().toString());
@@ -73,10 +71,16 @@ public class MultiMenuActivity extends Activity implements
 		});
 
 		questionList = null;
-		
+
 		// Initialize LoaderManager
 		getLoaderManager().initLoader(0, null, this);
 
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		finish();
 	}
 
 	public boolean isStartPossible() {
