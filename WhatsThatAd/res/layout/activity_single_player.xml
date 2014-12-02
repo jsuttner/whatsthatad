@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="center"
-        android:inputType="textNoSuggestions" >
+        android:inputType="textCapCharacters|textNoSuggestions|textPersonName" >
 
         <requestFocus />
     </EditText>
