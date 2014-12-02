@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -96,7 +97,8 @@ public class SingleLevelFragment extends Fragment{
 			for(int j=0; j<countRow; j++){
 				
 				// Set ClickListener for Image
-				image = (ImageView)tableRow.getChildAt(j);
+				RelativeLayout rl = (RelativeLayout)tableRow.getChildAt(j); 
+				image = (ImageView)rl.getChildAt(0);
 				
 				// Set Identifier in Tag
 				image.setTag("" + (j + (i*3)));
@@ -113,6 +115,12 @@ public class SingleLevelFragment extends Fragment{
 					}			
 					Bitmap bm = convertToBitmap(d, 150, 150);		
 					image.setImageBitmap(bm);
+					
+					// Make Checkimage visible if solved
+					if(sma.questionList.get(level * 12 + (j + (i*3))).getSolved()){
+						ImageView check = (ImageView)rl.getChildAt(1);
+						check.setVisibility(0);
+					}
 					
 					// Set Clicklistener
 					image.setOnClickListener(new OnClickListener() {

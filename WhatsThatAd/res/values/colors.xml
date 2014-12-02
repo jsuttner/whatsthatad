@@ -12,5 +12,6 @@
     <item name="primary" type="color">@color/wta_blue_light</item>
     <item name="primary_dark" type="color">@color/wta_blue_light</item>
     <item name="accent" type="color">@color/wta_blue</item>
+    <color name="transparent">#00DDDDDD</color>
 
 </resources>
