@@ -31,6 +31,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 	public static final String FIELD_answer3 = "answer3";
 	public static final String FIELD_answer4 = "answer4";
 	public static final String FIELD_type = "type";
+	public static final String FIELD_solved = "solved";
 
 	// Database
 	private static SQLiteDatabase db;
@@ -48,7 +49,9 @@ public class QuestionDB extends SQLiteOpenHelper {
 				+ FIELD_id + " INTEGER PRIMARY KEY AUTOINCREMENT," + FIELD_urlCensored
 				+ " TEXT," + FIELD_urlUncensored + " TEXT," + FIELD_answer + " TEXT," +
 				  FIELD_question + " TEXT," + FIELD_answer1 + " TEXT," + FIELD_answer2 + " TEXT," + FIELD_answer3 + " TEXT,"
-				  + FIELD_answer4 + " TEXT," + FIELD_type + " INTEGER" + ")";
+				  + FIELD_answer4 + " TEXT," + FIELD_type + " INTEGER,"
+				  + FIELD_solved + " INTEGER"
+				  + ")";
 		db.execSQL(CREATE_CATEGORIES_TABLE);;
 	}
 
@@ -122,15 +125,12 @@ public class QuestionDB extends SQLiteOpenHelper {
 				// Try to create new SinglePlayerQuestion and add it to list
 				try {
 					labels.add(new QuestionSinglePlayer(cursor.getInt(0), cursor.getString(1), cursor
-							.getString(2), cursor.getString(3), cursor.getString(4)));
+							.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(10)));
 				} catch (CorrectAnswerException e) {
 					e.printStackTrace();
 				}
 			} while (cursor.moveToNext());
 		}
-		// closing connection
-		//cursor.close();
-		//db.close();
 		// returning labels
 		return labels;
 	}
@@ -140,6 +140,14 @@ public class QuestionDB extends SQLiteOpenHelper {
 		
 		Cursor c = db.rawQuery("SELECT * FROM " + TABLE_QUESTIONS + " WHERE " + FIELD_type + " = " + selection, null);
 		return c;
+	}
+	
+	public int updateQuestion(int id){
+		String strFilter = FIELD_id + "=" + id;
+		ContentValues args = new ContentValues();
+		args.put(FIELD_solved, "1");
+		int effected = db.update(TABLE_QUESTIONS, args, strFilter, null);
+		return effected;
 	}
 
 }

@@ -71,6 +71,7 @@ public class QuestionContentProvider extends ContentProvider {
 
 	@Override
 	public int update(Uri arg0, ContentValues arg1, String arg2, String[] arg3) {
-		return 0;
+		int id = arg1.getAsInteger(QuestionDB.FIELD_id);
+		return questionDB.updateQuestion(id);
 	}
 }

@@ -230,6 +230,10 @@ public class SinglePlayerActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				// start single player menu
+				Intent i = new Intent(getApplicationContext(), SingleMenuActivity.class);
+				i.putExtra("question", q.getID());
+				startActivity(i);
 				finish();
 			}
 		});
