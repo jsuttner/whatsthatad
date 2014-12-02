@@ -143,10 +143,10 @@ public class QuestionDB extends SQLiteOpenHelper {
 	}
 	
 	public int updateQuestion(int id){
-		String strFilter = "_id=" + id;
+		String strFilter = FIELD_id + "=" + id;
 		ContentValues args = new ContentValues();
-		args.put(FIELD_solved, 1);
-		int effected = db.update("titles", args, strFilter, null);
+		args.put(FIELD_solved, "1");
+		int effected = db.update(TABLE_QUESTIONS, args, strFilter, null);
 		return effected;
 	}
 

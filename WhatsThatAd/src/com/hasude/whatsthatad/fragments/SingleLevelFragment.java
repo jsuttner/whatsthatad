@@ -111,7 +111,7 @@ public class SingleLevelFragment extends Fragment{
 					    d = getResources().getDrawable(R.drawable.face);
 					    System.out.println("Bild: " + sma.questionList.get(level * 12 + (j + (i*3))).getAdCensoredAsUri().getPath());
 					}			
-					Bitmap bm = convertToBitmap(d, 200, 200);		
+					Bitmap bm = convertToBitmap(d, 150, 150);		
 					image.setImageBitmap(bm);
 					
 					// Set Clicklistener
@@ -128,6 +128,7 @@ public class SingleLevelFragment extends Fragment{
 							Intent i = new Intent(getActivity(), SinglePlayerActivity.class);
 							i.putExtra("question", questionList.get(level*12+questionID));
 							startActivity(i);
+							getActivity().finish();
 							
 						}
 					});

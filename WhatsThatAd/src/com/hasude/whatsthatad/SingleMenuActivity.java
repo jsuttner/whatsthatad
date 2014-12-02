@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentValues;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -25,11 +26,25 @@ LoaderCallbacks<Cursor>{
 	private ViewPager viewPager;
 	private SwipeAdapter swipeAdapter;
 	public List<QuestionSinglePlayer> questionList;
+	private Intent i;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_single_menu);
+		
+		i = getIntent();
+		// get extras and update Database
+		int questionID = (int) i.getIntExtra("question", 0);
+		System.out.println("ID: "+ questionID);
+		if(questionID != 0){
+			ContentValues cV = new ContentValues();
+			cV.put(QuestionDB.FIELD_id, questionID);
+			cV.put(QuestionDB.FIELD_solved, true);
+	        QuestionUpdateTask questionUpdateTask = new QuestionUpdateTask();
+	        questionUpdateTask.execute(cV);
+	        System.out.println("Update durchgeführt");
+		}
 		
 		// Initialize LoaderManager
 		getLoaderManager().initLoader(0, null, this);
@@ -54,6 +69,14 @@ LoaderCallbacks<Cursor>{
 		@Override
 		protected Void doInBackground(Void... params) {
             getContentResolver().delete(QuestionContentProvider.CONTENT_URI, null, null);			
+			return null;
+		}		
+	}
+	
+	private class QuestionUpdateTask extends AsyncTask<ContentValues, Void, Void>{
+		@Override
+		protected Void doInBackground(ContentValues... contentValues) {
+            getContentResolver().update(QuestionContentProvider.CONTENT_URI, contentValues[0], "", new String[0]);			
 			return null;
 		}		
 	}
