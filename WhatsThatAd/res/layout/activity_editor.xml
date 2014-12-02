@@ -54,7 +54,7 @@
 		    android:background="@color/transparent"
             android:contentDescription="@string/resize"
             android:onClick="logoBtnListener"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/wta_symbol" />
     </LinearLayout>
 
     <com.hasude.whatsthatad.VScroll
@@ -83,7 +83,7 @@
         android:layout_marginBottom="@dimen/button_margin"
         android:layout_marginRight="@dimen/button_margin_left"
         android:layout_marginTop="@dimen/button_margin"
-        android:drawableStart="@drawable/ic_action_person"
+        android:drawableStart="@drawable/ic_action_forward"
         android:gravity="center|fill_horizontal|end"
         android:paddingLeft="20dp"
         android:layout_weight="0.1"

@@ -84,7 +84,7 @@ public class EditorActivity extends Activity {
 		size = new Point();
 		display.getSize(size);
 
-		bm = BitmapFactory.decodeResource(this.getResources(), R.drawable.logo);
+		bm = BitmapFactory.decodeResource(this.getResources(), R.drawable.logo_grey);
 		mScaleDetector = new ScaleGestureDetector(getApplicationContext(),
 				new ScaleListener());
 
