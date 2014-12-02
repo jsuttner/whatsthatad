@@ -48,10 +48,10 @@ public class QuestionUploadActivity extends Activity{
 						questionType = 0;
 						
 						// set answer poss invisible
-						answer1Input.setVisibility(View.INVISIBLE);
-						answer2Input.setVisibility(View.INVISIBLE);
-						answer3Input.setVisibility(View.INVISIBLE);
-						answer4Input.setVisibility(View.INVISIBLE);
+						answer1Input.setVisibility(View.GONE);
+						answer2Input.setVisibility(View.GONE);
+						answer3Input.setVisibility(View.GONE);
+						answer4Input.setVisibility(View.GONE);
 						break;
 					case R.id.multi_radio:
 						questionType = 1;

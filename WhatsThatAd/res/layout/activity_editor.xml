@@ -1,58 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
     <LinearLayout
         android:id="@+id/button_list"
-	    android:layout_width="wrap_content"
-	    android:layout_height="50dp"
-	    android:layout_gravity="center"
-	    android:orientation="horizontal" >
-	    
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
         <ImageButton
-		    android:id="@+id/uploadBtn"
-		    android:layout_width="wrap_content"
-		    android:layout_height="fill_parent"
-		    android:contentDescription="@string/hidePart"
-		    android:src="@drawable/ic_action_camera" 
-		    android:onClick="photoBtnListener"/>
+            android:id="@+id/uploadBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/hidePart"
+            android:onClick="photoBtnListener"
+            android:src="@drawable/ic_action_camera" />
+
         <ImageButton
-		    android:id="@+id/photoBtn"
-		    android:layout_width="wrap_content"
-		    android:layout_height="fill_parent"
-		    android:contentDescription="@string/hidePart"
-		    android:src="@drawable/ic_action_new_picture" 
-		    android:onClick="uploadBtnListener"/>
+            android:id="@+id/photoBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/hidePart"
+            android:onClick="uploadBtnListener"
+            android:src="@drawable/ic_action_new_picture" />
+
         <ImageButton
-		    android:id="@+id/brushBtn"
-		    android:layout_width="wrap_content"
-		    android:layout_height="fill_parent"
-		    android:contentDescription="@string/hidePart"
-		    android:src="@drawable/ic_action_edit" 
-		    android:onClick="brushBtnListener"/>
+            android:id="@+id/brushBtn"
+		    android:layout_width="48dp"
+		    android:layout_height="48dp"
+		    android:background="@color/transparent"
+            android:contentDescription="@string/hidePart"
+            android:onClick="brushBtnListener"
+            android:src="@drawable/ic_action_edit" />
+
         <ImageButton
-		    android:id="@+id/scrollBtn"
-		    android:layout_width="wrap_content"
-		    android:layout_height="fill_parent"
-		    android:contentDescription="@string/blurPart"
-		    android:src="@drawable/ic_action_mouse" 
-		    android:onClick="scrollBtnListener"/>
+            android:id="@+id/scrollBtn"
+		    android:layout_width="48dp"
+		    android:layout_height="48dp"
+		    android:background="@color/transparent"
+            android:contentDescription="@string/blurPart"
+            android:onClick="scrollBtnListener"
+            android:src="@drawable/ic_action_mouse" />
+
         <ImageButton
-		    android:id="@+id/logoBtn"
-		    android:layout_width="wrap_content"
-		    android:layout_height="fill_parent"
-		    android:contentDescription="@string/resize"
-		    android:src="@drawable/ic_launcher" 
-		    android:onClick="logoBtnListener"/>
-        
-	</LinearLayout>
-	
+            android:id="@+id/logoBtn"
+		    android:layout_width="48dp"
+		    android:layout_height="48dp"
+		    android:background="@color/transparent"
+            android:contentDescription="@string/resize"
+            android:onClick="logoBtnListener"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
     <com.hasude.whatsthatad.VScroll
-        android:layout_width="fill_parent" 
-        android:layout_weight="0.9"
+        android:id="@+id/vScroll"
+        android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:id="@+id/vScroll">
+        android:layout_weight="0.9" >
 
         <TextView
             android:id="@+id/upload_txt"
@@ -63,15 +72,22 @@
             android:padding="20dp"
             android:text="@string/upload_image_txt"
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
     </com.hasude.whatsthatad.VScroll>
 
     <Button
         android:id="@+id/nextBtn"
+        style="@style/WhatsThatAd.MainMenuButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_gravity="left"
+        android:layout_marginBottom="@dimen/button_margin"
+        android:layout_marginRight="@dimen/button_margin_left"
+        android:layout_marginTop="@dimen/button_margin"
+        android:drawableStart="@drawable/ic_action_person"
+        android:gravity="center|fill_horizontal|end"
+        android:paddingLeft="20dp"
         android:layout_weight="0.1"
-        android:text="@string/editor_next" 
-        android:onClick="nextBtnListener"/>
-	    
+        android:onClick="nextBtnListener"
+        android:text="@string/editor_next" />
+
 </LinearLayout>

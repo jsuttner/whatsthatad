@@ -1,118 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="20dp"
-        android:text="@string/question_details"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="vertical" >
 
-    <EditText
-        android:id="@+id/upload_question_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginBottom="20dp"
-        android:hint="@string/upload_ques_text" >
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="@dimen/button_margin_left"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_lightblue_default"
+            android:gravity="center"
+            android:paddingLeft="12dp"
+            android:paddingRight="24dp"
+            android:text="@string/question_details"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <requestFocus />
-    </EditText>
-    
-    <View
-	    android:layout_width="fill_parent"
-	    android:layout_height="1dp"
-	    android:background="@android:color/black"/>
+        <EditText
+            android:id="@+id/upload_question_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="@dimen/button_margin_left"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_grey_default"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/upload_ques_text"
+            android:paddingLeft="12dp"
+            android:paddingRight="24dp" />
 
-    <RadioGroup
-        android:id="@+id/typeGroup"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp" 
-        android:layout_marginTop="20dp">
-
-        <RadioButton
-            android:id="@+id/single_radio"
+        <RadioGroup
+            android:id="@+id/typeGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/singleplayer" />
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="@dimen/button_margin_left"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_grey_default"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="12dp"
+            android:paddingRight="24dp" >
 
-        <RadioButton
-            android:id="@+id/multi_radio"
-            android:layout_width="wrap_content"
+            <RadioButton
+                android:id="@+id/single_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:checked="true"
+                android:text="@string/singleplayer" />
+
+            <RadioButton
+                android:id="@+id/multi_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/multiplayer" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/upload_answer1_input"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/multiplayer" />
-    </RadioGroup>
-    
-    <View
-	    android:layout_width="fill_parent"
-	    android:layout_height="1dp"
-	    android:background="@android:color/black"/>
+            android:layout_marginRight="@dimen/button_margin_left"
+            android:ems="10"
+            android:hint="@string/answer_poss_1"
+            android:visibility="gone" />
 
-    <EditText
-        android:id="@+id/upload_correct_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="@string/upload_correct_answer" />
-    
-    <View
-	    android:layout_width="fill_parent"
-	    android:layout_height="1dp"
-	    android:background="@android:color/black"/>
+        <EditText
+            android:id="@+id/upload_answer2_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/button_margin_left"
+            android:ems="10"
+            android:hint="@string/answer_poss_2"
+            android:visibility="gone" />
 
-    <EditText
-        android:id="@+id/upload_answer1_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:visibility="invisible"
-        android:hint="@string/answer_poss_1" />
+        <EditText
+            android:id="@+id/upload_answer3_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/button_margin_left"
+            android:ems="10"
+            android:hint="@string/answer_poss_3"
+            android:visibility="gone" />
 
-    <EditText
-        android:id="@+id/upload_answer2_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:visibility="invisible"
-        android:hint="@string/answer_poss_2" />
+        <EditText
+            android:id="@+id/upload_answer4_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/button_margin_left"
+            android:ems="10"
+            android:hint="@string/answer_poss_4"
+            android:visibility="gone" />
 
-    <EditText
-        android:id="@+id/upload_answer3_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:visibility="invisible"
-        android:hint="@string/answer_poss_3" />
+        <EditText
+            android:id="@+id/upload_correct_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="@dimen/button_margin_left"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_grey_default"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/upload_correct_answer"
+            android:paddingLeft="12dp"
+            android:paddingRight="24dp" />
 
-    <EditText
-        android:id="@+id/upload_answer4_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:visibility="invisible"
-        android:hint="@string/answer_poss_4" />
-    
-    <View
-	    android:layout_width="fill_parent"
-	    android:layout_height="1dp"
-	    android:background="@android:color/black"/>
+        <Button
+            android:id="@+id/saveQuesBtn"
+            style="@style/WhatsThatAd.MainMenuButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginBottom="@dimen/button_margin"
+            android:layout_marginRight="@dimen/button_margin_left"
+            android:layout_marginTop="@dimen/button_margin"
+            android:gravity="center|fill_horizontal|end"
+            android:onClick="saveBtnListener"
+            android:paddingLeft="20dp"
+            android:text="@string/save_question" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/saveQuesBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:onClick="saveBtnListener"
-        android:text="@string/save_question" />
-
-</LinearLayout>
+</ScrollView>
