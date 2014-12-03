@@ -338,17 +338,21 @@
             android:id="@+id/progressText"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_weight="1.5"
-            android:text="0/12 Ads solved for the next level" 
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="0/12 Ads solved for the next level" />
             
         <ProgressBar
             android:id="@+id/singleProgressbar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="3dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_weight="1" />
+
     </LinearLayout>
 
 </LinearLayout>

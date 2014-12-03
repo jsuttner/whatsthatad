@@ -68,10 +68,12 @@ public class SingleLevelFragment extends Fragment {
 				R.drawable.single_progressbar);
 		progress.setProgressDrawable(barStyle);
 		progress.setProgress(0);
+		// set unlock next level border
+		progress.setSecondaryProgress((int) ((float) 7 / (float) 12 * (float) 100));
 
 		// set ProgressInfo
 		progressText = (TextView) levelView.findViewById(R.id.progressText);
-		progressText.setText("0/12 Ads for the next Level");
+		progressText.setText("0/12 "+ getResources().getString(R.string.next_level_info));
 
 	}
 
@@ -83,7 +85,7 @@ public class SingleLevelFragment extends Fragment {
 		}
 		progress.setProgress((int) ((float) progressCount / (float) 12 * (float) 100));
 
-		progressText.setText(progressCount + "/12 Ads for the next Level");
+		progressText.setText(progressCount + "/12 " + getResources().getString(R.string.next_level_info));
 	}
 
 	private void initImageBoxes(View levelView) {

@@ -27,9 +27,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:clickable="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/logo" 
-                android:clickable="true"/>
+                android:src="@drawable/logo" />
 
             <Button
                 android:id="@+id/MultiBtnPlayer2"
@@ -77,22 +77,24 @@
 
     <TextView
         android:id="@+id/MultiTxtInformation"
+        style="@style/WhatsThatAd.MainMenuButton"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/button_costume"
-        android:gravity="center_horizontal"
-        android:text="Testitest du alter stinker"
-        android:textColor="@android:color/black"
-        android:textSize="18dp" 
-        
-        style="@style/WhatsThatAd.MainMenuButton"
         android:layout_gravity="left"
         android:layout_marginBottom="@dimen/button_margin"
         android:layout_marginRight="@dimen/button_margin_left"
         android:layout_marginTop="@dimen/button_margin"
-        android:drawableStart="@drawable/ic_action_group"
-        android:visibility="invisible"/>
+        android:background="@drawable/button_costume"
+        android:gravity="center_horizontal"
+        android:paddingBottom="2dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="24dp"
+        android:paddingTop="2dp"
+        android:text="Testitest du alter stinker"
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:visibility="invisible" />
 
 </RelativeLayout>

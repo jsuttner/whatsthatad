@@ -19,8 +19,10 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/button_lightblue_default"
             android:gravity="center"
+            android:paddingBottom="2dp"
             android:paddingLeft="12dp"
             android:paddingRight="24dp"
+            android:paddingTop="2dp"
             android:text="@string/question_details"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -35,8 +37,10 @@
             android:ems="10"
             android:gravity="center"
             android:hint="@string/upload_ques_text"
+            android:paddingBottom="2dp"
             android:paddingLeft="12dp"
-            android:paddingRight="24dp" />
+            android:paddingRight="24dp"
+            android:paddingTop="2dp" />
 
         <RadioGroup
             android:id="@+id/typeGroup"
@@ -48,8 +52,10 @@
             android:background="@drawable/button_grey_default"
             android:gravity="center"
             android:orientation="horizontal"
+            android:paddingBottom="2dp"
             android:paddingLeft="12dp"
-            android:paddingRight="24dp" >
+            android:paddingRight="24dp"
+            android:paddingTop="2dp" >
 
             <RadioButton
                 android:id="@+id/single_radio"
@@ -114,8 +120,10 @@
             android:ems="10"
             android:gravity="center"
             android:hint="@string/upload_correct_answer"
+            android:paddingBottom="2dp"
             android:paddingLeft="12dp"
-            android:paddingRight="24dp" />
+            android:paddingRight="24dp"
+            android:paddingTop="2dp" />
 
         <Button
             android:id="@+id/saveQuesBtn"
@@ -125,10 +133,10 @@
             android:layout_marginBottom="@dimen/button_margin"
             android:layout_marginRight="@dimen/button_margin_left"
             android:layout_marginTop="@dimen/button_margin"
+            android:drawableStart="@drawable/ic_action_save"
             android:gravity="center|fill_horizontal|end"
             android:onClick="saveBtnListener"
             android:paddingLeft="20dp"
-            android:drawableStart="@drawable/ic_action_save"
             android:text="@string/save_question" />
     </LinearLayout>
 
