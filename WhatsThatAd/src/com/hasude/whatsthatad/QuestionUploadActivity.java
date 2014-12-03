@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -38,7 +40,7 @@ public class QuestionUploadActivity extends Activity{
 //		Bitmap cencored = (Bitmap) intent.getParcelableExtra("cencored");
 //		Bitmap uncencored = (Bitmap) intent.getParcelableExtra("uncencored");
 		
-		typeGroup = (RadioGroup) findViewById(R.id.typeGroup);	
+		typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
 		typeGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -69,10 +71,9 @@ public class QuestionUploadActivity extends Activity{
 			}
 		});
 	}
-	
+
 	public void saveBtnListener(View v) {
 		// check correctness
-		
 		// TODO; save in Database
 		
 		// start editor activity
