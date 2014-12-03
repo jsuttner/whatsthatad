@@ -137,6 +137,7 @@ public class EditorActivity extends Activity {
 				&& resultCode == Activity.RESULT_OK) {
 			Uri selectedImage = intent.getData();
 			try {
+				// TODO: grabImage
 				Bitmap bm = MediaStore.Images.Media.getBitmap(
 						this.getContentResolver(), selectedImage);
 				uncencored = bm;
@@ -171,7 +172,7 @@ public class EditorActivity extends Activity {
 		hScroll.addView(draw);
 		vScroll.addView(hScroll);
 
-		// set is loaded to true, to avoid errors
+		// set isLoaded to true, to avoid errors
 		isLoaded = true;
 	}
 
@@ -237,13 +238,14 @@ public class EditorActivity extends Activity {
 					hScroll.scrollBy((int) (mx - curX), (int) (my - curY));
 					break;
 				}
-				// else let him draw
+			// else let him draw
 			} else if (mode == 1) {
 				Log.d("ED", "X: " + event.getX() + " Y: " + event.getY());
 				Log.d("ED", "DifX: " + difX);
 				Log.d("ED", "DifY: " + difY);
 				draw.touchDraw(event.getX() + difX,
 						event.getY() - (btnList.getHeight() + 20) + difY, event);
+			// else let user place logo
 			} else if (mode == 2) {
 				switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:
@@ -270,6 +272,7 @@ public class EditorActivity extends Activity {
 			}
 			return true;
 		} else
+			// TODO: error
 			return false;
 	}
 
@@ -307,6 +310,8 @@ public class EditorActivity extends Activity {
 
 		for (ImageButton b : buttons)
 			b.setBackgroundColor(getResources().getColor(R.color.transparent));
+		buttons.get(mode).setBackgroundColor(
+				getResources().getColor(R.color.wta_blue));
 	}
 
 	public void photoBtnListener(View v) {
@@ -329,6 +334,9 @@ public class EditorActivity extends Activity {
 
 		for (ImageButton b : buttons)
 			b.setBackgroundColor(getResources().getColor(R.color.transparent));
+		buttons.get(mode).setBackgroundColor(
+				getResources().getColor(R.color.wta_blue));
+		
 	}
 
 	public void nextBtnListener(View v) {

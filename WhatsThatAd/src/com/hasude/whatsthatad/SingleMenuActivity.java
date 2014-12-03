@@ -49,11 +49,11 @@ LoaderCallbacks<Cursor>{
 		// Initialize LoaderManager
 		getLoaderManager().initLoader(0, null, this);
 		
-		//QuestionDeleteTask d = new QuestionDeleteTask();
-		//d.execute();
+//		QuestionDeleteTask d = new QuestionDeleteTask();
+//		d.execute();
 		
-		// Test Inserts
-		//testInserts();
+//		Test Inserts
+//		testInserts();
 	}
 
 	private class QuestionInsertTask extends AsyncTask<ContentValues, Void, Void>{

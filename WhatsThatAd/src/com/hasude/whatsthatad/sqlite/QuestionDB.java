@@ -17,7 +17,7 @@ public class QuestionDB extends SQLiteOpenHelper {
 	// Database Version
 	public static final int DATABASE_VERSION = 1;
 	// Database Name
-	private static final String DATABASE_NAME = "QuestionDB";
+	public static final String DATABASE_NAME = "QuestionDB";
 	// Labels table name
 	public static final String TABLE_QUESTIONS = "questions";
 	// Labels Table Columns names

@@ -80,9 +80,8 @@ public class DrawingView extends View{
 	 @Override
      protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
          // Compute the height required to render the view
-         // Assume Width will always be MATCH_PARENT.
          int width = canvasBitmap.getWidth();
-         int height = canvasBitmap.getHeight(); // Since 3000 is bottom of last Rect to be drawn added and 50 for padding.
+         int height = canvasBitmap.getHeight();
          setMeasuredDimension(width, height);
      }
 	
