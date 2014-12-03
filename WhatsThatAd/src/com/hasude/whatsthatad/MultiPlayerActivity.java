@@ -3,6 +3,7 @@ package com.hasude.whatsthatad;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.ColorRes;
@@ -31,6 +32,9 @@ public class MultiPlayerActivity extends Activity {
 
 	private static final int[] P_COLORS = new int[] { R.color.player1,
 			R.color.player2 };
+	private static final int[] P_BUTTONS = new int[] {
+			R.drawable.multi_answer_button_p1,
+			R.drawable.multi_answer_button_p2 };
 
 	private Button[] answers;
 
@@ -97,7 +101,10 @@ public class MultiPlayerActivity extends Activity {
 				Log.d(DEBUG_TAG, "OnClickListener");
 				if (waitingForNextRound == true) {
 					waitingForNextRound = false;
-					initGame(game.nextQuestion());
+					if (game.getQuestionNumber() < 10) {
+						initGame(game.nextQuestion());
+					} else
+						finish();
 				}
 			}
 
@@ -124,8 +131,12 @@ public class MultiPlayerActivity extends Activity {
 		if (game.getActQuestion().isAnswerCorrect(answer)) {
 			game.increasePlayerPoints(player, 1);
 
-			showInformation(getResources().getString(
-					R.string.multi_info_correct_answer));
+			if (game.getQuestionNumber() < 10)
+				showInformation(getResources().getString(
+						R.string.multi_info_correct_answer));
+			else
+				showInformation(game.getWinner() + " "
+						+ getResources().getString(R.string.multi_info_win));
 
 			image.setImageURI(game.getActQuestion().getAdUncensoredAsUri());
 
@@ -170,8 +181,6 @@ public class MultiPlayerActivity extends Activity {
 			answers[i].setText(q.getAnswer(i));
 		}
 		setAnswerButtonsEnabled(0, false);
-		for (int i = 0; i < 2; i++)
-			pBtns[i].setBackgroundColor(P_COLORS[i]);
 		onPointsChanged();
 		setPlayerButtonsEnabled(true);
 	}
@@ -195,12 +204,14 @@ public class MultiPlayerActivity extends Activity {
 
 			for (Button b : answers) {
 				b.setBackgroundColor(P_COLORS[player]);
+				b.setBackgroundResource(P_BUTTONS[player]);
 				b.setOnClickListener(answerOptionsListener);
 				b.setClickable(true);
 			}
 		} else {
 			for (Button b : answers) {
 				b.setBackgroundColor(Color.GRAY);
+				b.setBackgroundResource(R.drawable.back);
 				b.setOnClickListener(null);
 				b.setClickable(false);
 			}
@@ -218,7 +229,7 @@ public class MultiPlayerActivity extends Activity {
 		menu_visible = false;
 		animHide.reset();
 		information.startAnimation(animHide);
-		information.setVisibility(View.INVISIBLE);
+		information.setVisibility(View.GONE);
 	}
 
 	private void displayMenu() {

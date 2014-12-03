@@ -24,12 +24,21 @@ public class GameMultiplayer implements Serializable {
 			points[i] = 0;
 			this.names[i] = playerNames[i];
 		}
-		
+
 		actQuestion = 0;
 	}
 
 	public QuestionMultiPlayer nextQuestion() {
 		return questions[++actQuestion];
+	}
+
+	public String getWinner() {
+		if(points[0]> points[1])
+			return names[0];
+		else if(points[1]> points[0])
+			return names[1];
+		else 
+			return "Both";
 	}
 
 	public String getPlayerName(int i) {
@@ -52,12 +61,12 @@ public class GameMultiplayer implements Serializable {
 	public int getQuestionNumber() {
 		return actQuestion + 1;
 	}
-	
-	public void setActivity(MultiPlayerActivity a){
+
+	public void setActivity(MultiPlayerActivity a) {
 		activity = a;
 	}
-	
-	public void setQuestions(QuestionMultiPlayer[] q){
+
+	public void setQuestions(QuestionMultiPlayer[] q) {
 		questions = q;
 	}
 }
