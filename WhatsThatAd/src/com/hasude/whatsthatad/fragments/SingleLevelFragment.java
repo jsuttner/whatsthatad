@@ -61,6 +61,7 @@ public class SingleLevelFragment extends Fragment {
 		return levelView;
 	}
 
+	// Update level progress bar and information
 	private void initLevelInfo(View levelView) {
 		// set Progressbar
 		progress = (ProgressBar) levelView.findViewById(R.id.singleProgressbar);
@@ -77,6 +78,7 @@ public class SingleLevelFragment extends Fragment {
 
 	}
 
+	// Update Level info
 	private void updateLevelInfo() {
 		int progressCount = 0;
 		for (int i = 0; i < 12; i++) {
@@ -88,6 +90,7 @@ public class SingleLevelFragment extends Fragment {
 		progressText.setText(progressCount + "/12 " + getResources().getString(R.string.next_level_info));
 	}
 
+	// Initialize Imageboxes, set images in Boxes, tags and clicklistener
 	private void initImageBoxes(View levelView) {
 
 		checkLevelAvailablity();
@@ -111,6 +114,7 @@ public class SingleLevelFragment extends Fragment {
 				// Set Identifier in Tag
 				image.setTag("" + (j + (i * 3)));
 
+				// If Level is unlocked, pictures and clicklisteners loading
 				if (unlocked) {
 					// Set Thumbnail
 					Drawable d;
@@ -177,6 +181,7 @@ public class SingleLevelFragment extends Fragment {
 		updateLevelInfo();
 	}
 
+	// Grayscale for unsolved Questions
 	private Bitmap toGrayscale(Bitmap bmpOriginal) {
 		int width, height;
 		height = bmpOriginal.getHeight();
@@ -194,6 +199,7 @@ public class SingleLevelFragment extends Fragment {
 		return bmpGrayscale;
 	}
 
+	// Check if enough question solved in level before
 	private void checkLevelAvailablity() {
 		if (level == 0) {
 			unlocked = true;
@@ -208,6 +214,7 @@ public class SingleLevelFragment extends Fragment {
 		}
 	}
 
+	// Convert drawable to Bitmap
 	public Bitmap convertToBitmap(Drawable drawable, int widthPixels,
 			int heightPixels) {
 		Bitmap mutableBitmap = Bitmap.createBitmap(widthPixels, heightPixels,

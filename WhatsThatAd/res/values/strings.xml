@@ -34,7 +34,7 @@
     <string name="answer_poss_4">Answer Possibility 4</string>
     <string name="save_question">Save Question</string>
     <string name="question_details">Question Details</string>
-    <string name="next_level_info">Ads for the next Level</string>
+    <string name="next_level_info">Ads solved for current Level</string>
     <string name="multi_info_win">won the game!</string>
 
 </resources>
