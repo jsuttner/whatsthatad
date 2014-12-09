@@ -33,6 +33,7 @@ LoaderCallbacks<Cursor>{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_single_menu);
 		
+		// If Question is solved Database will be updated
 		i = getIntent();
 		// get extras and update Database
 		int questionID = (int) i.getIntExtra("question", 0);
@@ -43,7 +44,7 @@ LoaderCallbacks<Cursor>{
 			cV.put(QuestionDB.FIELD_solved, true);
 	        QuestionUpdateTask questionUpdateTask = new QuestionUpdateTask();
 	        questionUpdateTask.execute(cV);
-	        System.out.println("Update durchgeführt");
+	        //System.out.println("Update durchgeführt");
 		}
 		
 		// Initialize LoaderManager
@@ -56,6 +57,7 @@ LoaderCallbacks<Cursor>{
 //		testInserts();
 	}
 
+	// Task to add Question in database
 	private class QuestionInsertTask extends AsyncTask<ContentValues, Void, Void>{
 		@Override
 		protected Void doInBackground(ContentValues... contentValues) {    
@@ -65,6 +67,7 @@ LoaderCallbacks<Cursor>{
 		}		
 	}
 	
+	// Task to delete Question in database
 	private class QuestionDeleteTask extends AsyncTask<Void, Void, Void>{
 		@Override
 		protected Void doInBackground(Void... params) {
@@ -73,6 +76,7 @@ LoaderCallbacks<Cursor>{
 		}		
 	}
 	
+	// Task to update Question in database
 	private class QuestionUpdateTask extends AsyncTask<ContentValues, Void, Void>{
 		@Override
 		protected Void doInBackground(ContentValues... contentValues) {
@@ -81,6 +85,7 @@ LoaderCallbacks<Cursor>{
 		}		
 	}
 
+	// Get Uri for Loader<Curser>
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		// URI to the Content Provider locationsContentProvider
@@ -89,6 +94,7 @@ LoaderCallbacks<Cursor>{
 		return new CursorLoader(this, contentUri, null, "0", null, null);
 	}
 
+	// Load all Singleplayer questions from database and provide it to activity
 	@Override
 	public void onLoadFinished(Loader<Cursor> arg0, Cursor cursor) {
 		Log.d("DB", "OnLoadFinished aufgerufen");
@@ -115,14 +121,15 @@ LoaderCallbacks<Cursor>{
 		
 		cursor.close();
 		
+		// Load Levelviews with data from Database
 		loadPageViewer();
 	}
 
 	@Override
-	public void onLoaderReset(Loader<Cursor> loader) {
-		
+	public void onLoaderReset(Loader<Cursor> loader) {	
 	}
 	
+	// Load Levelviews
 	private void loadPageViewer() {
 		// Swipe Views for Levels
 		viewPager = (ViewPager) findViewById(R.id.singlePager);
@@ -130,6 +137,7 @@ LoaderCallbacks<Cursor>{
 		viewPager.setAdapter(swipeAdapter);
 	}
 	
+	// Testdatasets for App
 	private void testInserts() {
 		// Creating LocationInsertTask
 		// Adidas - 1
