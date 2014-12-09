@@ -31,7 +31,6 @@ public class QuestionContentProvider extends ContentProvider {
 	public boolean onCreate() {
 		Log.d("DB", "ContentProvider created");
 		questionDB = new QuestionDB(getContext());
-		questionDB.getWritableDatabase();
 		return true;
 	}
 

@@ -1,14 +1,17 @@
 package com.hasude.whatsthatad;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentValues;
+import android.content.ContextWrapper;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -51,9 +54,6 @@ LoaderCallbacks<Cursor>{
 		
 //		QuestionDeleteTask d = new QuestionDeleteTask();
 //		d.execute();
-		
-//		Test Inserts
-//		testInserts();
 	}
 
 	private class QuestionInsertTask extends AsyncTask<ContentValues, Void, Void>{
@@ -93,6 +93,10 @@ LoaderCallbacks<Cursor>{
 	public void onLoadFinished(Loader<Cursor> arg0, Cursor cursor) {
 		Log.d("DB", "OnLoadFinished aufgerufen");
 
+		if(cursor.getCount() <= 0) {
+			testInserts();
+			return;
+		}
 		questionList = new ArrayList<QuestionSinglePlayer>();
 		// looping through all rows and adding to list
 		if (cursor.moveToFirst()) {
@@ -117,10 +121,29 @@ LoaderCallbacks<Cursor>{
 		
 		loadPageViewer();
 	}
+	
+	private boolean hasTableData(SQLiteDatabase db) {
+		String mySQL= "SELECT count(*) as Total FROM " + QuestionDB.TABLE_QUESTIONS;
+		Cursor c = db.rawQuery(mySQL, null);
+		if(c.getCount() > 0) {
+			
+		}
+		return false;
+	}
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
 		
+	}
+	
+	/**
+	 * Check if the database exist
+	 * 
+	 * @return true if it exists, false if it doesn't
+	 */
+	private static boolean doesDatabaseExist(ContextWrapper context, String dbName) {
+	    File dbFile = context.getDatabasePath(dbName);
+	    return dbFile.exists();
 	}
 	
 	private void loadPageViewer() {
@@ -1286,5 +1309,9 @@ LoaderCallbacks<Cursor>{
         Log.d("DB", "Inserting test data 36");
         insertTask = new QuestionInsertTask();
 		insertTask.execute(contentValues);
+		
+		finish();
+		Intent i = new Intent(this, SingleMenuActivity.class);
+		startActivity(i);
 	}
 }

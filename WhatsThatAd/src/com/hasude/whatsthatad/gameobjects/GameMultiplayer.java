@@ -5,9 +5,7 @@ import java.io.Serializable;
 import com.hasude.whatsthatad.MultiPlayerActivity;
 
 public class GameMultiplayer implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 4184454371956161763L;
 	private QuestionMultiPlayer[] questions;
 	private int actQuestion;

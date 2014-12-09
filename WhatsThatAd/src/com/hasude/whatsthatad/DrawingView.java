@@ -21,18 +21,13 @@ import android.widget.LinearLayout;
 
 public class DrawingView extends View{
 	
-	private Context context;
-	
+	private Context context;	
 	//drawing path
 	private Path drawPath;
-	
-	private Path lastPath;
 	//drawing and canvas paint
 	private Paint drawPaint, canvasPaint;
 	//
 	private static LinearLayout.LayoutParams params;
-	//initial color
-	private int paintColor = 0xFF660000;
 	//canvas
 	private Canvas drawCanvas;
 	//canvas bitmap
@@ -42,10 +37,6 @@ public class DrawingView extends View{
 	private float logoX;
 	private float logoY;
 	
-	private float brushSize, lastBrushSize;
-	
-	private boolean erase=false;
-	
 	public DrawingView(Context context, AttributeSet attrs, Bitmap bm){
 	    super(context, attrs);
 	    canvasBitmap = bm;
@@ -53,6 +44,9 @@ public class DrawingView extends View{
 	    setupDrawing();
 	}
 	
+	/**
+	 * Initialises the brush drawing
+	 */
 	private void setupDrawing(){
 		drawPath = new Path();
 		drawPaint = new Paint();
@@ -77,24 +71,31 @@ public class DrawingView extends View{
 		
 	}
 	
-	 @Override
-     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-         // Compute the height required to render the view
+	@Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+         // Set the dimensions of this view to the bitmap's dimensions
          int width = canvasBitmap.getWidth();
          int height = canvasBitmap.getHeight();
          setMeasuredDimension(width, height);
-     }
+    }
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
 		canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
+		// only draw logo when its set
 		if (logoBm != null)
 			canvas.drawBitmap(logoBm, logoX, logoY, null);
 		canvas.drawPath(drawPath, drawPaint);
 	}
 	
+	/**
+	 * Initialises the bitmap, if already set it just updates its positions
+	 * @param bm - Bm to be initialised
+	 * @param left - position left (x)
+	 * @param top - position top (y)
+	 */
 	public void initLogoBm(Bitmap bm, float left, float top) {
-		if(logoBm == null) {
+		if(logoBm.equals(bm)) {
 			logoBm = bm;
 			logoX = left;
 			logoY = left;
@@ -104,10 +105,21 @@ public class DrawingView extends View{
 		}
 	}
 	
+	/**
+	 * Updates the bitmap
+	 * @param bm - New bitmap to be shown on canvas
+	 */
 	public void updateBm(Bitmap bm) {
 		logoBm = bm;
 	}
 	
+	/**
+	 * Lets user draw on view
+	 * @param touchX - X Position to be drawn
+	 * @param touchY - Y Position to be drawn
+	 * @param event - Touchevent (MotionEvent)
+	 * @return
+	 */
 	public boolean touchDraw(float touchX, float touchY, MotionEvent event) {
 
 		switch (event.getAction()) {
@@ -129,6 +141,11 @@ public class DrawingView extends View{
 		return true;
 	}
 
+	/**
+	 * Updates Bitmaps dimensions
+	 * @param x - X Position of Bm
+	 * @param y - Y Position of Bm
+	 */
 	public void translateLogoDims(float x, float y) {
 		logoX = x;
 		logoY = y;

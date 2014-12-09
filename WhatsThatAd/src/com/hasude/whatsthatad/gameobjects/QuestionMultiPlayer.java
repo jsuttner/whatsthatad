@@ -12,7 +12,6 @@ public class QuestionMultiPlayer extends Question {
 			String correctAnswer, String[] answers)
 			throws CorrectAnswerException, WrongNumberOfAnswersException {
 		super(id, censored, uncensored, correctAnswer);
-		// TODO Auto-generated constructor stub
 
 		// verify
 		if (answers.length != 4)

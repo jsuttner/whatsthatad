@@ -10,6 +10,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
@@ -45,14 +46,14 @@ public class QuestionDB extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// Category table create query
-		String CREATE_CATEGORIES_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "("
+		String CREATE_CATEGORIES_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_QUESTIONS + "("
 				+ FIELD_id + " INTEGER PRIMARY KEY AUTOINCREMENT," + FIELD_urlCensored
 				+ " TEXT," + FIELD_urlUncensored + " TEXT," + FIELD_answer + " TEXT," +
 				  FIELD_question + " TEXT," + FIELD_answer1 + " TEXT," + FIELD_answer2 + " TEXT," + FIELD_answer3 + " TEXT,"
 				  + FIELD_answer4 + " TEXT," + FIELD_type + " INTEGER,"
 				  + FIELD_solved + " INTEGER"
 				  + ")";
-		db.execSQL(CREATE_CATEGORIES_TABLE);;
+		db.execSQL(CREATE_CATEGORIES_TABLE);
 	}
 
 	// Upgrading database

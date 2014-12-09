@@ -5,14 +5,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class MainMenuActivity extends Activity {
 
@@ -45,7 +43,9 @@ public class MainMenuActivity extends Activity {
 		displayMenu(optionsBtn);
 		displayMenu(exitBtn);
 
-		// handlers for buttons
+		/**
+		 * Fires when singleplayer button is touched/clicked
+		 */
 		singleplayerBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -57,6 +57,9 @@ public class MainMenuActivity extends Activity {
 				startActivity(i);
 			}
 		});
+		/**
+		 * Fires when multiplayer button is touched/clicked
+		 */
 		multiplayerBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -69,6 +72,9 @@ public class MainMenuActivity extends Activity {
 
 			}
 		});
+		/**
+		 * Fires when Add an Ad button is touched/clicked
+		 */
 		addAdBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -79,6 +85,9 @@ public class MainMenuActivity extends Activity {
 				startActivity(i);
 			}
 		});
+		/**
+		 * Fires when options button is touched/clicked
+		 */
 		optionsBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -87,11 +96,15 @@ public class MainMenuActivity extends Activity {
 
 			}
 		});
+		/**
+		 * Fires when user touched/clicked on exit. 
+		 * Shows Dialogue if user really wants to leave
+		 */
 		exitBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				// TODO: ask if user really wants to leave, if yes terminate app
+
 				// 1. Instantiate an AlertDialog.Builder with its constructor
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MainMenuActivity.this);

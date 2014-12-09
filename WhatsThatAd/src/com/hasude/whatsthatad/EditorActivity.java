@@ -1,17 +1,13 @@
 package com.hasude.whatsthatad;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.UUID;
 
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.net.Uri;
@@ -24,14 +20,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditorActivity extends Activity {
@@ -45,9 +38,9 @@ public class EditorActivity extends Activity {
 	// view to draw on
 	private DrawingView draw;
 
+	// Bitmaps to pass to the next activity
 	private Bitmap cencored;
 	private Bitmap uncencored;
-	private Uri canvasUri;
 
 	// to ensure correct scolling
 	private float mx, my;
@@ -55,6 +48,7 @@ public class EditorActivity extends Activity {
 	private int difX, difY;
 	private int mode = 0;
 
+	// stuff for scaling the logo
 	private float mScaleFactor = 1.0f;
 	private ScaleGestureDetector mScaleDetector;
 
@@ -66,8 +60,10 @@ public class EditorActivity extends Activity {
 	private LinearLayout btnList;
 	private Point size;
 
+	// list of all the buttons which need active background
 	private ArrayList<ImageButton> buttons = new ArrayList<ImageButton>();
 
+	// Bitmap for the logo
 	Bitmap bm;
 	Bitmap scaledBm;
 	private float bmX = 200;
@@ -80,14 +76,19 @@ public class EditorActivity extends Activity {
 
 		btnList = (LinearLayout) findViewById(R.id.button_list);
 
+		// get display size to know when not to add sth to dif anymore
 		Display display = getWindowManager().getDefaultDisplay();
 		size = new Point();
 		display.getSize(size);
 
+		// get logo
 		bm = BitmapFactory.decodeResource(this.getResources(), R.drawable.logo_grey);
+		
+		// init gesture detector
 		mScaleDetector = new ScaleGestureDetector(getApplicationContext(),
 				new ScaleListener());
 
+		// add all the right buttons to the list
 		buttons.add((ImageButton) findViewById(R.id.scrollBtn));
 		buttons.add((ImageButton) findViewById(R.id.brushBtn));
 		buttons.add((ImageButton) findViewById(R.id.logoBtn));
@@ -102,6 +103,9 @@ public class EditorActivity extends Activity {
 		return super.onCreateOptionsMenu(menu);
 	}
 
+	/*
+	 * Creates a temporary file and returns it
+	 */
 	private File createTemporaryFile(String part, String ext) throws Exception {
 		File tempDir = Environment.getExternalStorageDirectory();
 		tempDir = new File(tempDir.getAbsolutePath() + "/.temp/");
@@ -111,6 +115,11 @@ public class EditorActivity extends Activity {
 		return File.createTempFile(part, ext, tempDir);
 	}
 
+	/**
+	 * Grabs an image from the specified uri
+	 * @param uri - Uri to the image to be grapped
+	 * @return - Image as Bitmap
+	 */
 	private Bitmap grabImage(Uri uri) {
 		this.getContentResolver().notifyChange(uri, null);
 		ContentResolver cr = this.getContentResolver();
@@ -123,35 +132,29 @@ public class EditorActivity extends Activity {
 		}
 	}
 
-	// called after camera intent finished
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		super.onActivityResult(requestCode, resultCode, intent);
 
+		// After taking a photo
 		if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
 			Bitmap bm = grabImage(photoUri);
 			uncencored = bm;
 			loadDrawView(bm);
-			// Image picked from gallery
+		// Image picked from gallery
 		} else if (requestCode == PHOTO_FROM_GALLERY
 				&& resultCode == Activity.RESULT_OK) {
 			Uri selectedImage = intent.getData();
-			try {
-				// TODO: grabImage
-				Bitmap bm = MediaStore.Images.Media.getBitmap(
-						this.getContentResolver(), selectedImage);
-				uncencored = bm;
-				loadDrawView(bm);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			Bitmap bm = grabImage(selectedImage);
+			uncencored = bm;
+			loadDrawView(bm);
 		}
 	}
 
+	/**
+	 * Loads Bitmap and creates the Drawing view accordingly
+	 * @param bm - Bitmap which is the background of the canvas
+	 */
 	private void loadDrawView(Bitmap bm) {
 
 		// get the parent element
@@ -176,6 +179,13 @@ public class EditorActivity extends Activity {
 		isLoaded = true;
 	}
 
+	/**
+	 * Resizes a bitmap and returns it
+	 * @param bm - Bitmap to be resized
+	 * @param newHeight
+	 * @param newWidth
+	 * @return - Resized bitmap
+	 */
 	public Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
 		int width = bm.getWidth();
 		int height = bm.getHeight();
@@ -201,24 +211,27 @@ public class EditorActivity extends Activity {
 			// if not in draw mode, let user scroll
 			if (mode == 0) {
 				switch (event.getAction()) {
+				// when finger goes down get the position of it
 				case MotionEvent.ACTION_DOWN:
 					mx = event.getX();
-					Log.d("ED", "MX is: " + mx);
+//					Log.d("ED", "MX is: " + mx);
 					my = event.getY();
-					Log.d("ED", "MY is: " + my);
+//					Log.d("ED", "MY is: " + my);
 					break;
+				// when the finger moves, get the position and scroll the view 
+				// by the difference of old points and new ones
 				case MotionEvent.ACTION_MOVE:
 					curX = event.getX();
-					Log.d("ED", "CurX is: " + curX);
-					Log.d("ED", "DifX here is: " + (mx - curX));
+//					Log.d("ED", "CurX is: " + curX);
+//					Log.d("ED", "DifX here is: " + (mx - curX));
 					curY = event.getY();
-					Log.d("ED", "CurY is: " + curY);
-					Log.d("ED", "DifY here is: " + (my - curY));
+//					Log.d("ED", "CurY is: " + curY);
+//					Log.d("ED", "DifY here is: " + (my - curY));
 					vScroll.scrollBy((int) (mx - curX), (int) (my - curY));
 					hScroll.scrollBy((int) (mx - curX), (int) (my - curY));
-					Log.d("ED", "Width: " + draw.getWidth());
+//					Log.d("ED", "Width: " + draw.getWidth());
 
-					// if transition isnt to big for screen remember the value
+					// if transition isnt to big for screen stop scrolling / remember the value
 					if (difX + (int) (mx - curX) > 0
 							&& difX + (int) (mx - curX) < draw.getWidth()
 									- size.x)
@@ -231,6 +244,7 @@ public class EditorActivity extends Activity {
 					mx = curX;
 					my = curY;
 					break;
+				// same as move
 				case MotionEvent.ACTION_UP:
 					curX = event.getX();
 					curY = event.getY();
@@ -240,9 +254,9 @@ public class EditorActivity extends Activity {
 				}
 			// else let him draw
 			} else if (mode == 1) {
-				Log.d("ED", "X: " + event.getX() + " Y: " + event.getY());
-				Log.d("ED", "DifX: " + difX);
-				Log.d("ED", "DifY: " + difY);
+//				Log.d("ED", "X: " + event.getX() + " Y: " + event.getY());
+//				Log.d("ED", "DifX: " + difX);
+//				Log.d("ED", "DifY: " + difY);
 				draw.touchDraw(event.getX() + difX,
 						event.getY() - (btnList.getHeight() + 20) + difY, event);
 			// else let user place logo
@@ -255,6 +269,7 @@ public class EditorActivity extends Activity {
 							event.getY() - (btnList.getHeight() + 20) + difY
 									- scaledBm.getHeight() / 2);
 					break;
+				// let Gesturedetector also watch the event
 				case MotionEvent.ACTION_MOVE:
 					mScaleDetector.onTouchEvent(event);
 					scaledBm = getResizedBitmap(bm, (int) bmX, (int) bmY);
@@ -276,6 +291,10 @@ public class EditorActivity extends Activity {
 			return false;
 	}
 
+	/**
+	 * Gets fired when clicked on the scroll button
+	 * @param v
+	 */
 	public void scrollBtnListener(View v) {
 		mode = 0;
 		for (ImageButton b : buttons) {
@@ -285,6 +304,10 @@ public class EditorActivity extends Activity {
 				getResources().getColor(R.color.wta_blue));
 	}
 
+	/**
+	 * Gets fired when clicked on the brush button
+	 * @param v
+	 */
 	public void brushBtnListener(View v) {
 		mode = 1;
 		for (ImageButton b : buttons) {
@@ -294,6 +317,10 @@ public class EditorActivity extends Activity {
 				getResources().getColor(R.color.wta_blue));
 	}
 
+	/**
+	 * Gets fired when clicked on the logo button
+	 * @param v
+	 */
 	public void logoBtnListener(View v) {
 		mode = 2;
 		for (ImageButton b : buttons) {
@@ -303,6 +330,10 @@ public class EditorActivity extends Activity {
 				getResources().getColor(R.color.wta_blue));
 	}
 
+	/**
+	 * Gets fired when clicked on the upload photo button
+	 * @param v
+	 */
 	public void uploadBtnListener(View v) {
 		Intent i = new Intent(Intent.ACTION_PICK,
 				android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
@@ -314,6 +345,10 @@ public class EditorActivity extends Activity {
 				getResources().getColor(R.color.wta_blue));
 	}
 
+	/**
+	 * Gets fired when clicked on the camera button
+	 * @param v
+	 */
 	public void photoBtnListener(View v) {
 		Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		File photo;
@@ -351,17 +386,23 @@ public class EditorActivity extends Activity {
 		finish();
 	}
 
+	/**
+	 * Detects scale gestures
+	 */
 	private class ScaleListener extends
 			ScaleGestureDetector.SimpleOnScaleGestureListener {
 		@Override
 		public boolean onScale(ScaleGestureDetector detector) {
 			mScaleFactor *= detector.getScaleFactor(); // scale change since
 														// previous event
+			// restict it, so that the scale is not too fast
 			if (mScaleFactor > 1.05f)
 				mScaleFactor = 1.05f;
 			else if (mScaleFactor < 0.95f)
 				mScaleFactor = 0.95f;
 
+			// dont let it get to small
+			// TODO: dont let it get too big => out of memory
 			if (bmX * mScaleFactor > 100)
 				bmX *= mScaleFactor;
 			if (bmY * mScaleFactor > 100)
