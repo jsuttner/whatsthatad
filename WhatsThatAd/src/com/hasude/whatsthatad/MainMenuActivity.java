@@ -28,9 +28,7 @@ public class MainMenuActivity extends Activity {
 		animHide = AnimationUtils.loadAnimation(this, R.drawable.button_hide);
 		animShow = AnimationUtils.loadAnimation(this, R.drawable.button_show);
 
-		// TODO: load Experience for user
-
-		// get buttons
+		// get buttons for Animation
 		Button singleplayerBtn = (Button) findViewById(R.id.MenuBtnSingleplayer);
 		Button multiplayerBtn = (Button) findViewById(R.id.MenuBtnMultiplayer);
 		Button addAdBtn = (Button) findViewById(R.id.MenuBtnAddAnAdd);
@@ -39,11 +37,11 @@ public class MainMenuActivity extends Activity {
 		ImageView logo = (ImageView) findViewById(R.id.MenuLogo);
 
 		displayLogo(logo);
-		displayMenu(singleplayerBtn);
-		displayMenu(multiplayerBtn);
-		displayMenu(addAdBtn);
-		displayMenu(optionsBtn);
-		displayMenu(exitBtn);
+		displayBtn(singleplayerBtn);
+		displayBtn(multiplayerBtn);
+		displayBtn(addAdBtn);
+		displayBtn(optionsBtn);
+		displayBtn(exitBtn);
 
 		// handlers for buttons
 		singleplayerBtn.setOnClickListener(new OnClickListener() {
@@ -122,7 +120,7 @@ public class MainMenuActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		// get buttons
+		// get buttons for animation
 		Button singleplayerBtn = (Button) findViewById(R.id.MenuBtnSingleplayer);
 		Button multiplayerBtn = (Button) findViewById(R.id.MenuBtnMultiplayer);
 		Button addAdBtn = (Button) findViewById(R.id.MenuBtnAddAnAdd);
@@ -131,23 +129,31 @@ public class MainMenuActivity extends Activity {
 		ImageView logo = (ImageView) findViewById(R.id.MenuLogo);
 
 		displayLogo(logo);
-		displayMenu(singleplayerBtn);
-		displayMenu(multiplayerBtn);
-		displayMenu(addAdBtn);
-		displayMenu(optionsBtn);
-		displayMenu(exitBtn);
+		displayBtn(singleplayerBtn);
+		displayBtn(multiplayerBtn);
+		displayBtn(addAdBtn);
+		displayBtn(optionsBtn);
+		displayBtn(exitBtn);
 	}
 
 	public void onClickAnimation(View v) {
-		hideInformation(v);
+		hideButton(v);
 	}
 
-	private void hideInformation(View v) {
+	/**
+	 * Starts button disappear animation
+	 * @param v
+	 */
+	private void hideButton(View v) {
 		animHide.reset();
 		v.startAnimation(animHide);
 		v.setVisibility(View.INVISIBLE);
 	}
 
+	/**
+	 * Starts logo animation
+	 * @param v
+	 */
 	private void displayLogo(View v) {
 		Animation logo = AnimationUtils.loadAnimation(this,
 				R.drawable.logo_hide);
@@ -157,7 +163,11 @@ public class MainMenuActivity extends Activity {
 		v.setVisibility(View.VISIBLE);
 	}
 
-	private void displayMenu(View v) {
+	/**
+	 * Starts button show animation
+	 * @param v
+	 */
+	private void displayBtn(View v) {
 		animShow.reset();
 		v.clearAnimation();
 		v.startAnimation(animShow);

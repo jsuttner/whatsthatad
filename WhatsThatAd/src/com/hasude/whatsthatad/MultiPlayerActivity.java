@@ -23,48 +23,42 @@ public class MultiPlayerActivity extends Activity {
 
 	public static final String DEBUG_TAG = "Multiplayer";
 
+	private static final int[] P_COLORS = new int[] { R.color.player1,
+			R.color.player2 };
+
 	private GameMultiplayer game;
+
+	protected boolean waitingForNextRound = false;
 
 	// UI
 	private ImageView image;
 
-	private Button[] pBtns = new Button[2];
-
-	private static final int[] P_COLORS = new int[] { R.color.player1,
-			R.color.player2 };
 	private static final int[] P_BUTTONS = new int[] {
 			R.drawable.multi_answer_button_p1,
 			R.drawable.multi_answer_button_p2 };
 
 	private Button[] answers;
 
-	protected boolean waitingForNextRound = false;
-
 	private TextView information;
 
+	private Button[] pBtns = new Button[2];
+
+	private OnClickListener playerBtnListener;
+
+	// Animation:
 	private Animation animHide;
 	private Animation animShow;
-
 	final Handler menuHandler = new Handler();
 	boolean menu_visible = false;
 	Runnable menu_hide_thread;
-
-	// Listeners
-	private OnClickListener playerBtnListener = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			MultiPlayerActivity.this.playerRespond(v.getId());
-		}
-
-	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mutli_player);
 
-		// get buttons
+		// get views
+		
 		image = (ImageView) findViewById(R.id.MultiImageView);
 
 		pBtns[0] = (Button) findViewById(R.id.MultiBtnPlayer1);
@@ -76,15 +70,13 @@ public class MultiPlayerActivity extends Activity {
 		answers[2] = (Button) findViewById(R.id.MultiBtnAnswer3);
 		answers[3] = (Button) findViewById(R.id.MultiBtnAnswer4);
 
-		pBtns[0].setOnClickListener(playerBtnListener);
-		pBtns[1].setOnClickListener(playerBtnListener);
+		information = (TextView) findViewById(R.id.MultiTxtInformation);
 
+		// init Animations
 		animHide = AnimationUtils.loadAnimation(this,
 				R.drawable.information_hide);
 		animShow = AnimationUtils.loadAnimation(this,
 				R.drawable.information_show);
-
-		information = (TextView) findViewById(R.id.MultiTxtInformation);
 
 		menu_hide_thread = new Runnable() {
 			@Override
@@ -93,7 +85,18 @@ public class MultiPlayerActivity extends Activity {
 			}
 
 		};
-
+		
+		// Listener
+		
+		playerBtnListener = new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				MultiPlayerActivity.this.playerRespond(v.getId());
+			}
+		};
+		pBtns[0].setOnClickListener(playerBtnListener);
+		pBtns[1].setOnClickListener(playerBtnListener);
+		
 		image.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -110,6 +113,8 @@ public class MultiPlayerActivity extends Activity {
 
 		});
 
+		// get gameobject
+		
 		Intent i = getIntent();
 		game = (GameMultiplayer) i.getSerializableExtra("game");
 		game.setActivity(this);
@@ -124,6 +129,9 @@ public class MultiPlayerActivity extends Activity {
 		finish();
 	}
 
+	/**
+	 * Is called when Player hits one of the 4 answer buttons.
+	 */
 	protected void answerGiven(int player, String answer) {
 
 		setAnswerButtonsEnabled(0, false);
@@ -147,11 +155,14 @@ public class MultiPlayerActivity extends Activity {
 			showInformation(getResources().getString(
 					R.string.multi_info_wrong_answer));
 			setPlayerButtonsEnabled(true);
-
 		}
 
 	}
 
+	/**
+	 * Player wants to answer the question.
+	 * @param playerId
+	 */
 	protected void playerRespond(int playerId) {
 
 		setPlayerButtonsEnabled(false);
@@ -171,6 +182,10 @@ public class MultiPlayerActivity extends Activity {
 
 	}
 
+	/**
+	 * Initializes game for the question q
+	 * @param q
+	 */
 	protected void initGame(QuestionMultiPlayer q) {
 		// handlers for buttons
 
@@ -190,6 +205,11 @@ public class MultiPlayerActivity extends Activity {
 			b.setClickable(enable);
 	}
 
+	/**
+	 * Sets colors and clickable option for the 4 answer buttons.
+	 * @param player: When enabled=true buttons will be colored in player color
+	 * @param enabled
+	 */
 	private void setAnswerButtonsEnabled(final int player, boolean enabled) {
 		if (enabled) {
 
@@ -220,11 +240,16 @@ public class MultiPlayerActivity extends Activity {
 
 	}
 
+	/**
+	 * Will be called by GameMultiplayer.
+	 * Keeps UI score up to date.
+	 */
 	public void onPointsChanged() {
 		for (int i = 0; i < 2; i++)
 			pBtns[i].setText("" + game.getPlayerPoints(i));
 	}
-
+	
+// Animation:
 	private void hideInformation() {
 		menu_visible = false;
 		animHide.reset();
@@ -240,6 +265,11 @@ public class MultiPlayerActivity extends Activity {
 		information.setVisibility(View.VISIBLE);
 	}
 
+	/**
+	 * Will show Information for 5 Seconds with text.
+	 * @param text
+	 * @return
+	 */
 	public boolean showInformation(String text) {
 		information.setText(text);
 		if (!menu_visible) {

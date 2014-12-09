@@ -24,8 +24,11 @@ import android.widget.Toast;
 public class MultiMenuActivity extends Activity implements
 		LoaderCallbacks<Cursor> {
 
+	// UI:
 	EditText player1Edit;
 	EditText player2Edit;
+
+	// Game:
 	private ArrayList<QuestionMultiPlayer> questionList;
 
 	@Override
@@ -70,6 +73,7 @@ public class MultiMenuActivity extends Activity implements
 			}
 		});
 
+		// Game:
 		questionList = null;
 
 		// Initialize LoaderManager
@@ -83,6 +87,11 @@ public class MultiMenuActivity extends Activity implements
 		finish();
 	}
 
+	/**
+	 * Checks TextFields for valid names.
+	 * 
+	 * @return
+	 */
 	public boolean isStartPossible() {
 		Log.d("WTA", player1Edit.getText().toString());
 		if (player1Edit.getText().toString().equals("")
@@ -96,15 +105,15 @@ public class MultiMenuActivity extends Activity implements
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		// URI to the Content Provider locationsContentProvider
-		Log.d("DB", "onCreateLoader aufgerufen Multi");
+		// Log.d("DB", "onCreateLoader aufgerufen Multi");
 		Uri contentUri = QuestionContentProvider.CONTENT_URI;
+		// gets only Multiplayer Questions ("1")
 		return new CursorLoader(this, contentUri, null, "1", null, null);
 	}
 
 	@Override
 	public void onLoadFinished(Loader<Cursor> arg0, Cursor cursor) {
-		Log.d("DB", "OnLoadFinished aufgerufen Multi");
-
+		// Log.d("DB", "OnLoadFinished aufgerufen Multi");
 		questionList = new ArrayList<QuestionMultiPlayer>();
 		// looping through all rows and adding to list
 		if (cursor.moveToFirst()) {
@@ -127,9 +136,9 @@ public class MultiMenuActivity extends Activity implements
 		}
 		// closing connection
 
-		for (QuestionMultiPlayer q : questionList) {
-			Log.d("DB", "ID: " + q.getAdCensored());
-		}
+		// for (QuestionMultiPlayer q : questionList) {
+		// Log.d("DB", "ID: " + q.getAdCensored());
+		// }
 
 		cursor.close();
 
@@ -137,8 +146,6 @@ public class MultiMenuActivity extends Activity implements
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
